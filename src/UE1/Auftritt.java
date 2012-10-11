@@ -1,9 +1,29 @@
 package UE1;
 
-public class Auftritt {
+import java.util.Date;
 
-	public Auftritt(){
+public class Auftritt extends Ereignis {
+
+	private double gage;
+	
+	public Auftritt(double gage, String ort, Date datum_zeit, double dauer){
+		
+		super(ort, datum_zeit, dauer);
+		this.setGage(gage);
 		
 	}
+	
+	public double getGage() {
+		return gage;
+	}
 
+	public void setGage(double gage) {
+		this.gage = gage;
+	}
+	
+	public String toString(){
+		
+		return "Auftritt " + super.toString() + "/ Gage: " + String.format("%.2f", getGage()); 
+				
+	}
 }
