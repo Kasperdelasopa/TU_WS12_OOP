@@ -12,9 +12,8 @@ public class Musikgruppe {
 	
 	private Mitglieder mitglieder;
 	private Repertoire repertoire;
-	private List<Probe> proben;
-	private List<Auftritt> auftritte;
-	
+	private Proben proben;
+	private Auftritte auftritte;
 	public Musikgruppe(){
 		init();
 	}
@@ -31,8 +30,8 @@ public class Musikgruppe {
 		this.setName("NotChoosenYet");
 		
 		mitglieder = new Mitglieder();
-		proben = new ArrayList<Probe>();
-		auftritte = new ArrayList<Auftritt>();
+		proben = new Proben();
+		auftritte = new Auftritte();
 		
 	}
 	
@@ -49,26 +48,6 @@ public class Musikgruppe {
 		this.name = name;
 	}
 
-	public void addAuftritt(double gage, String ort, Date datum_zeit, double dauer)
-	{
-		auftritte.add(new Auftritt(gage, ort, datum_zeit, dauer));
-	}
-	
-	public void addProbe(double miete, String ort, Date datum_zeit, double dauer){
-		
-		proben.add(new Probe(miete, ort, datum_zeit, dauer));
-		
-	}
-
-	private List<Probe> getProben() {
-		return proben;
-	}
-
-	private List<Auftritt> getAuftritte() {
-		return auftritte;
-	}
-	
-
 //	private List<Ereignis> getProben_Auftritte()
 //	{
 //		List<Ereignis> tmp = new ArrayList<Ereignis>();
@@ -79,44 +58,12 @@ public class Musikgruppe {
 //		return tmp;
 //	}
 	
-	public List<Probe> getProben(Date von, Date bis){
-		
-		
-		List<Probe> tmp = new ArrayList<Probe>();
-		
-		for(Probe e : getProben()){
-			
-			Date date = e.getDatum_zeit();
-			if(von.before(date) && bis.after(date)){
-				tmp.add(e);
-			}
-		}
-		
-		return tmp;		
-	}
-	
-	public List<Auftritt> getAuftritte(Date von, Date bis){
-		
-		
-		List<Auftritt> tmp = new ArrayList<Auftritt>();
-		
-		for(Auftritt e : getAuftritte()){
-			
-			Date date = e.getDatum_zeit();
-			if(von.before(date) && bis.after(date)){
-				tmp.add(e);
-			}
-		}
-		
-		return tmp;		
-	}
-
 	public List<Ereignis> getProben_Auftritte(Date von, Date bis){
 		
 		List<Ereignis> tmp = new ArrayList<Ereignis>();
 		
-		tmp.addAll(getProben(von, bis));
-		tmp.addAll(getAuftritte(von, bis));
+		tmp.addAll(proben.getProben(von, bis));
+		tmp.addAll(auftritte.getAuftritte(von, bis));
 		
 		return tmp;
 		
@@ -126,7 +73,7 @@ public class Musikgruppe {
 		
 		double tmp = 0;
 		
-		for(Probe p: getProben()){
+		for(Probe p: proben.getProben()){
 			
 			Date datum = p.getDatum_zeit();
 			if(von.before(datum) && bis.after(datum)){
@@ -142,7 +89,7 @@ public class Musikgruppe {
 		
 		double tmp = 0;
 		
-		for(Auftritt p: getAuftritte()){
+		for(Auftritt p: auftritte.getAuftritte()){
 			
 			Date datum = p.getDatum_zeit();
 			if(von.before(datum) && bis.after(datum)){
@@ -166,5 +113,13 @@ public class Musikgruppe {
 
 	public Repertoire getRepertoire() {
 		return repertoire;
+	}
+	
+	private Auftritte getAuftritte() {
+		return auftritte;
+	}
+	
+	private Proben getProben() {
+		return proben;
 	}
 }
