@@ -33,7 +33,7 @@ public class Mitglieder{
 	}
 	
 	public void addMitglied(String name, String tele, String instro){
-		mitglieder.add(new Mitglied(name, tele, instro,  findBiggestNumber()));
+		mitglieder.add(new Mitglied(name, tele, instro,  findBiggestNumber()+1));
 	}
 	
 	//false wenn Mitglied nicht gefunden wurde
@@ -43,12 +43,12 @@ public class Mitglieder{
 		List<Mitglied> tmp = getMitglieder();
 		
 		for(Mitglied m : getMitglieder()){
-			if(m.getNummer() != num){
-				tmp.add(m);
-			}
-			else
+			if(m.getNummer() == num){
+				m.setAustritt(new Date());
 				ret = true;
-				
+			}
+			
+			tmp.add(m);			
 		}
 		this.mitglieder = (ArrayList<Mitglied>)tmp;
 		

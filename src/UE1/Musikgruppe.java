@@ -65,8 +65,7 @@ public class Musikgruppe {
 		tmp.addAll(proben.getProben(von, bis));
 		tmp.addAll(auftritte.getAuftritte(von, bis));
 		
-		return tmp;
-		
+		return tmp;		
 	}
 	
 	public double getKosten_Proben(Date von, Date bis){
@@ -100,10 +99,8 @@ public class Musikgruppe {
 		return tmp;
 	}
 	
-	public double getGewinn_minus_Kosten(Date von, Date bis){
+	public double getGage_minus_Miete(Date von, Date bis){
 
-		
-		
 		return getGewinn_Auftritte(von, bis) - getKosten_Proben(von, bis);
 	}
 	
