@@ -24,6 +24,14 @@ public class Proben {
 		
 	}
 	
+	/**
+	 * Fügt eine Instanz von Probe zur Liste hinzu.
+	 * @param probe Probe, die aufgenommen werden soll.
+	 */
+	public void addProbe(Probe probe) {
+		proben.add(probe);
+	}
+	
 	public List<Probe> getProben(Date von, Date bis){
 		
 		

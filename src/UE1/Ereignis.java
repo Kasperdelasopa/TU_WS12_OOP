@@ -49,6 +49,7 @@ public class Ereignis {
 		return new SimpleDateFormat("HH:mm:ss").format(getDatum_zeit());
 	}
 	
+	@Override
 	public String toString(){
 		
 		return "Ort: " + ort + " / Datum: " + getDateString() + " / Zeit: " + getTimeString() + "/ Dauer[min]: " + String.format("%.2f", getDauer()); 

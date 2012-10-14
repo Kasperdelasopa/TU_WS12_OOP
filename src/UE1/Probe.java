@@ -21,6 +21,7 @@ public class Probe extends Ereignis{
 		this.raummiete = raummiete;
 	}
 	
+	@Override
 	public String toString(){
 		
 		return "Probe: " + super.toString() + "/ Raummiete: " + String.format("%.2f", getRaummiete()); 

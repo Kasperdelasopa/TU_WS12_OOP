@@ -21,6 +21,7 @@ public class Auftritt extends Ereignis {
 		this.gage = gage;
 	}
 	
+	@Override
 	public String toString(){
 		
 		return "Auftritt " + super.toString() + "/ Gage: " + String.format("%.2f", getGage()); 

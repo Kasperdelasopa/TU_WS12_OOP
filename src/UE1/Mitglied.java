@@ -23,6 +23,22 @@ public class Mitglied {
 		setNummer(num);
 	}
 	
+	/**
+	 * Initialisiert eine Instanz von Mitglied.
+	 * @param name Name des Mitglieds
+	 * @param tele Telefonnummer
+	 * @param instro Instrument
+	 * @param num Eindeutige ID des Mitglieds
+	 * @param eintritt Datum des Eintritts
+	 * @param austritt Datum des Austritts
+	 */
+	public Mitglied(String name, String tele, String instro, int num, Date eintritt, Date austritt) {
+		this(name, tele, instro, num);
+		
+		setEintritt(eintritt);
+		setAustritt(austritt);
+	}
+	
 	
 	public String getName() {
 		return name;
@@ -82,6 +98,7 @@ public class Mitglied {
 		this.nummer = nummer;
 	}
 	
+	@Override
 	public String toString(){
 		
 		return "Mitglied: Nummer: "+ Integer.toString(getNummer()) + 
