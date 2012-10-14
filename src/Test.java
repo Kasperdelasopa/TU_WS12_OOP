@@ -12,11 +12,11 @@ import UE1.*;
  */
 public class Test {
 
-	private static final String UE1_Name = "Die Zahnärzte";
+	private static final String UE1_Name = "Die Zahnaerzte";
 	private static final String UE1_Ausrichtung = "Alternativer Mainstream-Metal-Hardcore-Punkrock";
 
 	/**
-	 * Programmeinstiegspunkt Testet die Grundfunktionalität der Applikation und
+	 * Programmeinstiegspunkt Testet die Grundfunktionalitaet der Applikation und
 	 * gibt die Ergebnisse auf den Standard-Output aus.
 	 * 
 	 * Please forgive me for writing spagetti-style. I was going for Junit...
@@ -26,8 +26,8 @@ public class Test {
 	public static void main(String[] args) {
 
 		Musikgruppe gruppe; // Unsere Testgruppe
-		double summe_gage = 0.0; // Kontrollwert (hinzugefügte Gagen kumuliert)
-		double summe_miete = 0.0; // Kontrollwert (hinzugefügte Mieten
+		double summe_gage = 0.0; // Kontrollwert (hinzugefuegte Gagen kumuliert)
+		double summe_miete = 0.0; // Kontrollwert (hinzugefuegte Mieten
 									// kumuliert)
 		Date datum_von; // Kontrollwert Zeitraum von
 		Date datum_bis; // Kontrollwert Zeitraum bis
@@ -56,7 +56,7 @@ public class Test {
 		}
 
 		// Testfall 2
-		writeTestCaseInfo(2, "Prüfen der Attribute der Musikgruppe");
+		writeTestCaseInfo(2, "Pruefen der Attribute der Musikgruppe");
 		if (gruppe.getName() != UE1_Name) {
 			writeTestCaseResult(false);
 			return;
@@ -69,7 +69,7 @@ public class Test {
 
 		// Testfall 3
 		writeTestCaseInfo(3,
-				"Anlegen einer Probe und eines Auftritts und anschließende Auflistung.");
+				"Anlegen einer Probe und eines Auftritts und anschliessende Auflistung.");
 
 		try {
 			Probe probe = new Probe(250.0, "Maria Enzersdorf",
@@ -133,7 +133,7 @@ public class Test {
 
 		// Testfall 5
 		writeTestCaseInfo(5,
-				"Prüfen der Mitgliederverwaltung - Hinzufügen, Entfernen, Auflisten");
+				"Pruefen der Mitgliederverwaltung - Hinzufuegen, Entfernen, Auflisten");
 		try {
 			gruppe.getMitglieder().addMitglied("Gandalf", "0180666666",
 					"Klarinette");
@@ -154,7 +154,7 @@ public class Test {
 
 		// Testfall 6
 		writeTestCaseInfo(6,
-				"Prüfen der Mitgliederverwaltung - Abfrage auf Zeitpunkt");
+				"Pruefen der Mitgliederverwaltung - Abfrage auf Zeitpunkt");
 		try {
 			for (Mitglied m : gruppe.getMitglieder().getMitglieder(
 					sdf.parse("2012-10-01"))) {
@@ -168,15 +168,15 @@ public class Test {
 		writeTestCaseResult(true);
 
 		// Testcase 7
-		writeTestCaseInfo(7, "Reportoire - Hinzufügen, Entfernen, Auflisten");
+		writeTestCaseInfo(7, "Reportoire - Hinzufuegen, Entfernen, Auflisten");
 		try {
-			gruppe.getRepertoire().addMusikstueck("Das Leben von Schrödingers Katze", 3.5, sdf.parse("1984-01-01"));
+			gruppe.getRepertoire().addMusikstueck("Das Leben von Schroedingers Katze", 3.5, sdf.parse("1984-01-01"));
 			gruppe.getRepertoire().addMusikstueck("Quadrate im Kreis", 2.4);
 			gruppe.getRepertoire().addMusikstueck("Intro vor dem Anfang", 1.4);
 			
 			gruppe.getRepertoire().deleteMusikstueck("Quadrate im Kreis", sdf.parse("2014-01-01"));
 			
-			System.out.println("* Auflistung aller Musikstücke");
+			System.out.println("* Auflistung aller Musikstuecke");
 			for(Musikstueck m : gruppe.getRepertoire().getRepertoire()) {
 				System.out.println(m.toString());
 			}

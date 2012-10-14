@@ -25,7 +25,7 @@ public class Proben {
 	}
 
 	/**
-	 * Fügt eine Instanz von Probe zur Liste hinzu.
+	 * Fuegt eine Instanz von Probe zur Liste hinzu.
 	 * 
 	 * @param probe
 	 *            Probe, die aufgenommen werden soll.

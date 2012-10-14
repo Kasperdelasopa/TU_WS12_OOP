@@ -51,13 +51,13 @@ public class Mitglieder {
 	 *            Eindeutige Kennzahl des Mitglieds
 	 * @param austritt
 	 *            Zeitpunkt des Austritts
-	 * @return Liefert true zurück, wenn das Mitglied gefunden wurde. Sonst
+	 * @return Liefert true zurueck, wenn das Mitglied gefunden wurde. Sonst
 	 *         false.
 	 */
 	public Boolean deleteMitglied(int num, Date austritt) {
 		Boolean ret = false;
 
-		// Speichern aller Übereinstimmungen in tmp
+		// Speichern aller uebereinstimmungen in tmp
 		ArrayList<Mitglied> tmp = new ArrayList<Mitglied>();
 
 		for (Mitglied m : getMitglieder()) {
@@ -76,20 +76,20 @@ public class Mitglieder {
 	}
 
 	/**
-	 * Markiert ALLE Mitglieder mit überliefertem Namen als ausgetreten.
+	 * Markiert ALLE Mitglieder mit ueberliefertem Namen als ausgetreten.
 	 * 
 	 * @param name
 	 *            Mitglieder mit diesem Namen werden als ausgetreten markiert.
-	 *            Alle Übereinstimmungen werden verarbeitet.
+	 *            Alle uebereinstimmungen werden verarbeitet.
 	 * @param austritt
 	 *            Zeitpunkt des Austritts
-	 * @return Liefert true zurück, wenn zumindest eine Übereinstimmung gefunden
+	 * @return Liefert true zurueck, wenn zumindest eine uebereinstimmung gefunden
 	 *         wurde.
 	 */
 	public Boolean deleteMitgliederByName(String name, Date austritt) {
 		Boolean ret = false;
 
-		// Speichern aller Übereinstimmungen in tmp
+		// Speichern aller uebereinstimmungen in tmp
 		ArrayList<Mitglied> tmp = new ArrayList<Mitglied>();
 
 		for (Mitglied m : getMitglieder()) {

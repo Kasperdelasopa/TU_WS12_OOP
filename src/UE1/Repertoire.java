@@ -39,14 +39,14 @@ public class Repertoire {
 	}
 
 	/**
-	 * Fügt ein Musikstück zur Liste hinzu.
+	 * Fuegt ein Musikstueck zur Liste hinzu.
 	 * 
 	 * @param name
-	 *            Name des Musikstücks
+	 *            Name des Musikstuecks
 	 * @param dauer
-	 *            Dauer des Musikstücks
+	 *            Dauer des Musikstuecks
 	 * @param gespieltAb
-	 *            Zeitpunkt der ersten Aufführung
+	 *            Zeitpunkt der ersten Auffuehrung
 	 */
 	public void addMusikstueck(String name, double dauer, Date gespieltAb) {
 		Musikstueck m = new Musikstueck(name, dauer);
@@ -55,13 +55,13 @@ public class Repertoire {
 	}
 
 	/**
-	 * Setzt das Spielende eines Musikstücks.
+	 * Setzt das Spielende eines Musikstuecks.
 	 * 
 	 * @param name
-	 *            Name des Musikstücks
+	 *            Name des Musikstuecks
 	 * @param gespieltBis
-	 *            Zeitpunkt der letzten Aufführung
-	 * @return true wenn das angegebene Musikstück gefunden und geändert wurde
+	 *            Zeitpunkt der letzten Auffuehrung
+	 * @return true wenn das angegebene Musikstueck gefunden und geaendert wurde
 	 */
 	public Boolean deleteMusikstueck(String name, Date gespieltBis) {
 		Boolean ret = false;
