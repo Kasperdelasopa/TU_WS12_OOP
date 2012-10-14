@@ -60,6 +60,7 @@ public class Musikstueck {
 	}
 
 
+	@Override
 	public String toString(){
 		
 		return "Musikstueck: Name: " + getName() +
