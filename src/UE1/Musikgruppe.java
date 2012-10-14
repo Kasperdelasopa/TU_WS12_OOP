@@ -49,16 +49,6 @@ public class Musikgruppe {
 		this.name = name;
 	}
 
-	// private List<Ereignis> getProben_Auftritte()
-	// {
-	// List<Ereignis> tmp = new ArrayList<Ereignis>();
-	//
-	// tmp.addAll(getAuftritte());
-	// tmp.addAll(getProben());
-	//
-	// return tmp;
-	// }
-
 	public List<Ereignis> getProben_Auftritte(Date von, Date bis) {
 
 		List<Ereignis> tmp = new ArrayList<Ereignis>();
@@ -76,7 +66,8 @@ public class Musikgruppe {
 		for (Probe p : proben.getProben()) {
 
 			Date datum = p.getDatum_zeit();
-			if (von.before(datum) && bis.after(datum)) {
+			if ((von.before(datum) && bis.after(datum)) || von.equals(datum)
+					|| bis.equals(datum)) {
 				tmp += p.getRaummiete();
 			}
 		}
@@ -92,7 +83,8 @@ public class Musikgruppe {
 		for (Auftritt p : auftritte.getAuftritte()) {
 
 			Date datum = p.getDatum_zeit();
-			if (von.before(datum) && bis.after(datum)) {
+			if ((von.before(datum) && bis.after(datum)) || von.equals(datum)
+					|| bis.equals(datum)) {
 				tmp += p.getGage();
 			}
 		}

@@ -24,7 +24,8 @@ public class Mitglieder {
 
 			Date dvon = e.getEintritt();
 			Date dbis = e.getAustritt();
-			if (dvon.before(am) && dbis.after(am)) {
+			if ((dvon.before(am) && dbis.after(am)) || dvon.equals(am)
+					|| dbis.equals(am)) {
 				tmp.add(e);
 			}
 		}

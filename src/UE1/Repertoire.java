@@ -37,12 +37,16 @@ public class Repertoire {
 	public void addMusikstueck(String name, double dauer) {
 		repertoire.add(new Musikstueck(name, dauer));
 	}
-	
+
 	/**
 	 * Fügt ein Musikstück zur Liste hinzu.
-	 * @param name Name des Musikstücks
-	 * @param dauer Dauer des Musikstücks
-	 * @param gespieltAb Zeitpunkt der ersten Aufführung
+	 * 
+	 * @param name
+	 *            Name des Musikstücks
+	 * @param dauer
+	 *            Dauer des Musikstücks
+	 * @param gespieltAb
+	 *            Zeitpunkt der ersten Aufführung
 	 */
 	public void addMusikstueck(String name, double dauer, Date gespieltAb) {
 		Musikstueck m = new Musikstueck(name, dauer);
@@ -76,30 +80,4 @@ public class Repertoire {
 
 		return ret;
 	}
-
-	// TODO ggf das Code-Segment überarbeiten
-	// Anmerkung von Peter Nirschl: der Code wird eine Exception auslösen.
-	// Grund dafür ist, dass die List nicht bearbeitet werden darf solange ein
-	// Iterator darüberläuft.
-	// //Wird nicht gelöscht, sondern das gespieltBis Attribut gesetzt auf heute
-	// public Boolean deleteMusikstueck(String name){
-	// Boolean ret = false;
-	//
-	// List<Musikstueck> tmp = getRepertoire();
-	//
-	// for(Musikstueck m : getRepertoire()){
-	// if(m.getName() == name){
-	// m.setGespieltBis(new Date());
-	// ret = true;
-	// }
-	//
-	// tmp.add(m);
-	//
-	// }
-	//
-	// this.repertoire = (ArrayList<Musikstueck>)tmp;
-	//
-	// return ret;
-	//
-	// }
 }
