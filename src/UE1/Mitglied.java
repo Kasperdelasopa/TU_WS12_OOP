@@ -1,5 +1,6 @@
 package UE1;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -80,6 +81,17 @@ public class Mitglied {
 
 
 	public Date getAustritt() {
+		
+		Date latest;
+		try {
+			latest = new SimpleDateFormat( "yyyyMMdd" ).parse( "99991231" );
+			if(austritt.after(latest))
+				austritt = latest;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		return austritt;
 	}
 

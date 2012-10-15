@@ -1,5 +1,6 @@
 package UE1;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -51,6 +52,15 @@ public class Musikstueck {
 
 
 	public Date getGespieltBis() {
+		Date latest;
+		try {
+			latest = new SimpleDateFormat( "yyyyMMdd" ).parse( "99991231" );
+			if(gespieltBis.after(latest))
+				gespieltBis = latest;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return gespieltBis;
 	}
 
@@ -64,7 +74,7 @@ public class Musikstueck {
 	public String toString(){
 		
 		return "Musikstueck: Name: " + getName() +
-				" / Dauer: " + Double.toString(Math.round(getDauer())) +
+				" / Dauer: " + Double.toString(Math.round(getDauer())) + " min"+
 				" / Ab: " + new SimpleDateFormat("dd.MM.yyyy").format(getGespieltAb()) +
 				" / Bis: "+  new SimpleDateFormat("dd.MM.yyyy").format(getGespieltBis());
 	}
