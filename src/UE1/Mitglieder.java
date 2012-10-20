@@ -37,6 +37,10 @@ public class Mitglieder {
 		mitglieder
 				.add(new Mitglied(name, tele, instro, findBiggestNumber() + 1));
 	}
+	
+	public void addMitglied(Mitglied m) {
+		mitglieder.add(m);
+	}
 
 	public void addMitglied(String name, String tele, String instro,
 			Date eintritt, Date austritt) {
@@ -118,4 +122,40 @@ public class Mitglieder {
 
 		return biggest;
 	}
+	
+	public Repertoire gemeinsamesRepertoire(){
+	
+		Repertoire ret = new Repertoire();
+		List<Musikstueck> t_rep = new  ArrayList<Musikstueck>();
+		List<Mitglied> t_mitg = getMitglieder(new Date());
+		
+		if(getMitglieder().size() > 0){
+			t_rep = t_mitg.get(0).getRepertoire().getRepertoire();
+			
+			for(int i = 1; i<t_mitg.size(); i++){
+				if(!t_mitg.get(i).equals(null)){						
+						t_rep.retainAll(t_mitg.get(i).getRepertoire().getRepertoire());						
+				}
+				else
+					break;
+			}
+		}
+		
+		ret.getRepertoire().addAll(t_rep);
+		return ret;
+		
+	}
+	
+	public Mitglied getMitglied(int id){
+		
+		Mitglied ret = null;
+		for(Mitglied m : mitglieder){
+			if(m.getNummer() == id)
+				return m;
+		}
+		
+		return ret;
+	}
+	
+
 }

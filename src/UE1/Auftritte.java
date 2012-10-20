@@ -3,6 +3,7 @@ package UE1;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Auftritte {
 
@@ -18,8 +19,9 @@ public class Auftritte {
 	}
 
 	public void addAuftritt(double gage, String ort, Date datum_zeit,
-			double dauer) {
-		auftritte.add(new Auftritt(gage, ort, datum_zeit, dauer));
+			double dauer, Mitglieder zusammensetzung) {
+		
+		auftritte.add(new Auftritt(gage, ort, datum_zeit, dauer, zusammensetzung));
 	}
 
 	public List<Auftritt> getAuftritte(Date von, Date bis) {

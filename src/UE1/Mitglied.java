@@ -9,6 +9,11 @@ public class Mitglied {
 	private String name;
 	private String tele;
 	private String instrument;
+	private Repertoire repertoire;
+    private Boolean gesperrt;
+
+
+
 	private Date eintritt;
 	private Date austritt;
 	private int nummer;
@@ -22,6 +27,8 @@ public class Mitglied {
 		setEintritt(new Date());
 		setAustritt(new Date(Long.MAX_VALUE));
 		setNummer(num);
+		this.gesperrt = false;
+		this.repertoire = new Repertoire();
 	}
 	
 	/**
@@ -119,5 +126,30 @@ public class Mitglied {
 				" / Instrument: " + getInstrument() + 
 				" / von: " + new SimpleDateFormat("dd.MM.yyyy").format(getEintritt()) + 
 				" / bis: " + new SimpleDateFormat("dd.MM.yyyy").format(getAustritt());
+	}
+	
+	public Repertoire getRepertoire() {
+		return repertoire;
+	}
+	
+	public Boolean getGesperrt() {
+		return gesperrt;
+	}
+
+	public void setGesperrt(Boolean gesperrt) {
+		this.gesperrt = gesperrt;
+	}
+	
+	public void updateGesperrt(Date von, Date bis, Proben proben, int anzahl){
+		
+		int count =0;
+		for(Probe p : proben.getProben(von, bis)){
+			
+			if(p.getZusammensetzung().getMitglied(this.nummer) != null)
+				count++;
+			
+		}
+		if(count < anzahl)
+			this.setGesperrt(true);
 	}
 }

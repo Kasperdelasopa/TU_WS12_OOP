@@ -5,11 +5,13 @@ import java.util.Date;
 public class Probe extends Ereignis{
 	
 	private double raummiete;
+	private Mitglieder zusammensetzung;
 	
-	public Probe(double miete, String ort, Date datum_zeit, double dauer ){
+	public Probe(double miete, String ort, Date datum_zeit, double dauer, Mitglieder zusammensetzung ){
 		
 		super(ort, datum_zeit, dauer);
 		this.setRaummiete(miete);
+		this.zusammensetzung  = zusammensetzung;
 		
 	}
 	
@@ -26,5 +28,9 @@ public class Probe extends Ereignis{
 		
 		return "Probe: " + super.toString() + "/ Raummiete: " + String.format("%.2f", getRaummiete()); 
 				
+	}
+	
+	public Mitglieder getZusammensetzung() {
+		return zusammensetzung;
 	}
 }

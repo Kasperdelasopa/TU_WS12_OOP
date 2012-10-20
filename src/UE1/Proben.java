@@ -18,9 +18,9 @@ public class Proben {
 		return proben;
 	}
 
-	public void addProbe(double miete, String ort, Date datum_zeit, double dauer) {
+	public void addProbe(double miete, String ort, Date datum_zeit, double dauer, Mitglieder zusammensetzung) {
 
-		proben.add(new Probe(miete, ort, datum_zeit, dauer));
+		proben.add(new Probe(miete, ort, datum_zeit, dauer, zusammensetzung));
 
 	}
 

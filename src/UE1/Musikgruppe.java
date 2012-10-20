@@ -9,6 +9,8 @@ public class Musikgruppe {
 	private String ausrichtung;
 	private String name;
 	private Mitglieder mitglieder;
+	private Ersatzmitglieder ersatzmitglieder;
+	private Mitglieder zusammensetzung;
 	private Repertoire repertoire;
 	private Proben proben;
 	private Auftritte auftritte;
@@ -28,6 +30,7 @@ public class Musikgruppe {
 		this.setName("NotChoosenYet");
 
 		mitglieder = new Mitglieder();
+		ersatzmitglieder = new Ersatzmitglieder();
 		proben = new Proben();
 		auftritte = new Auftritte();
 		repertoire = new Repertoire();
@@ -100,6 +103,10 @@ public class Musikgruppe {
 	public Mitglieder getMitglieder() {
 		return mitglieder;
 	}
+	
+	public Mitglieder getErsatzmitglieder() {
+		return ersatzmitglieder;
+	}
 
 	public Repertoire getRepertoire() {
 		return repertoire;
@@ -111,5 +118,38 @@ public class Musikgruppe {
 
 	public Proben getProben() {
 		return proben;
+	}
+	
+	/**
+	 * 
+	 * @param rein ID des Mitglieds das in die ständigen Mitgliedern rein soll  
+	 * @param raus ID des Mitglieds das aus dem ständigen Mitgliedern raus soll 
+	 * @throws GesperrtException 
+	 */
+	public Boolean verschiebe (int rein, int raus) throws GesperrtException{
+		
+		if(mitglieder.getMitglied(raus) != null && ersatzmitglieder.getMitglied(rein) != null){
+			
+			ersatzmitglieder.updateGesperrt(proben);
+			if(ersatzmitglieder.getMitglied(rein).getGesperrt())
+				throw new GesperrtException("Mitglied mit ID " + ersatzmitglieder.getMitglied(rein).getNummer()+ " ist gesperrt");
+			
+			mitglieder.addMitglied(mitglieder.getMitglied(rein));
+			ersatzmitglieder.addMitglied(mitglieder.getMitglied(raus));
+			mitglieder.deleteMitglied(raus, new Date());
+			ersatzmitglieder.deleteMitglied(rein, new Date());
+			return true;
+		}
+		
+		return false;
+	}
+
+	
+	public Mitglieder getZusammensetzung() {
+		return zusammensetzung;
+	}
+
+	public void setZusammensetzung(Mitglieder zusammensetzung) {
+		this.zusammensetzung = zusammensetzung;
 	}
 }
