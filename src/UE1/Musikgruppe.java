@@ -10,7 +10,6 @@ public class Musikgruppe {
 	private String name;
 	private Mitglieder mitglieder;
 	private Ersatzmitglieder ersatzmitglieder;
-	private Mitglieder zusammensetzung;
 	private Repertoire repertoire;
 	private Proben proben;
 	private Auftritte auftritte;
@@ -144,12 +143,4 @@ public class Musikgruppe {
 		return false;
 	}
 
-	
-	public Mitglieder getZusammensetzung() {
-		return zusammensetzung;
-	}
-
-	public void setZusammensetzung(Mitglieder zusammensetzung) {
-		this.zusammensetzung = zusammensetzung;
-	}
 }
