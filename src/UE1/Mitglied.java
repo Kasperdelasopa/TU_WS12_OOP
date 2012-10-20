@@ -151,5 +151,7 @@ public class Mitglied {
 		}
 		if(count < anzahl)
 			this.setGesperrt(true);
+		else
+			this.setGesperrt(false);
 	}
 }
