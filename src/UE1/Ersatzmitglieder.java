@@ -8,13 +8,12 @@ import java.util.List;
 public class Ersatzmitglieder extends Mitglieder {
 	
 	
-	private int minProben = 4;
+	private int minProben = 2;
 	private int days  = (5 * 7);
 	
 	public Ersatzmitglieder(){
 		super();
 	}
-	
 	
 	
 	public void updateGesperrt(Proben proben){

@@ -42,7 +42,7 @@ public class Test {
 			return;
 		}
 
-		// Testfall 1
+		/*// Testfall 1
 		writeTestCaseInfo(1,
 				"Erstellen einer Musikgruppe per Konstruktoraufruf");
 		try {
@@ -73,14 +73,14 @@ public class Test {
 
 		try {
 			Probe probe = new Probe(250.0, "Maria Enzersdorf",
-					sdf.parse("2013-11-02"), 60);
+					sdf.parse("2013-11-02"), 60, gruppe.getMitglieder());
 			gruppe.getProben().addProbe(probe);
 			gruppe.getProben().addProbe(200.0, "Wien", sdf.parse("2012-10-02"),
-					30);
+					30, gruppe.getMitglieder());
 			summe_miete += 200.0;
 
 			gruppe.getAuftritte().addAuftritt(4500.0, "Wien",
-					sdf.parse("2012-10-05"), 10);
+					sdf.parse("2012-10-05"), 10,gruppe.getMitglieder());
 			summe_gage += 4500.0;
 
 			// Proben auflisten
@@ -185,6 +185,127 @@ public class Test {
 			for(Musikstueck m : gruppe.getRepertoire().getRepertoire(sdf.parse("2012-10-01"))) {
 				System.out.println(m.toString());
 			}
+
+		} catch (Exception e) {
+			writeTestCaseResult(false);
+			e.printStackTrace(System.out);
+			return;
+		}
+		writeTestCaseResult(true);
+		
+	*/	
+		//Übung 2
+		
+		//init
+		try {
+			gruppe = new Musikgruppe(UE1_Ausrichtung, UE1_Name);
+			gruppe.getRepertoire().addMusikstueck("Das Leben von Schroedingers Katze", 3.5);
+			gruppe.getRepertoire().addMusikstueck("Quadrate im Kreis", 2.4);
+			gruppe.getRepertoire().addMusikstueck("Intro vor dem Anfang", 1.4);				
+			
+			Integer tmp;
+			//Mitglieder hinzufügen
+			tmp = gruppe.getMitglieder().addMitglied("Gandalf", "0180666666","Klarinette");
+			gruppe.getMitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Das Leben von Schroedingers Katze"));
+			gruppe.getMitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Quadrate im Kreis"));	
+			gruppe.getMitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Intro vor dem Anfang"));	
+			
+			tmp = gruppe.getMitglieder().addMitglied("Frodo", "019012345678","Vocals");
+			gruppe.getMitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Das Leben von Schroedingers Katze"));
+			gruppe.getMitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Quadrate im Kreis"));	
+			
+			tmp = gruppe.getMitglieder().addMitglied("Smiagol", "019012345678","Vocals");
+			gruppe.getMitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Das Leben von Schroedingers Katze"));
+			gruppe.getMitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Intro vor dem Anfang"));	
+			//Ersatzmitglieder hinzufügen
+			tmp = gruppe.getErsatzmitglieder().addMitglied("Gandalf2", "0180666666","Klarinette");
+			gruppe.getErsatzmitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Das Leben von Schroedingers Katze"));
+			gruppe.getErsatzmitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Quadrate im Kreis"));	
+			gruppe.getErsatzmitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Intro vor dem Anfang"));	
+			
+			tmp = gruppe.getErsatzmitglieder().addMitglied("Frodo2", "019012345678","Vocals");
+			gruppe.getErsatzmitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Das Leben von Schroedingers Katze"));
+			gruppe.getErsatzmitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Quadrate im Kreis"));	
+			
+			tmp = gruppe.getErsatzmitglieder().addMitglied("Smiagol2", "019012345678","Vocals");
+			gruppe.getErsatzmitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Das Leben von Schroedingers Katze"));
+			gruppe.getErsatzmitglieder().getMitglied(tmp).getRepertoire().addMusikstueck(
+					gruppe.getRepertoire().getMusikstueckByName("Intro vor dem Anfang"));
+			
+			//Zusammensetzung für Probe (alle Mitlgieder + Ersatzmitglieder aber ohne Smiagol2)
+			Mitglieder m_probe = new Mitglieder();
+			m_probe.getMitglieder().addAll(gruppe.getMitglieder().getMitglieder());
+			m_probe.addMitglied(gruppe.getErsatzmitglieder().getMitgliedByName("Gandalf2"));
+			m_probe.addMitglied(gruppe.getErsatzmitglieder().getMitgliedByName("Frodo2"));
+			
+			gruppe.getProben().addProbe(55, "Probeplatz", sdf.parse("2012-10-15"), 45, m_probe);
+			gruppe.getProben().addProbe(55, "Probeplatz", sdf.parse("2012-10-16"), 45, m_probe);
+			gruppe.getProben().addProbe(55, "Probeplatz", sdf.parse("2012-10-18"), 45, m_probe);
+			gruppe.getProben().addProbe(55, "Probeplatz", sdf.parse("2012-10-20"), 45, m_probe);
+			
+			
+
+		} catch (Exception e) {
+			writeTestCaseResult(false);
+			e.printStackTrace(System.out);
+			return;
+		}
+		
+		// Testcase 2_1
+		writeTestCaseInfo(1, "Reportoire pro Mitglied");
+		try {
+			
+			for(Mitglied m : gruppe.getMitglieder().getMitglieder(new Date())){
+				System.out.println(m.toString() + ":");
+				System.out.println(m.getRepertoire().toString());			
+			}
+
+		} catch (Exception e) {
+			writeTestCaseResult(false);
+			e.printStackTrace(System.out);
+			return;
+		}
+		writeTestCaseResult(true);
+		
+		// Testcase 2_2
+		writeTestCaseInfo(2, "Reportoire der Gruppe");
+		try {
+			
+			System.out.println(gruppe.getMitglieder().gemeinsamesRepertoire().toString());
+
+		} catch (Exception e) {
+			writeTestCaseResult(false);
+			e.printStackTrace(System.out);
+			return;
+		}
+		writeTestCaseResult(true);
+		
+		// Testcase 2_2
+		writeTestCaseInfo(3, "ein Ständiges Mitglied mit Ersatzmitglied tauschen");
+		try {
+			System.out.println("Vor dem Tausch Mitglieder:");
+			System.out.println(gruppe.getMitglieder().toString());
+			System.out.println("Vor dem Tausch Ersatzmitglieder:");
+			System.out.println(gruppe.getErsatzmitglieder().toString());
+			
+			System.out.println("tausche Gandalf mit Gandalf1...");
+			gruppe.verschiebe(gruppe.getMitglieder().getMitgliedByName("Gandalf").getNummer(), gruppe.getErsatzmitglieder().getMitgliedByName("Gandalf2").getNummer()); 
+			System.out.println("Nach dem Tausch Mitglieder:");
+			System.out.println(gruppe.getMitglieder().toString());
+			
 
 		} catch (Exception e) {
 			writeTestCaseResult(false);

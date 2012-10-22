@@ -7,11 +7,15 @@ import java.util.List;
 public class Mitglieder {
 
 	private ArrayList<Mitglied> mitglieder;
+	private static Integer  biggestIndex = 0;
 
 	public Mitglieder() {
 		mitglieder = new ArrayList<Mitglied>();
 	}
 
+	public static Integer getNextIndex(){
+		return biggestIndex++;
+	}
 	public List<Mitglied> getMitglieder() {
 		return mitglieder;
 	}
@@ -33,19 +37,32 @@ public class Mitglieder {
 		return tmp;
 	}
 
-	public void addMitglied(String name, String tele, String instro) {
+	public Mitglied getMitgliedByName(String name){
+		for(Mitglied m : this.getMitglieder()){
+			if(m.getName().equals(name))
+				return m;
+		}
+		return null;
+	}
+	
+	public Integer addMitglied(String name, String tele, String instro) {
+		Integer num = Mitglieder.getNextIndex();
 		mitglieder
-				.add(new Mitglied(name, tele, instro, findBiggestNumber() + 1));
+				.add(new Mitglied(name, tele, instro, num));
+		return num;
 	}
 	
 	public void addMitglied(Mitglied m) {
 		mitglieder.add(m);
 	}
 
-	public void addMitglied(String name, String tele, String instro,
+	public Integer addMitglied(String name, String tele, String instro,
 			Date eintritt, Date austritt) {
-		mitglieder.add(new Mitglied(name, tele, instro,
-				findBiggestNumber() + 1, eintritt, austritt));
+		
+		Integer num =  Mitglieder.getNextIndex();
+		mitglieder.add(new Mitglied(name, tele, instro, num, eintritt, austritt));
+		
+		return num;
 	}
 
 	/**
@@ -156,6 +173,12 @@ public class Mitglieder {
 		
 		return ret;
 	}
-	
 
+	public String toString(){
+		String ret = "Mitlieder:";
+		for(Mitglied m : this.getMitglieder()){
+			ret += "\n"+m.toString();
+		}
+		return ret;
+	}
 }

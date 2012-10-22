@@ -34,8 +34,22 @@ public class Repertoire {
 		return tmp;
 	}
 
+	public Musikstueck getMusikstueckByName(String name){
+		
+		for(Musikstueck ms : this.getRepertoire()){
+			if(ms.getName().equals(name))
+				return ms;
+		}
+		return null;
+		
+	}
 	public void addMusikstueck(String name, double dauer) {
 		repertoire.add(new Musikstueck(name, dauer));
+	}
+	
+	public void addMusikstueck(Musikstueck m) {
+		if(m != null)
+			repertoire.add(m);
 	}
 
 	/**
@@ -78,6 +92,20 @@ public class Repertoire {
 			tmp.get(i).setGespieltBis(gespieltBis);
 		}
 
+		return ret;
+	}
+	@Override
+	public String toString(){
+		String ret = "";
+		if(getRepertoire(new Date()).size() > 0)
+			 ret = "Musikstuecke:\n";
+		else
+			ret = "Musikstuecke:\n<emty>\n";
+		
+		for(Musikstueck ms : this.getRepertoire(new Date())){
+			ret += ms.toString() + "\n";
+		}
+		
 		return ret;
 	}
 }
