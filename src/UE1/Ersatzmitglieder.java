@@ -17,7 +17,7 @@ public class Ersatzmitglieder extends Personen {
 	}
 	
 	
-	public void updateGesperrt(Proben proben){
+	public void updateGesperrt(Ereignisse proben){
 		
 		Calendar cal = Calendar.getInstance();
         cal.setTime(new java.util.Date());
@@ -25,7 +25,7 @@ public class Ersatzmitglieder extends Personen {
         Date ago = cal.getTime();
 		
 		for(Mitglied m : this.getMitglieder()){
-			m.updateGesperrt(ago, new Date(), proben, minProben);
+			m.updateGesperrt(ago, new Date(), proben , minProben);
 		}
 	}
 	

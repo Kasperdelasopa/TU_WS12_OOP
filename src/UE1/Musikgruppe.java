@@ -13,8 +13,7 @@ public class Musikgruppe {
 
 	private Ersatzmitglieder ersatzmitglieder;
 	private Repertoire repertoire;
-	private Proben proben;
-	private Auftritte auftritte;
+	private Ereignisse ereignisse;
 
 	public Musikgruppe() {
 		init();
@@ -34,8 +33,7 @@ public class Musikgruppe {
 		besetzung = new Besetzung();
 		mitglieder = new Mitglieder(ersatzmitglieder, besetzung);
 		
-		proben = new Proben();
-		auftritte = new Auftritte();
+		ereignisse = new Ereignisse();
 		repertoire = new Repertoire();
 	}
 
@@ -59,8 +57,8 @@ public class Musikgruppe {
 
 		List<Ereignis> tmp = new ArrayList<Ereignis>();
 
-		tmp.addAll(proben.getProben(von, bis));
-		tmp.addAll(auftritte.getAuftritte(von, bis));
+		tmp.addAll(ereignisse.getProben(von, bis));
+		tmp.addAll(ereignisse.getAuftritte(von, bis));
 
 		return tmp;
 	}
@@ -69,7 +67,7 @@ public class Musikgruppe {
 
 		double tmp = 0;
 
-		for (Probe p : proben.getProben()) {
+		for (Probe p : ereignisse.getProben()) {
 
 			Date datum = p.getDatum_zeit();
 			if ((von.before(datum) && bis.after(datum)) || von.equals(datum)
@@ -86,7 +84,7 @@ public class Musikgruppe {
 
 		double tmp = 0;
 
-		for (Auftritt p : auftritte.getAuftritte()) {
+		for (Auftritt p : ereignisse.getAuftritte()) {
 
 			Date datum = p.getDatum_zeit();
 			if ((von.before(datum) && bis.after(datum)) || von.equals(datum)
@@ -119,25 +117,28 @@ public class Musikgruppe {
 		return repertoire;
 	}
 
-	public Auftritte getAuftritte() {
-		return auftritte;
+	public List<Auftritt> getAuftritte() {
+        
+		return ereignisse.getAuftritte();
 	}
 
-	public Proben getProben() {
-		return proben;
+        
+        public List<Probe> getProben() {
+        
+		return ereignisse.getProben();
 	}
 	
 	/**
 	 * 
-	 * @param rein ID des Mitglieds das in die ständigen Mitgliedern rein soll  
-	 * @param raus ID des Mitglieds das aus dem ständigen Mitgliedern raus soll 
+	 * @param rein ID des Mitglieds das in die stï¿½ndigen Mitgliedern rein soll  
+	 * @param raus ID des Mitglieds das aus dem stï¿½ndigen Mitgliedern raus soll 
 	 * @throws GesperrtException 
 	 */
 	public Boolean verschiebe (int rein, int raus) throws GesperrtException{
 		
 		if(besetzung.getMitglied(raus) != null && ersatzmitglieder.getMitglied(rein) != null){
 			
-			ersatzmitglieder.updateGesperrt(proben);
+			ersatzmitglieder.updateGesperrt(ereignisse);
 			if(ersatzmitglieder.getMitglied(rein).getGesperrt())
 				throw new GesperrtException("Mitglied mit ID " + ersatzmitglieder.getMitglied(rein).getNummer()+ " ist gesperrt");
 			

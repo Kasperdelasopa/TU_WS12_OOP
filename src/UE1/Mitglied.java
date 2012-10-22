@@ -110,7 +110,7 @@ public class Mitglied extends Person {
 		this.gesperrt = gesperrt;
 	}
 	
-	public void updateGesperrt(Date von, Date bis, Proben proben, int anzahl){
+	public void updateGesperrt(Date von, Date bis, Ereignisse proben, int anzahl){
 		
 		int count =0;
 		for(Probe p : proben.getProben(von, bis)){

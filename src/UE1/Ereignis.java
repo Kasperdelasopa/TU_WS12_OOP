@@ -10,15 +10,25 @@ public class Ereignis {
 	//Dauer in Minuten
 	private double dauer;
     private boolean bestaetigt; // Ereignisse, die stattgefunden haben, werden vom User bestaetigt (TRUE). Ist am Anfang auf FALSE gesetzt;
-    
-	
-	public Ereignis(String ort, Date datum_zeit, double dauer ){		
+	private static int index=0;
+    private int id;
+        
+	public Ereignis(String ort, Date datum_zeit, double dauer){		
 		this.setOrt(ort);
 		this.setDauer(dauer);
 		this.setDatum_zeit(datum_zeit);
         this.setBestaetigt(false);
+        this.id = getNextId();
 	}
-
+        
+    public int getId() {
+        return id;
+    }
+        
+    private static int getNextId() {
+        return index++;
+    }
+        
 	public String getOrt() {
 		return ort;
 	}
@@ -59,7 +69,7 @@ public class Ereignis {
     public void setBestaetigt(boolean bestaetigt) { 
         
         if(getDatum_zeit().before(new Date() ))
-            this.bestaetigt=bestaetigt;
+           this.bestaetigt=bestaetigt;
     }
 	
 	@Override
