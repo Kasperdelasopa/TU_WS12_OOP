@@ -9,11 +9,14 @@ public class Ereignis {
 	private Date datum_zeit;
 	//Dauer in Minuten
 	private double dauer;
+    private boolean bestaetigt; // Ereignisse, die stattgefunden haben, werden vom User bestaetigt (TRUE). Ist am Anfang auf FALSE gesetzt;
+    
 	
 	public Ereignis(String ort, Date datum_zeit, double dauer ){		
 		this.setOrt(ort);
 		this.setDauer(dauer);
-		this.setDatum_zeit(datum_zeit);				
+		this.setDatum_zeit(datum_zeit);
+        this.setBestaetigt(false);
 	}
 
 	public String getOrt() {
@@ -48,6 +51,16 @@ public class Ereignis {
 	public String getTimeString(){
 		return new SimpleDateFormat("HH:mm:ss").format(getDatum_zeit());
 	}
+    
+    public boolean getBestaetigt() {
+        return bestaetigt;
+    }
+    
+    public void setBestaetigt(boolean bestaetigt) { 
+        
+        if(getDatum_zeit().before(new Date() ))
+            this.bestaetigt=bestaetigt;
+    }
 	
 	@Override
 	public String toString(){
