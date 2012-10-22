@@ -259,10 +259,10 @@ public class Test {
 			m_probe.addMitglied(gruppe.getErsatzmitglieder().getMitgliedByName("Gandalf2"));
 			m_probe.addMitglied(gruppe.getErsatzmitglieder().getMitgliedByName("Frodo2"));
 			
-			gruppe.getProben().addProbe(55, "Probeplatz", sdf.parse("2012-10-15"), 45, m_probe);
-			gruppe.getProben().addProbe(55, "Probeplatz", sdf.parse("2012-10-16"), 45, m_probe);
-			gruppe.getProben().addProbe(55, "Probeplatz", sdf.parse("2012-10-18"), 45, m_probe);
-			gruppe.getProben().addProbe(55, "Probeplatz", sdf.parse("2012-10-20"), 45, m_probe);
+			gruppe.getEreignisse().addProbe(55, "Probeplatz", sdf.parse("2012-10-15"), 45, m_probe);
+			gruppe.getEreignisse().addProbe(55, "Probeplatz", sdf.parse("2012-10-16"), 45, m_probe);
+			gruppe.getEreignisse().addProbe(55, "Probeplatz", sdf.parse("2012-10-18"), 45, m_probe);
+			gruppe.getEreignisse().addProbe(55, "Probeplatz", sdf.parse("2012-10-20"), 45, m_probe);
 			
 			
 
