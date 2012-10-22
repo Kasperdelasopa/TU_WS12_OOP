@@ -19,7 +19,7 @@ public class Auftritte {
 	}
 
 	public void addAuftritt(double gage, String ort, Date datum_zeit,
-			double dauer, Mitglieder zusammensetzung) {
+			double dauer, Besetzung zusammensetzung) {
 		
 		auftritte.add(new Auftritt(gage, ort, datum_zeit, dauer, zusammensetzung));
 	}

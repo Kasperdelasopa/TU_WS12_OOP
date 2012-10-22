@@ -9,6 +9,8 @@ public class Musikgruppe {
 	private String ausrichtung;
 	private String name;
 	private Mitglieder mitglieder;
+	private Besetzung besetzung;
+
 	private Ersatzmitglieder ersatzmitglieder;
 	private Repertoire repertoire;
 	private Proben proben;
@@ -28,8 +30,10 @@ public class Musikgruppe {
 		this.setAusrichtung("NotChoosenYet");
 		this.setName("NotChoosenYet");
 
-		mitglieder = new Mitglieder();
 		ersatzmitglieder = new Ersatzmitglieder();
+		besetzung = new Besetzung();
+		mitglieder = new Mitglieder(ersatzmitglieder, besetzung);
+		
 		proben = new Proben();
 		auftritte = new Auftritte();
 		repertoire = new Repertoire();
@@ -103,7 +107,11 @@ public class Musikgruppe {
 		return mitglieder;
 	}
 	
-	public Mitglieder getErsatzmitglieder() {
+	public Besetzung getBesetzung() {
+		return besetzung;
+	}
+	
+	public Ersatzmitglieder getErsatzmitglieder() {
 		return ersatzmitglieder;
 	}
 
@@ -127,16 +135,16 @@ public class Musikgruppe {
 	 */
 	public Boolean verschiebe (int rein, int raus) throws GesperrtException{
 		
-		if(mitglieder.getMitglied(raus) != null && ersatzmitglieder.getMitglied(rein) != null){
+		if(besetzung.getMitglied(raus) != null && ersatzmitglieder.getMitglied(rein) != null){
 			
 			ersatzmitglieder.updateGesperrt(proben);
 			if(ersatzmitglieder.getMitglied(rein).getGesperrt())
 				throw new GesperrtException("Mitglied mit ID " + ersatzmitglieder.getMitglied(rein).getNummer()+ " ist gesperrt");
 			
-			mitglieder.addMitglied(mitglieder.getMitglied(rein));
+			besetzung.addMitglied(mitglieder.getMitglied(rein));
 			ersatzmitglieder.addMitglied(mitglieder.getMitglied(raus));
-			mitglieder.deleteMitglied(raus, new Date());
-			ersatzmitglieder.deleteMitglied(rein, new Date());
+			besetzung.deleteMitglied(raus);
+			ersatzmitglieder.deleteMitglied(rein);
 			return true;
 		}
 		

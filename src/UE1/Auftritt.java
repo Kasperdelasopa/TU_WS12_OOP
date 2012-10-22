@@ -5,11 +5,11 @@ import java.util.Date;
 public class Auftritt extends Ereignis {
 
 	private double gage;
-	private Mitglieder zusammensetzung;
+	private Besetzung zusammensetzung;
 	
 
 
-	public Auftritt(double gage, String ort, Date datum_zeit, double dauer, Mitglieder zusammensetzung){
+	public Auftritt(double gage, String ort, Date datum_zeit, double dauer, Besetzung zusammensetzung){
 		
 		super(ort, datum_zeit, dauer);
 		this.setGage(gage);
@@ -32,7 +32,7 @@ public class Auftritt extends Ereignis {
 				
 	}
 	
-	public Mitglieder getZusammensetzung() {
+	public Besetzung getZusammensetzung() {
 		return zusammensetzung;
 	}
 	

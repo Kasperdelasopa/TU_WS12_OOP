@@ -1,46 +1,18 @@
 package UE1;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class Ersatzmitglieder extends Personen {
+public class Besetzung extends Personen {
+	
 	
 	List<Mitglied> mitglieder = new ArrayList<Mitglied>();
 	
-	private int minProben = 2;
-	private int days  = (5 * 7);
-	
-	public Ersatzmitglieder(){
+	public Besetzung(){
 		super();
 	}
-	
-	
-	public void updateGesperrt(Proben proben){
-		
-		Calendar cal = Calendar.getInstance();
-        cal.setTime(new java.util.Date());
-        cal.add(Calendar.DATE, -days);
-        Date ago = cal.getTime();
-		
-		for(Mitglied m : this.getMitglieder()){
-			m.updateGesperrt(ago, new Date(), proben, minProben);
-		}
-	}
-	
-	public List<Mitglied> getMitgliederGesperrt(){
-		List<Mitglied> ret = new ArrayList<Mitglied>();
-		
-		for(Mitglied m : getMitglieder()){
-			if(m.getGesperrt())
-				ret.add(m);
-		}
-		
-		return ret;
-		
-	}
-	
+
 	public List<Mitglied> getMitglieder() {
 		return mitglieder;
 	}
@@ -57,8 +29,8 @@ public class Ersatzmitglieder extends Personen {
 			else 
 				ret = true;
 		}
-		
 		this.mitglieder = tmp;
+		
 		return ret;
 		
 	}

@@ -4,29 +4,29 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Mitglied {
+public class Mitglied extends Person {
 	
-	private String name;
-	private String tele;
+	
 	private String instrument;
 	private Repertoire repertoire;
     private Boolean gesperrt;
 
-
-
-	private Date eintritt;
+    private Date eintritt;
 	private Date austritt;
 	private int nummer;
 	
 
 	public Mitglied(String name, String tele, String instro, int num){
 		
-		setName(name);
-		setTele(tele);
+		super(num, name, tele);
 		setInstrument(instro);
 		setEintritt(new Date());
-		setAustritt(new Date(Long.MAX_VALUE));
-		setNummer(num);
+		try {
+			setAustritt(new SimpleDateFormat( "yyyyMMdd" ).parse( "99991231" ));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.gesperrt = false;
 		this.repertoire = new Repertoire();
 	}
@@ -48,30 +48,11 @@ public class Mitglied {
 	}
 	
 	
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String getTele() {
-		return tele;
-	}
-
-
-	public void setTele(String tele) {
-		this.tele = tele;
-	}
-
+	
 
 	public String getInstrument() {
 		return instrument;
 	}
-
 
 	public void setInstrument(String instrument) {
 		this.instrument = instrument;
@@ -81,11 +62,9 @@ public class Mitglied {
 		return eintritt;
 	}
 
-
 	public void setEintritt(Date eintritt) {
 		this.eintritt = eintritt;
 	}
-
 
 	public Date getAustritt() {
 		
@@ -102,20 +81,11 @@ public class Mitglied {
 		return austritt;
 	}
 
-
 	public void setAustritt(Date austritt) {
 		this.austritt = austritt;
 	}
 	
-	public int getNummer() {
-		return nummer;
-	}
 
-
-	public void setNummer(int nummer) {
-
-		this.nummer = nummer;
-	}
 	
 	@Override
 	public String toString(){

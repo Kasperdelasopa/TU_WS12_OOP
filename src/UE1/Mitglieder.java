@@ -1,21 +1,27 @@
 package UE1;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class Mitglieder {
+public class Mitglieder extends Personen {
 
-	private ArrayList<Mitglied> mitglieder;
-	private static Integer  biggestIndex = 0;
-
-	public Mitglieder() {
+	List<Mitglied> mitglieder = new ArrayList<Mitglied>();
+	private Ersatzmitglieder ersatz;
+	private Besetzung besetzung;
+	
+	public Mitglieder(Ersatzmitglieder ersatz, Besetzung besetzung ) {
 		mitglieder = new ArrayList<Mitglied>();
+		
+		this.besetzung = besetzung;
+		this.ersatz = ersatz;
+		
 	}
 
-	public static Integer getNextIndex(){
-		return biggestIndex++;
-	}
+
 	public List<Mitglied> getMitglieder() {
 		return mitglieder;
 	}
@@ -37,30 +43,36 @@ public class Mitglieder {
 		return tmp;
 	}
 
-	public Mitglied getMitgliedByName(String name){
-		for(Mitglied m : this.getMitglieder()){
-			if(m.getName().equals(name))
-				return m;
-		}
-		return null;
-	}
+
 	
 	public Integer addMitglied(String name, String tele, String instro) {
 		Integer num = Mitglieder.getNextIndex();
-		mitglieder
-				.add(new Mitglied(name, tele, instro, num));
+		this.getMitglieder().add(new Mitglied(name, tele, instro, num));
 		return num;
 	}
 	
-	public void addMitglied(Mitglied m) {
-		mitglieder.add(m);
+	public Boolean addMitglied(Mitglied m) {
+		if(m!=null){
+				
+			try {
+				m.setAustritt(new SimpleDateFormat( "yyyyMMdd" ).parse( "99991231" ));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+			}
+		
+			this.getMitglieder().add(m);
+			return true;
+		}
+		return false;
 	}
 
 	public Integer addMitglied(String name, String tele, String instro,
 			Date eintritt, Date austritt) {
 		
 		Integer num =  Mitglieder.getNextIndex();
-		mitglieder.add(new Mitglied(name, tele, instro, num, eintritt, austritt));
+		this.getMitglieder().add(new Mitglied(name, tele, instro, num, eintritt, austritt));
 		
 		return num;
 	}
@@ -76,26 +88,26 @@ public class Mitglieder {
 	 *         false.
 	 */
 	public Boolean deleteMitglied(int num, Date austritt) {
-		Boolean ret = false;
-
-		// Speichern aller uebereinstimmungen in tmp
-		ArrayList<Mitglied> tmp = new ArrayList<Mitglied>();
-
 		for (Mitglied m : getMitglieder()) {
 			if (m.getNummer() == num) {
-				tmp.add(m);
-				ret = true;
+				m.setAustritt(austritt);
+				
+				besetzung.deleteMitglied(m.getNummer());
+				ersatz.deleteMitglied(m.getNummer());
+				return true;
 			}
 		}
-
-		for (int i = 0; i < tmp.size(); i++) {
-			tmp.get(i).setAustritt(austritt);
-		}
-
-		return ret;
+		
+		return false;
 
 	}
 
+	public Boolean deleteMitglied(int num) {
+		Calendar cal = Calendar.getInstance();
+        cal.setTime(new java.util.Date());
+        cal.add(Calendar.DATE, -1);
+		return deleteMitglied(num,cal.getTime());
+	}
 	/**
 	 * Markiert ALLE Mitglieder mit ueberliefertem Namen als ausgetreten.
 	 * 
@@ -121,24 +133,14 @@ public class Mitglieder {
 		}
 
 		for (int i = 0; i < tmp.size(); i++) {
-			tmp.get(i).setAustritt(austritt);
+			deleteMitglied(tmp.get(i).getNummer(),austritt);
+			besetzung.deleteMitglied(tmp.get(i).getNummer());
+			ersatz.deleteMitglied(tmp.get(i).getNummer());
 		}
 
 		return ret;
 	}
 
-	private int findBiggestNumber() {
-
-		int biggest = 0;
-
-		for (Mitglied m : getMitglieder()) {
-
-			if (m.getNummer() > biggest)
-				biggest = m.getNummer();
-		}
-
-		return biggest;
-	}
 	
 	public Repertoire gemeinsamesRepertoire(){
 	
@@ -173,10 +175,18 @@ public class Mitglieder {
 		
 		return ret;
 	}
+	
+	public Mitglied getMitgliedByName(String name){
+		for(Mitglied m : this.getMitglieder()){
+			if(m.getName().equals(name))
+				return m;
+		}
+		return null;
+	}
 
 	public String toString(){
 		String ret = "Mitlieder:";
-		for(Mitglied m : this.getMitglieder()){
+		for(Mitglied m : this.getMitglieder(new Date())){
 			ret += "\n"+m.toString();
 		}
 		return ret;
