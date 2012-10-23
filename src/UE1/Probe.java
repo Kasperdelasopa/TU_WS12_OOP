@@ -7,7 +7,7 @@ public class Probe extends Ereignis{
 	private double raummiete;
 	private Besetzung zusammensetzung;
 	
-	public Probe(double miete, String ort, Date datum_zeit, double dauer, Besetzung zusammensetzung ){
+	public Probe(double miete, Ort ort, Date datum_zeit, double dauer, Besetzung zusammensetzung ){
 		
 		super(ort, datum_zeit, dauer);
 		this.setRaummiete(miete);

@@ -9,7 +9,7 @@ public class Auftritt extends Ereignis {
 	
 
 
-	public Auftritt(double gage, String ort, Date datum_zeit, double dauer, Besetzung zusammensetzung){
+	public Auftritt(double gage, Ort ort, Date datum_zeit, double dauer, Besetzung zusammensetzung){
 		
 		super(ort, datum_zeit, dauer);
 		this.setGage(gage);

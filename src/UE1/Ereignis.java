@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Ereignis {
 	
-	private String ort;
+	private Ort ort;
 	private Date datum_zeit;
 	//Dauer in Minuten
 	private double dauer;
@@ -13,7 +13,7 @@ public class Ereignis {
 	private static int index=0;
     private int id;
         
-	public Ereignis(String ort, Date datum_zeit, double dauer){		
+	public Ereignis(Ort ort, Date datum_zeit, double dauer){		
 		this.setOrt(ort);
 		this.setDauer(dauer);
 		this.setDatum_zeit(datum_zeit);
@@ -29,11 +29,11 @@ public class Ereignis {
         return index++;
     }
         
-	public String getOrt() {
+	public Ort getOrt() {
 		return ort;
 	}
 
-	public void setOrt(String ort) {
+	public void setOrt(Ort ort) {
 		this.ort = ort;
 	}
 	//Dauer in Minuten

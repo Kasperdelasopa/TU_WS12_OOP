@@ -18,7 +18,7 @@ public class Auftritte {
 		return auftritte;
 	}
 
-	public void addAuftritt(double gage, String ort, Date datum_zeit,
+	public void addAuftritt(double gage, Ort ort, Date datum_zeit,
 			double dauer, Besetzung zusammensetzung) {
 		
 		auftritte.add(new Auftritt(gage, ort, datum_zeit, dauer, zusammensetzung));

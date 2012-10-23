@@ -14,6 +14,7 @@ public class Musikgruppe {
 	private Ersatzmitglieder ersatzmitglieder;
 	private Repertoire repertoire;
 	private Ereignisse ereignisse;
+	private Orte orte;
     
 	public Musikgruppe() {
 		init();
@@ -26,6 +27,8 @@ public class Musikgruppe {
 	}
     
 	private void init() {
+		this.orte = new Orte();
+		
 		this.setAusrichtung("NotChoosenYet");
 		this.setName("NotChoosenYet");
         
@@ -122,6 +125,10 @@ public class Musikgruppe {
 		return ereignisse;
 	}
 	
+    public Orte getOrte() {
+    	return orte;
+    }
+    
 	/**
 	 * 
 	 * @param rein ID des Mitglieds das in die st�ndigen Mitgliedern rein soll  
