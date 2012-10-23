@@ -1,6 +1,7 @@
 package UE1;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -8,11 +9,43 @@ public class Ereignisse {
 
 	private ArrayList<Auftritt> auftritte;
 	private ArrayList<Probe> proben;
+	private ArrayList<Zusatzbuchung> zusatzbuchungen;
 
 	public Ereignisse() {
 
 		auftritte = new ArrayList<Auftritt>();
 		proben = new ArrayList<Probe>();
+		zusatzbuchungen = new ArrayList<Zusatzbuchung>();
+	}
+
+	public Collection<Zusatzbuchung> getZusatzkosten() {
+		ArrayList<Zusatzbuchung> result = new ArrayList<Zusatzbuchung>();
+		for (Zusatzbuchung b : zusatzbuchungen) {
+			if (b.getBetrag() > 0.0) {
+				result.add(b);
+			}
+		}
+		return result;
+	}
+
+	public Collection<Zusatzbuchung> getZusatzertraege() {
+		ArrayList<Zusatzbuchung> result = new ArrayList<Zusatzbuchung>();
+		for (Zusatzbuchung b : zusatzbuchungen) {
+			if (b.getBetrag() < 0.0) {
+				result.add(b);
+			}
+		}
+		return result;
+	}
+
+	public Collection<Zusatzbuchung> getNullBuchungen() {
+		ArrayList<Zusatzbuchung> result = new ArrayList<Zusatzbuchung>();
+		for (Zusatzbuchung b : zusatzbuchungen) {
+			if (b.getBetrag() == 0.0) {
+				result.add(b);
+			}
+		}
+		return result;
 	}
 
 	public List<Ereignis> getEreignisse() {
@@ -177,7 +210,11 @@ public class Ereignisse {
 			Besetzung zusammensetzung) {
 		proben.add(new Probe(miete, ort, datum_zeit, dauer, zusammensetzung));
 	}
-
+	
+	public void addZusatzbuchung(Zusatzbuchung buchung) {
+		this.zusatzbuchungen.add(buchung);
+	}
+	
 	public String toString() {
 		String ret = "Ereignisse:";
 		for (Ereignis e : this.getEreignisse()) {

@@ -367,15 +367,13 @@ public class Test {
 			Zusatzbuchung buchung2 = new Zusatzbuchung(sdf.parse("2012-10-10"),
 					-50.0, "Strafzettel");
 
-			gruppe.getZusatzbuchungen().addBuchung(buchung1);
-			gruppe.getZusatzbuchungen().addBuchung(buchung2);
+			gruppe.getEreignisse().addZusatzbuchung(buchung1);
+			gruppe.getEreignisse().addZusatzbuchung(buchung2);
 
-			for (Zusatzbuchung z1 : gruppe.getZusatzbuchungen()
-					.getZusatzertraege()) {
+			for (Zusatzbuchung z1 : gruppe.getEreignisse().getZusatzkosten()) {
 				System.out.println(z1.toString());
 			}
-			for (Zusatzbuchung z1 : gruppe.getZusatzbuchungen()
-					.getZusatzkosten()) {
+			for (Zusatzbuchung z1 : gruppe.getEreignisse().getZusatzertraege()) {
 				System.out.println(z1.toString());
 			}
 
