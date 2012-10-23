@@ -94,6 +94,7 @@ public class Mitglied extends Person {
 				" / Name:" +getName()+ 
 				" / Telefon: " +getTele()+ 
 				" / Instrument: " + getInstrument() + 
+				" / Gesperrt: " + getGesperrt().toString() +
 				" / von: " + new SimpleDateFormat("dd.MM.yyyy").format(getEintritt()) + 
 				" / bis: " + new SimpleDateFormat("dd.MM.yyyy").format(getAustritt());
 	}
@@ -114,14 +115,18 @@ public class Mitglied extends Person {
 		
 		int count =0;
 		for(Probe p : proben.getProben(von, bis)){
-			
-			if(p.getZusammensetzung().getMitglied(this.nummer) != null)
+			if(p.getZusammensetzung().getMitglied(this.getNummer()) != null){
 				count++;
-			
+			}
+		
 		}
 		if(count < anzahl)
+		{
 			this.setGesperrt(true);
-		else
+			
+		}
+		else{
 			this.setGesperrt(false);
+		}
 	}
 }

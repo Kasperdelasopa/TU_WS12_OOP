@@ -35,15 +35,15 @@ public class Besetzung extends Personen {
 		
 	}
 	
-	public Mitglied getMitglied(int id){
+	public Mitglied getMitglied(Integer id){
 		
-		Mitglied ret = null;
 		for(Mitglied m : mitglieder){
-			if(m.getNummer() == id)
+			if(id.equals(m.getNummer())){
 				return m;
+			}
 		}
 		
-		return ret;
+		return null;
 	}
 	
 	public Mitglied getMitgliedByName(String name){

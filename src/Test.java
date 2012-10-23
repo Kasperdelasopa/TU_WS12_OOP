@@ -255,7 +255,7 @@ public class Test {
 			
 			//Zusammensetzung f�r Probe (alle Mitlgieder + Ersatzmitglieder aber ohne Smiagol2)
 			Besetzung m_probe = new Besetzung();
-			m_probe.getMitglieder().addAll(gruppe.getMitglieder().getMitglieder());
+			m_probe.getMitglieder().addAll(gruppe.getBesetzung().getMitglieder());
 			m_probe.addMitglied(gruppe.getErsatzmitglieder().getMitgliedByName("Gandalf2"));
 			m_probe.addMitglied(gruppe.getErsatzmitglieder().getMitgliedByName("Frodo2"));
 			
@@ -302,14 +302,14 @@ public class Test {
 		writeTestCaseResult(true);
 		
 		// Testcase 2_2
-		writeTestCaseInfo(3, "ein St�ndiges Mitglied mit Ersatzmitglied tauschen");
+		writeTestCaseInfo(3, "ein Staendiges Mitglied mit Ersatzmitglied tauschen");
 		try {
 			System.out.println("Vor dem Tausch Besetzung:");
 			System.out.println(gruppe.getBesetzung().toString());
 			System.out.println("Vor dem Tausch Ersatzmitglieder:");
 			System.out.println(gruppe.getErsatzmitglieder().toString());
 			
-			System.out.println("tausche Gandalf mit Gandalf1...");
+			System.out.println("tausche Gandalf mit Gandalf2...");
 			if(!gruppe.verschiebe(gruppe.getErsatzmitglieder().getMitgliedByName("Gandalf2").getNummer(), gruppe.getBesetzung().getMitgliedByName("Gandalf").getNummer()))
 				throw new Exception("Mitglied existiert nicht");
 			System.out.println("Nach dem Tausch Besetzung:");
@@ -323,13 +323,32 @@ public class Test {
 			return;
 		}
 		writeTestCaseResult(true);
+		
+		writeTestCaseInfo(4, "Mitglied tauschen das an zu wenigen Proben teilgenommen hat");
+		try {
+
+			if(!gruppe.verschiebe(gruppe.getErsatzmitglieder().getMitgliedByName("Smiagol2").getNummer(), gruppe.getBesetzung().getMitgliedByName("Gandalf2").getNummer()))
+				throw new Exception("Mitglied existiert nicht");
+
+            
+		} 
+		catch (GesperrtException e) {
+			writeTestCaseResult(true);
+			e.printStackTrace(System.out);
+			//return;
+		}
+		catch (Exception e) {
+			writeTestCaseResult(false);
+			e.printStackTrace(System.out);
+			return;
+		}
         
         
         
         
         
         //#########EREIGNISSE###### 
-		writeTestCaseInfo(4, "Ereignisse hinzufuegen");
+		writeTestCaseInfo(5, "Ereignisse hinzufuegen");
 		try {
             
             Besetzung m_probe = new Besetzung();
@@ -357,7 +376,7 @@ public class Test {
             ereignisse.getEreignisse().get(5).setBestaetigt(true);
             
             
-            writeTestCaseInfo(6, "Ereignisse ausgeben");
+            writeTestCaseInfo(5, "Ereignisse ausgeben");
             
             
             System.out.println("###Auftritte:");
@@ -369,7 +388,7 @@ public class Test {
             System.out.println("###Vergangene:");
             System.out.println(ereignisse.getVergangene());
             
-            writeTestCaseInfo(6, "Loeschen");
+            writeTestCaseInfo(5, "Loeschen");
             
             
             System.out.println("------VORHER--------");
