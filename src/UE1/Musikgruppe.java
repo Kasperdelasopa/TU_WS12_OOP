@@ -15,6 +15,7 @@ public class Musikgruppe {
 	private Repertoire repertoire;
 	private Ereignisse ereignisse;
 	private Orte orte;
+	private Zusatzbuchungen zusatzbuchungen;
     
 	public Musikgruppe() {
 		init();
@@ -28,6 +29,7 @@ public class Musikgruppe {
     
 	private void init() {
 		this.orte = new Orte();
+		this.zusatzbuchungen = new Zusatzbuchungen();
 		
 		this.setAusrichtung("NotChoosenYet");
 		this.setName("NotChoosenYet");
@@ -127,6 +129,10 @@ public class Musikgruppe {
 	
     public Orte getOrte() {
     	return orte;
+    }
+    
+    public Zusatzbuchungen getZusatzbuchungen() {
+    	return zusatzbuchungen;
     }
     
 	/**

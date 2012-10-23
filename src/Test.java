@@ -2,7 +2,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-
 import UE1.*;
 
 /**
@@ -350,14 +349,41 @@ public class Test {
 		// Testcase 6 - Orteverwaltung
 		writeTestCaseInfo(6, "Orteverwaltung - Suche nach Infrastruktur");
 		boolean tc6_result = true;
-		Collection<Ort> tc6_Orte = gruppe.getOrte().findOrteByInfrastructure("Mikrofon");
-		for(Ort tc6_Ort : tc6_Orte) {
-			if(! tc6_Ort.equals(ortWien)) {
+		Collection<Ort> tc6_Orte = gruppe.getOrte().findOrteByInfrastructure(
+				"Mikrofon");
+		for (Ort tc6_Ort : tc6_Orte) {
+			if (!tc6_Ort.equals(ortWien)) {
 				tc6_result = false;
 			}
 			System.out.println(tc6_Ort.toString());
 		}
 		writeTestCaseResult(tc6_result);
+
+		// Testcase 7 - Zusatzbuchungen
+		writeTestCaseInfo(7, "Zusatzkosten und Ertraege - Hinzufuegen");
+		try {
+			Zusatzbuchung buchung1 = new Zusatzbuchung(sdf.parse("2012-10-10"),
+					100.0, "Spende");
+			Zusatzbuchung buchung2 = new Zusatzbuchung(sdf.parse("2012-10-10"),
+					-50.0, "Strafzettel");
+
+			gruppe.getZusatzbuchungen().addBuchung(buchung1);
+			gruppe.getZusatzbuchungen().addBuchung(buchung2);
+
+			for (Zusatzbuchung z1 : gruppe.getZusatzbuchungen()
+					.getZusatzertraege()) {
+				System.out.println(z1.toString());
+			}
+			for (Zusatzbuchung z1 : gruppe.getZusatzbuchungen()
+					.getZusatzkosten()) {
+				System.out.println(z1.toString());
+			}
+
+		} catch (java.text.ParseException e) {
+			writeTestCaseResult(false);
+			e.printStackTrace();
+		}
+
 	}
 
 	/**

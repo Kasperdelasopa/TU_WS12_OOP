@@ -5,8 +5,6 @@ import java.util.Collection;
 
 /**
  * Diese Klasse sammelt Orte.
- * 
- * @author Peter Nirschl
  */
 public class Orte {
 
