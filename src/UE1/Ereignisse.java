@@ -17,9 +17,9 @@ public class Ereignisse {
 
 	public List<Ereignis> getEreignisse() {
         
-                List<Ereignis> tmp = new ArrayList<Ereignis>();
-                tmp.addAll(auftritte);
-                tmp.addAll(proben);
+        List<Ereignis> tmp = new ArrayList<Ereignis>();
+        tmp.addAll(auftritte);
+        tmp.addAll(proben);
 		return tmp;
 	}
 
@@ -124,19 +124,21 @@ public class Ereignisse {
         int pos=0;    
             
         for (Auftritt e : getAuftritte()) {
-            if(i==e.getId())
+            if(i==e.getId()){
                 auftritte.remove(pos);
+                return;}
+            
                 
                 pos++;
         }
         pos=0;
         for (Probe e : getProben()) {
-            if(i==e.getId())
+            if(i==e.getId()){
                 proben.remove(pos);
-                
+                return;}
                 pos++;
         }
-
+        pos =-1;
     }       
         
     public int searchProbe(int i) {
@@ -162,8 +164,13 @@ public class Ereignisse {
         }
         return -1;
     }
-        
+    
+    /*public Auftritt getAuftritt(int i){
+        return auftritte.get(i);
+    }
+      */  
      
+    
          /**
 	 * Fuegt ein Ereignis zur Liste hinzu.
 	 * 
@@ -186,7 +193,15 @@ public class Ereignisse {
 		proben.add(new Probe(miete, ort, datum_zeit, dauer, zusammensetzung));
 	}
 
-
-	
+   
+    public String toString(){
+		String ret = "Ereignisse:";
+		for(Ereignis e : this.getEreignisse()){
+			ret += "\n"+e.toString();
+		}
+		return ret;
+	}
+       
+    
 
 }

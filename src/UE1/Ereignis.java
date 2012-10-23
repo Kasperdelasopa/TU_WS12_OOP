@@ -75,7 +75,7 @@ public class Ereignis {
 	@Override
 	public String toString(){
 		
-		return "Ort: " + ort + " / Datum: " + getDateString() + " / Zeit: " + getTimeString() + "/ Dauer[min]: " + String.format("%.2f", getDauer()); 
+		return "ID: " + getId() + " / Ort: " + ort + " / Datum: " + getDateString() + " / Zeit: " + getTimeString() + "/ Dauer[min]: " + String.format("%.2f", getDauer()); 
 	}
 	
 }
