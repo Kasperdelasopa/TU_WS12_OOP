@@ -1,0 +1,29 @@
+ Volume in Laufwerk C: hat keine Bezeichnung.
+ Volumeseriennummer: 0693-4196
+
+ Verzeichnis von C:\Users\Peter Nirschl\Documents\GitHub\TU_WS12_OOP\src\UE1
+
+24.10.2012  18:22    <DIR>          .
+24.10.2012  18:22    <DIR>          ..
+23.10.2012  21:15               700 Auftritt.java
+23.10.2012  21:15               840 Auftritte.java
+23.10.2012  21:15             1.282 Besetzung.java
+23.10.2012  21:15             1.774 Ereignis.java
+23.10.2012  21:21             4.590 Ereignisse.java
+23.10.2012  21:15             1.915 Ersatzmitglieder.java
+23.10.2012  21:15               224 GesperrtException.java
+24.10.2012  18:22                 0 liste.txt
+23.10.2012  21:07             2.938 Mitglied.java
+23.10.2012  21:15             4.643 Mitglieder.java
+23.10.2012  21:21             3.500 Musikgruppe.java
+23.10.2012  21:15             1.578 Musikstueck.java
+23.10.2012  21:16             2.635 Ort.java
+23.10.2012  21:07               793 Orte.java
+23.10.2012  21:15               580 Person.java
+23.10.2012  21:07               195 Personen.java
+23.10.2012  21:15               742 Probe.java
+23.10.2012  21:15               997 Proben.java
+23.10.2012  21:15             2.489 Repertoire.java
+23.10.2012  21:16               899 Zusatzbuchung.java
+              20 Datei(en),         33.314 Bytes
+               2 Verzeichnis(se), 78.824.095.744 Bytes frei
