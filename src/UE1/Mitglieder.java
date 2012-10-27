@@ -23,11 +23,13 @@ public class Mitglieder extends Personen {
 
 
 	public List<Mitglied> getMitglieder() {
+		//Methode gibt die Liste der aktuellen Mitglieder zurück
 		return mitglieder;
 	}
 
 	public List<Mitglied> getMitglieder(Date am) {
-
+		//Methode gibt die Liste der Mitglieder zu einem bestimmen Stichtag zurück
+		//FEHLER: kein Test ob am < 31.12.9999
 		List<Mitglied> tmp = new ArrayList<Mitglied>();
 
 		for (Mitglied e : getMitglieder()) {
@@ -44,20 +46,21 @@ public class Mitglieder extends Personen {
 	}
 
 
-	
 	public Integer addMitglied(String name, String tele, String instro) {
+		//Methode erzeugt neues Mitglied und fügt dieses in die Liste ein
 		Integer num = Mitglieder.getNextIndex();
 		this.getMitglieder().add(new Mitglied(name, tele, instro, num));
 		return num;
 	}
 	
 	public Boolean addMitglied(Mitglied m) {
+		//Methode füght neues Mitglied in die Liste ein
+		//FEHLER: kein Test ob Mitglied bereits vorhanden
 		if(m!=null){
 				
 			try {
 				m.setAustritt(new SimpleDateFormat( "yyyyMMdd" ).parse( "99991231" ));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				
 			}
@@ -67,27 +70,19 @@ public class Mitglieder extends Personen {
 		}
 		return false;
 	}
-
+	
 	public Integer addMitglied(String name, String tele, String instro,
 			Date eintritt, Date austritt) {
-		
+		//Methode erzeugt ein neues Mitglied, setzt eintritt u. austritt und fügt es in die Liste ein
 		Integer num =  Mitglieder.getNextIndex();
 		this.getMitglieder().add(new Mitglied(name, tele, instro, num, eintritt, austritt));
 		
 		return num;
 	}
 
-	/**
-	 * Markiert Mitlgied mit angegebener Nummer (ID) als ausgetreten.
-	 * 
-	 * @param num
-	 *            Eindeutige Kennzahl des Mitglieds
-	 * @param austritt
-	 *            Zeitpunkt des Austritts
-	 * @return Liefert true zurueck, wenn das Mitglied gefunden wurde. Sonst
-	 *         false.
-	 */
+	
 	public Boolean deleteMitglied(int num, Date austritt) {
+		//Methode löscht ein Element aus der Liste  anhand der ID wenn vorhanden und schreibt das Austrittsdatum
 		for (Mitglied m : getMitglieder()) {
 			if (m.getNummer() == num) {
 				m.setAustritt(austritt);
@@ -101,28 +96,20 @@ public class Mitglieder extends Personen {
 		return false;
 
 	}
-
+	
 	public Boolean deleteMitglied(int num) {
+		//Methode löscht ein Element aus der Liste anhand der ID wenn vorhanden
 		Calendar cal = Calendar.getInstance();
         cal.setTime(new java.util.Date());
         cal.add(Calendar.DATE, -1);
 		return deleteMitglied(num,cal.getTime());
 	}
-	/**
-	 * Markiert ALLE Mitglieder mit ueberliefertem Namen als ausgetreten.
-	 * 
-	 * @param name
-	 *            Mitglieder mit diesem Namen werden als ausgetreten markiert.
-	 *            Alle uebereinstimmungen werden verarbeitet.
-	 * @param austritt
-	 *            Zeitpunkt des Austritts
-	 * @return Liefert true zurueck, wenn zumindest eine uebereinstimmung gefunden
-	 *         wurde.
-	 */
+
+	
 	public Boolean deleteMitgliederByName(String name, Date austritt) {
+		//Methode löscht ein Element aus der Liste anhand des Namens wenn vorhanden und setzt das Asutrittsdatum
 		Boolean ret = false;
 
-		// Speichern aller uebereinstimmungen in tmp
 		ArrayList<Mitglied> tmp = new ArrayList<Mitglied>();
 
 		for (Mitglied m : getMitglieder()) {
@@ -143,7 +130,8 @@ public class Mitglieder extends Personen {
 
 	
 	public Repertoire gemeinsamesRepertoire(){
-	
+		//Methode gibt die Schnittmenge der Repertoires der Mitglieder zurück
+		//Nur die Musikstücke die jedes Mitglied im Repertoire hat werden zurückgegeben
 		Repertoire ret = new Repertoire();
 		List<Musikstueck> t_rep = new  ArrayList<Musikstueck>();
 		List<Mitglied> t_mitg = getMitglieder(new Date());
@@ -166,7 +154,7 @@ public class Mitglieder extends Personen {
 	}
 	
 	public Mitglied getMitglied(int id){
-		
+		//Methode liefert ein Mitglied anhand der ID, wenn diese vorhanden
 		Mitglied ret = null;
 		for(Mitglied m : mitglieder){
 			if(m.getNummer() == id)
@@ -177,6 +165,7 @@ public class Mitglieder extends Personen {
 	}
 	
 	public Mitglied getMitgliedByName(String name){
+		//Methode liefert ein Mitglied anhand des Namens, wenn dieser vorhanden
 		for(Mitglied m : this.getMitglieder()){
 			if(m.getName().equals(name))
 				return m;
@@ -185,6 +174,7 @@ public class Mitglieder extends Personen {
 	}
 
 	public String toString(){
+		//liefert Informationen über die Mitglieder
 		String ret = "Mitlieder:";
 		for(Mitglied m : this.getMitglieder(new Date())){
 			ret += "\n"+m.toString();
