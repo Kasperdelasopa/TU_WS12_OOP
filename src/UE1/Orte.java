@@ -3,9 +3,6 @@ package UE1;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Diese Klasse sammelt Orte.
- */
 public class Orte {
 
 	private Collection<Ort> orte;
@@ -18,14 +15,6 @@ public class Orte {
 		return orte;
 	}
 
-	/**
-	 * Sucht Orte nach Infrastruktur.
-	 * 
-	 * @param infrastructure
-	 *            Der Name des Infrastrukturelements
-	 * @return eine Collection an Orten, die die entsprechende Infrastruktur
-	 *         aufweisen.
-	 */
 	public Collection<Ort> findOrteByInfrastructure(String infrastructure) {
 		Collection<Ort> result = new ArrayList<Ort>();
 

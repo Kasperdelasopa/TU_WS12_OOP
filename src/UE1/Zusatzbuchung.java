@@ -2,10 +2,6 @@ package UE1;
 
 import java.util.Date;
 
-/**
- * Diese Entität repräsentiert einen ausserordentlichen Aufwand, der getrennt
- * von Auftritten und Proben im System erfasst ist.
- */
 public class Zusatzbuchung extends Ereignis {
 
 	private String beschreibung;

@@ -52,31 +52,12 @@ public class Repertoire {
 			repertoire.add(m);
 	}
 
-	/**
-	 * Fuegt ein Musikstueck zur Liste hinzu.
-	 * 
-	 * @param name
-	 *            Name des Musikstuecks
-	 * @param dauer
-	 *            Dauer des Musikstuecks
-	 * @param gespieltAb
-	 *            Zeitpunkt der ersten Auffuehrung
-	 */
 	public void addMusikstueck(String name, double dauer, Date gespieltAb) {
 		Musikstueck m = new Musikstueck(name, dauer);
 		m.setGespieltAb(gespieltAb);
 		repertoire.add(m);
 	}
 
-	/**
-	 * Setzt das Spielende eines Musikstuecks.
-	 * 
-	 * @param name
-	 *            Name des Musikstuecks
-	 * @param gespieltBis
-	 *            Zeitpunkt der letzten Auffuehrung
-	 * @return true wenn das angegebene Musikstueck gefunden und geaendert wurde
-	 */
 	public Boolean deleteMusikstueck(String name, Date gespieltBis) {
 		Boolean ret = false;
 		ArrayList<Musikstueck> tmp = new ArrayList<Musikstueck>();
@@ -94,6 +75,7 @@ public class Repertoire {
 
 		return ret;
 	}
+	
 	@Override
 	public String toString(){
 		String ret = "";

@@ -129,14 +129,6 @@ public class Musikgruppe {
 		return orte;
 	}
 
-	/**
-	 * 
-	 * @param rein
-	 *            ID des Mitglieds das in die st�ndigen Mitgliedern rein soll
-	 * @param raus
-	 *            ID des Mitglieds das aus dem st�ndigen Mitgliedern raus soll
-	 * @throws GesperrtException
-	 */
 	public Boolean verschiebe(int rein, int raus) throws GesperrtException {
 
 		if (besetzung.getMitglied(raus) != null

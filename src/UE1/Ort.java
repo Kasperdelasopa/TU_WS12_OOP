@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Diese Entität beschreibt einen Ort, an dem Ereignisse stattfinden können.
- * 
  * @author Peter Nirschl
  */
 public class Ort {
