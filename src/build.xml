@@ -1,7 +1,7 @@
 <project name="Aufgabe1" default="compile" basedir=".">
 	<!-- This is a very simple ANT build file for compilation on the OOP server -->
 	
-	<description>OOP Aufgabe 1</description>
+	<description>OOP_WS2012_Gruppe_169</description>
 
 	<property name="src" location="." />
 	<property name="build" location="." />
