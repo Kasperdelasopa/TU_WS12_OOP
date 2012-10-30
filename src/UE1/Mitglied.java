@@ -37,7 +37,7 @@ public class Mitglied extends Person {
 	}
 
 	public String getInstrument() {
-		//Methode gibt das gespielte Instrument zurück
+		//Methode gibt das gespielte Instrument zurueck
 		return instrument;
 	}
 
@@ -47,18 +47,18 @@ public class Mitglied extends Person {
 	}
 
 	public Date getEintritt() {
-		//Methode gibt das Eintrittsdatum zurück
+		//Methode gibt das Eintrittsdatum zurueck
 		return eintritt;
 	}
 
 	public void setEintritt(Date eintritt) {
 		//Methode setzt das Eintrittsdatum
-		//FEHLER: keine Überprüfung ob eintritt < austritt
+		//FEHLER: keine ueberpruefung ob eintritt < austritt
 		this.eintritt = eintritt;
 	}
 
 	public Date getAustritt() {
-		//Methode gibt Austrittsdatum zurück
+		//Methode gibt Austrittsdatum zurueck
 		//das Austrittsdatum ist immer kleiner als der 31.12.9999 
 		Date latest;
 		try {
@@ -74,14 +74,14 @@ public class Mitglied extends Person {
 	}
 
 	public void setAustritt(Date austritt) {
-		//setzt das Austrittsdatum zurück
-		//FEHLER: keine Prüfung ob austritt > eintritt
+		//setzt das Austrittsdatum zurueck
+		//FEHLER: keine Pruefung ob austritt > eintritt
 		this.austritt = austritt;
 	}
 
 	@Override
 	public String toString() {
-		//Methode gibt Informationen über das Objekt zurück
+		//Methode gibt Informationen ueber das Objekt zurueck
 		//Das Datum ist im dt. Format
 		return "Mitglied: Nummer: " + Integer.toString(getNummer())
 				+ " / Name:" + getName() + " / Telefon: " + getTele()
@@ -93,12 +93,12 @@ public class Mitglied extends Person {
 	}
 
 	public Repertoire getRepertoire() {
-		//Methode gibt das Repertoire des Mitglieds zurück
+		//Methode gibt das Repertoire des Mitglieds zurueck
 		return repertoire;
 	}
 
 	public Boolean getGesperrt() {
-		//Methode gibt das gesperrt Attribute zurück
+		//Methode gibt das gesperrt Attribute zurueck
 		return gesperrt;
 	}
 
@@ -110,7 +110,7 @@ public class Mitglied extends Person {
 	//Gesperrt Attribute wird nur gesetzt, wenn die Anzhal der Proben > anzahl
 	public void updateGesperrt(Date von, Date bis, Ereignisse proben, int anzahl) {
 		//Methode sperrt ein Mitglied wenn dieses an zu weng Proben teilgenommen hat
-		//Nur Proben im Zeittraum von, bis werden berücksichtigt
+		//Nur Proben im Zeittraum von, bis werden beruecksichtigt
 		int count = 0;
 		for (Probe p : proben.getProben(von, bis)) {
 			if (p.getZusammensetzung().getMitglied(this.getNummer()) != null) {

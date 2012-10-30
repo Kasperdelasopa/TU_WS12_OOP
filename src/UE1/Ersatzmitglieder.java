@@ -19,7 +19,7 @@ public class Ersatzmitglieder extends Personen {
 	
 	public void updateGesperrt(Ereignisse proben){
 		//Methode aktuallisiert das gesperrt-Attribute aller Mitglieder, 
-		//wenn diese nicht an genügend Proben Teilgenommen haben
+		//wenn diese nicht an genuegend Proben Teilgenommen haben
 		Calendar cal = Calendar.getInstance();
         cal.setTime(new java.util.Date());
         cal.add(Calendar.DATE, -days);
@@ -52,7 +52,7 @@ public class Ersatzmitglieder extends Personen {
 	}
 
 	public Boolean deleteMitglied(int num){
-		//Methode löscht ein Mitglied, anhand der ID wenn diese vorhanden ist
+		//Methode loescht ein Mitglied, anhand der ID wenn diese vorhanden ist
 		Boolean ret = false;
 		
 		List<Mitglied> tmp = new ArrayList<Mitglied>();
@@ -70,7 +70,7 @@ public class Ersatzmitglieder extends Personen {
 	}
 	
 	public Mitglied getMitglied(Integer id){
-		//Methode gint ein Mitglied zurück, anhand der ID wenn diese vorhanden ist
+		//Methode gint ein Mitglied zurueck, anhand der ID wenn diese vorhanden ist
 		for(Mitglied m : mitglieder){
 			if(id.equals(m.getNummer())){
 				return m;
@@ -81,7 +81,7 @@ public class Ersatzmitglieder extends Personen {
 	}
 	
 	public Mitglied getMitgliedByName(String name){
-		//Methode gibt ein Mitglied anhand des Namens zurück, wenn vorhanden
+		//Methode gibt ein Mitglied anhand des Namens zurueck, wenn vorhanden
 		for(Mitglied m : this.getMitglieder()){
 			if(m.getName().equals(name))
 				return m;
@@ -90,8 +90,8 @@ public class Ersatzmitglieder extends Personen {
 	}
 	
 	public boolean addMitglied(Mitglied m){
-		//Methode fügt ein in Liste ein, wenn dieses noch nicht ausgetreten ist
-		//FEHLER: keine Überprüfung ob Mitglied bereits vorhanden
+		//Methode fuegt ein in Liste ein, wenn dieses noch nicht ausgetreten ist
+		//FEHLER: keine ueberpruefung ob Mitglied bereits vorhanden
 		if(m.getAustritt().before(new Date())){
 			return false;
 		}
@@ -102,7 +102,7 @@ public class Ersatzmitglieder extends Personen {
 	}
 	
 	public String toString(){
-		//Methode gibt Informationen über das Objekt zurück
+		//Methode gibt Informationen ueber das Objekt zurueck
 		String ret = "Mitlieder:";
 		for(Mitglied m : this.getMitglieder()){
 			ret += "\n"+m.toString();

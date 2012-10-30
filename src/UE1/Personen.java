@@ -8,7 +8,7 @@ public class Personen {
 	}
 
 	protected static Integer getNextIndex() {
-		//Methode gibt die nächste freie ID zurück 
+		//Methode gibt die naechste freie ID zurueck 
 		return biggestIndex++;
 	}
 

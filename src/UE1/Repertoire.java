@@ -8,7 +8,7 @@ public class Repertoire {
 
 	private ArrayList<Musikstueck> repertoire;
 	// Invariante: reportoire != null
-	// Invariante: für alle Musikstücke m1...mn in reportioire gilt: 
+	// Invariante: fuer alle Musikstuecke m1...mn in reportioire gilt: 
 	//             m1.getName() != m2.getName() != ... != mn.getName()
 
 	// initialisiert das Reportoire
@@ -17,12 +17,12 @@ public class Repertoire {
 		repertoire = new ArrayList<Musikstueck>();
 	}
 
-	// Liefert alle Musikstücke des Reportoires zurück
+	// Liefert alle Musikstuecke des Reportoires zurueck
 	public List<Musikstueck> getRepertoire() {
 		return repertoire;
 	}
 
-	// liefert jene Musikstücke, die sich zum gegebenen Zeitpunk im Reportoire
+	// liefert jene Musikstuecke, die sich zum gegebenen Zeitpunk im Reportoire
 	// befanden
 	// @param am <> null
 	public List<Musikstueck> getRepertoire(Date am) {
@@ -42,7 +42,7 @@ public class Repertoire {
 		return tmp;
 	}
 
-	// durchsucht das Reportoire nach einem Musikstück, das auf Grund des
+	// durchsucht das Reportoire nach einem Musikstueck, das auf Grund des
 	// gegebenen Namens identifiziert wird, oder null falls der Name nicht im
 	// Reportoire vorhanden ist.
 	// @param name != null
@@ -56,20 +56,20 @@ public class Repertoire {
 
 	}
 
-	// erstellt eine Instanz von Musikstück und fügt dieses zum Reportoire hinzu
+	// erstellt eine Instanz von Musikstueck und fuegt dieses zum Reportoire hinzu
 	// @param name != null
 	public void addMusikstueck(String name, double dauer) {
 		repertoire.add(new Musikstueck(name, dauer));
 	}
 
-	// fügt ein Musikstück zum Reportoire hinzu
+	// fuegt ein Musikstueck zum Reportoire hinzu
 	// @param m != null
 	public void addMusikstueck(Musikstueck m) {
 		if (m != null)
 			repertoire.add(m);
 	}
 
-	// erstellt eine Instanz von Musikstück und fügt dieses zum Reportoire hinzu
+	// erstellt eine Instanz von Musikstueck und fuegt dieses zum Reportoire hinzu
 	// @param name != null
 	// @param dauer > 0
 	public void addMusikstueck(String name, double dauer, Date gespieltAb) {
@@ -78,10 +78,10 @@ public class Repertoire {
 		repertoire.add(m);
 	}
 
-	// setzt für das Musikstück den Zeitpunkt, bis zu dem es gespielt wurde.
+	// setzt fuer das Musikstueck den Zeitpunkt, bis zu dem es gespielt wurde.
 	// @param name != null
 	// FEHLER: die Vorgehensweise im Code widerspricht der Invariante, 
-	//         dass der Name des Musikstücks unique im Reportoire sein muss.
+	//         dass der Name des Musikstuecks unique im Reportoire sein muss.
 	public Boolean deleteMusikstueck(String name, Date gespieltBis) {
 		Boolean ret = false;
 		ArrayList<Musikstueck> tmp = new ArrayList<Musikstueck>();
@@ -100,8 +100,8 @@ public class Repertoire {
 		return ret;
 	}
 
-	// liefert eine String-Repräsentation des Reportoires und listet die 
-	// String-Repräsentationen aller Musikstücke auf
+	// liefert eine String-Repraesentation des Reportoires und listet die 
+	// String-Repraesentationen aller Musikstuecke auf
 	@Override
 	public String toString() {
 		String ret = "";

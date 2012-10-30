@@ -166,8 +166,8 @@ public class Musikgruppe {
 		return orte;
 	}
 
-	// verschiebt ein Ersatzmitglied in die aktuelle Besetzung sofern dies zulässig ist.
-	// @throws GesperrtException wenn das Ersatzmitglied für Auftritte gesperrt ist.
+	// verschiebt ein Ersatzmitglied in die aktuelle Besetzung sofern dies zulaessig ist.
+	// @throws GesperrtException wenn das Ersatzmitglied fuer Auftritte gesperrt ist.
 	public Boolean verschiebe(int rein, int raus) throws GesperrtException {
 
 		if (besetzung.getMitglied(raus) != null

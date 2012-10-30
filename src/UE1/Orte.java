@@ -13,13 +13,13 @@ public class Orte {
 		orte = new ArrayList<Ort>();
 	}
 
-	// liefert die gesammelten Orte zurück
+	// liefert die gesammelten Orte zurueck
 	public Collection<Ort> getOrte() {
 		return orte;
 	}
 
-	// liefert alle Orte zurück, an denen das Infrastrukturelement
-	// "infrastructure" verfügbar ist.
+	// liefert alle Orte zurueck, an denen das Infrastrukturelement
+	// "infrastructure" verfuegbar ist.
 	public Collection<Ort> findOrteByInfrastructure(String infrastructure) {
 		Collection<Ort> result = new ArrayList<Ort>();
 

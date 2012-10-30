@@ -38,30 +38,30 @@ public class Musikstueck {
 		this.name = name;
 	}
 
-	// liefert die Dauer des Musikstücks zurück
+	// liefert die Dauer des Musikstuecks zurueck
 	public double getDauer() {
 		return dauer;
 	}
 
-	// setzt die Dauer des Musikstücks
+	// setzt die Dauer des Musikstuecks
 	// @param laenge > 0
 	public void setDauer(double laenge) {
 		this.dauer = laenge;
 	}
 
 
-	// liefert den Zeitpunkt zurück, ab dem das Musikstück gespielt wird
+	// liefert den Zeitpunkt zurueck, ab dem das Musikstueck gespielt wird
 	public Date getGespieltAb() {
 		return gespieltAb;
 	}
 
-	// setzt den Zeitpunkt, ab dem das Musikstück gespielt wird
+	// setzt den Zeitpunkt, ab dem das Musikstueck gespielt wird
 	public void setGespieltAb(Date gespieltAb) {
 		this.gespieltAb = gespieltAb;
 	}
 
 
-	// liefert den Zeitpunk, bis zu dem das Musikstück gespielt wurde/wird
+	// liefert den Zeitpunk, bis zu dem das Musikstueck gespielt wurde/wird
 	public Date getGespieltBis() {
 		Date latest;
 		try {
@@ -76,13 +76,13 @@ public class Musikstueck {
 	}
 
 
-	// setzt den Zeitpunkt, bis zu dem das Musikstück gespielt wird/wurde
+	// setzt den Zeitpunkt, bis zu dem das Musikstueck gespielt wird/wurde
 	public void setGespieltBis(Date gespielBis) {
 		this.gespieltBis = gespielBis;
 	}
 
 
-	// liefert eine String-Repräsentation der Musikstückinformationen
+	// liefert eine String-Repraesentation der Musikstueckinformationen
 	@Override
 	public String toString(){
 		

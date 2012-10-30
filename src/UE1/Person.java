@@ -13,29 +13,29 @@ public class Person {
 	}
 	
 	public String getName() {
-		//Methode gibt den Namen der Person zurück 
+		//Methode gibt den Namen der Person zurueck 
 		return name;
 	}
 
 	public void setName(String name) {
 		//Methode setzt den Namen der Person
-		//FEHLER: kein Test ob name != "", nur Buchstaben enthält
+		//FEHLER: kein Test ob name != "", nur Buchstaben enthaelt
 		this.name = name;
 	}
 
 	public String getTele() {
-		//Methode gibt Telefonnummer zurück
+		//Methode gibt Telefonnummer zurueck
 		return tele;
 	}
 
 	public void setTele(String tele) {
 		//Methode setzt die die Telefonnummer
-		//FEHLER: kein Test ob tele != "", Nummer auch gültige Telefonnummer ist
+		//FEHLER: kein Test ob tele != "", Nummer auch gueltige Telefonnummer ist
 		this.tele = tele;
 	}
 	
 	public int getNummer() {
-		//Methode gibt die ID der Person zurück
+		//Methode gibt die ID der Person zurueck
 		return nummer;
 	}
 

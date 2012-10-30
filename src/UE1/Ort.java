@@ -78,7 +78,7 @@ public class Ort {
 		return true;
 	}
 
-	// liefert eine String-Repräsentation des Objekts zurueck
+	// liefert eine String-Repraesentation des Objekts zurueck
 	@Override
 	public String toString() {
 		return "Ort [address=" + address + ", country=" + country + ", name="

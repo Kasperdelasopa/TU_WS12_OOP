@@ -23,12 +23,12 @@ public class Mitglieder extends Personen {
 
 
 	public List<Mitglied> getMitglieder() {
-		//Methode gibt die Liste der aktuellen Mitglieder zurück
+		//Methode gibt die Liste der aktuellen Mitglieder zurueck
 		return mitglieder;
 	}
 
 	public List<Mitglied> getMitglieder(Date am) {
-		//Methode gibt die Liste der Mitglieder zu einem bestimmen Stichtag zurück
+		//Methode gibt die Liste der Mitglieder zu einem bestimmen Stichtag zurueck
 		//FEHLER: kein Test ob am < 31.12.9999
 		List<Mitglied> tmp = new ArrayList<Mitglied>();
 
@@ -47,14 +47,14 @@ public class Mitglieder extends Personen {
 
 
 	public Integer addMitglied(String name, String tele, String instro) {
-		//Methode erzeugt neues Mitglied und fügt dieses in die Liste ein
+		//Methode erzeugt neues Mitglied und fuegt dieses in die Liste ein
 		Integer num = Mitglieder.getNextIndex();
 		this.getMitglieder().add(new Mitglied(name, tele, instro, num));
 		return num;
 	}
 	
 	public Boolean addMitglied(Mitglied m) {
-		//Methode füght neues Mitglied in die Liste ein
+		//Methode fueght neues Mitglied in die Liste ein
 		//FEHLER: kein Test ob Mitglied bereits vorhanden
 		if(m!=null){
 				
@@ -73,7 +73,7 @@ public class Mitglieder extends Personen {
 	
 	public Integer addMitglied(String name, String tele, String instro,
 			Date eintritt, Date austritt) {
-		//Methode erzeugt ein neues Mitglied, setzt eintritt u. austritt und fügt es in die Liste ein
+		//Methode erzeugt ein neues Mitglied, setzt eintritt u. austritt und fuegt es in die Liste ein
 		Integer num =  Mitglieder.getNextIndex();
 		this.getMitglieder().add(new Mitglied(name, tele, instro, num, eintritt, austritt));
 		
@@ -82,7 +82,7 @@ public class Mitglieder extends Personen {
 
 	
 	public Boolean deleteMitglied(int num, Date austritt) {
-		//Methode löscht ein Element aus der Liste  anhand der ID wenn vorhanden und schreibt das Austrittsdatum
+		//Methode loescht ein Element aus der Liste  anhand der ID wenn vorhanden und schreibt das Austrittsdatum
 		for (Mitglied m : getMitglieder()) {
 			if (m.getNummer() == num) {
 				m.setAustritt(austritt);
@@ -98,7 +98,7 @@ public class Mitglieder extends Personen {
 	}
 	
 	public Boolean deleteMitglied(int num) {
-		//Methode löscht ein Element aus der Liste anhand der ID wenn vorhanden
+		//Methode loescht ein Element aus der Liste anhand der ID wenn vorhanden
 		Calendar cal = Calendar.getInstance();
         cal.setTime(new java.util.Date());
         cal.add(Calendar.DATE, -1);
@@ -107,7 +107,7 @@ public class Mitglieder extends Personen {
 
 	
 	public Boolean deleteMitgliederByName(String name, Date austritt) {
-		//Methode löscht ein Element aus der Liste anhand des Namens wenn vorhanden und setzt das Asutrittsdatum
+		//Methode loescht ein Element aus der Liste anhand des Namens wenn vorhanden und setzt das Asutrittsdatum
 		Boolean ret = false;
 
 		ArrayList<Mitglied> tmp = new ArrayList<Mitglied>();
@@ -130,8 +130,8 @@ public class Mitglieder extends Personen {
 
 	
 	public Repertoire gemeinsamesRepertoire(){
-		//Methode gibt die Schnittmenge der Repertoires der Mitglieder zurück
-		//Nur die Musikstücke die jedes Mitglied im Repertoire hat werden zurückgegeben
+		//Methode gibt die Schnittmenge der Repertoires der Mitglieder zurueck
+		//Nur die Musikstuecke die jedes Mitglied im Repertoire hat werden zurueckgegeben
 		Repertoire ret = new Repertoire();
 		List<Musikstueck> t_rep = new  ArrayList<Musikstueck>();
 		List<Mitglied> t_mitg = getMitglieder(new Date());
@@ -174,7 +174,7 @@ public class Mitglieder extends Personen {
 	}
 
 	public String toString(){
-		//liefert Informationen über die Mitglieder
+		//liefert Informationen ueber die Mitglieder
 		String ret = "Mitlieder:";
 		for(Mitglied m : this.getMitglieder(new Date())){
 			ret += "\n"+m.toString();

@@ -6,7 +6,7 @@ public class Zusatzbuchung extends Ereignis {
 
 	private String beschreibung;
 	private double betrag;
-	// FEHLER: für Betrag haette man evtl. eine Invariante angeben koennen um Nullbuchungen zu vermeiden.
+	// FEHLER: fuer Betrag haette man evtl. eine Invariante angeben koennen um Nullbuchungen zu vermeiden.
 	// Aus rechtlicher Sicht koennte eine Beschreibung zwingend erforderlich sein.
 
 	// initialisiert die Zusatzbuchung
@@ -17,14 +17,14 @@ public class Zusatzbuchung extends Ereignis {
 		this.betrag = betrag;
 	}
 
-	// liefert eine String-Repräsentation der Zusatzbuchung zurück
+	// liefert eine String-Repraesentation der Zusatzbuchung zurueck
 	@Override
 	public String toString() {
 		return "Zusatzaufwand [beschreibung=" + beschreibung + ", betrag="
 				+ betrag + "]";
 	}
 
-	// liefert den Beschreibungstext der Beschreibung zurück
+	// liefert den Beschreibungstext der Beschreibung zurueck
 	public String getBeschreibung() {
 		return beschreibung;
 	}
@@ -34,7 +34,7 @@ public class Zusatzbuchung extends Ereignis {
 		this.beschreibung = beschreibung;
 	}
 
-	// liefert den Betrag der Zusatzbuchung zurück
+	// liefert den Betrag der Zusatzbuchung zurueck
 	public double getBetrag() {
 		return betrag;
 	}
