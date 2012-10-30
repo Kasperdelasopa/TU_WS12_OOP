@@ -1,3 +1,8 @@
+// BAD:
+// Ein grundsŠtzlicher Fehler in unserer Anwendung ist die Vermischung von Datentransferobjekten (DTO) mit Business-Logk, 
+// die als eigene Service-Schicht hŠtte implementiert werden sollen. Dies fŸhrt zu einem allgemein niedrigen Klassenzusammenhang 
+// und einer mittelmŠ§g bis starken Objektkopplung.
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,12 +29,12 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 
-		Musikgruppe gruppe; // Unsere Testgruppe
+		Musikgruppe gruppe; 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-		// Uebung 2
+		
 
-		// Orte anlegen
+		
 		Ort ortWien = new Ort();
 		ortWien.setName("Wien");
 		ortWien.setAddress("An der schönen blauen Donau");
@@ -50,7 +55,7 @@ public class Test {
 		infrastructure1.add("Verstaerker");
 		ortGraz.getInfrastructure().addAll(infrastructure2);
 
-		// init
+
 		try {
 			gruppe = new Musikgruppe(UE1_Ausrichtung, UE1_Name);
 			gruppe.getRepertoire().addMusikstueck(
@@ -58,14 +63,15 @@ public class Test {
 			gruppe.getRepertoire().addMusikstueck("Quadrate im Kreis", 2.4);
 			gruppe.getRepertoire().addMusikstueck("Intro vor dem Anfang", 1.4);
 
-			// orte hinzufuegen
+			
 			gruppe.getOrte().getOrte().add(ortWien);
 			gruppe.getOrte().getOrte().add(ortGraz);
 
 			Integer tmp;
-			// Mitglieder hinzufï¿½gen
+			
 			tmp = gruppe.getMitglieder().addMitglied("Gandalf", "0180666666",
 					"Klarinette");
+            //BAD tief verschachtelte Methoden-Aufrufe
 			gruppe.getMitglieder()
 					.getMitglied(tmp)
 					.getRepertoire()
@@ -121,7 +127,7 @@ public class Test {
 			gruppe.getBesetzung().addMitglied(
 					gruppe.getMitglieder().getMitglied(tmp));
 
-			// Ersatzmitglieder hinzufï¿½gen
+			
 			tmp = gruppe.getMitglieder().addMitglied("Gandalf2", "0180666666",
 					"Klarinette");
 			gruppe.getMitglieder()
@@ -179,8 +185,7 @@ public class Test {
 			gruppe.getErsatzmitglieder().addMitglied(
 					gruppe.getMitglieder().getMitglied(tmp));
 
-			// Zusammensetzung fï¿½r Probe (alle Mitlgieder + Ersatzmitglieder
-			// aber ohne Smiagol2)
+			
 			Besetzung m_probe = new Besetzung();
 			m_probe.getMitglieder().addAll(
 					gruppe.getBesetzung().getMitglieder());
@@ -204,7 +209,7 @@ public class Test {
 			return;
 		}
 
-		// Testcase 2_1
+		
 		writeTestCaseInfo(1, "Reportoire pro Mitglied");
 		try {
 
@@ -220,7 +225,7 @@ public class Test {
 		}
 		writeTestCaseResult(true);
 
-		// Testcase 2_2
+		
 		writeTestCaseInfo(2, "Reportoire der Gruppe");
 		try {
 
@@ -234,7 +239,7 @@ public class Test {
 		}
 		writeTestCaseResult(true);
 
-		// Testcase 2_2
+		
 		writeTestCaseInfo(3,
 				"ein Staendiges Mitglied mit Ersatzmitglied tauschen");
 		try {
@@ -272,14 +277,14 @@ public class Test {
 		} catch (GesperrtException e) {
 			writeTestCaseResult(true);
 			e.printStackTrace(System.out);
-			// return;
+			
 		} catch (Exception e) {
 			writeTestCaseResult(false);
 			e.printStackTrace(System.out);
 			return;
 		}
 
-		// #########EREIGNISSE######
+		
 		writeTestCaseInfo(5, "Ereignisse hinzufuegen");
 		try {
 
@@ -346,7 +351,7 @@ public class Test {
 		}
 		writeTestCaseResult(true);
 
-		// Testcase 6 - Orteverwaltung
+		
 		writeTestCaseInfo(6, "Orteverwaltung - Suche nach Infrastruktur");
 		boolean tc6_result = true;
 		Collection<Ort> tc6_Orte = gruppe.getOrte().findOrteByInfrastructure(
@@ -359,7 +364,7 @@ public class Test {
 		}
 		writeTestCaseResult(tc6_result);
 
-		// Testcase 7 - Zusatzbuchungen
+		
 		writeTestCaseInfo(7, "Zusatzkosten und Ertraege - Hinzufuegen");
 		try {
 			Zusatzbuchung buchung1 = new Zusatzbuchung(sdf.parse("2012-10-10"),
