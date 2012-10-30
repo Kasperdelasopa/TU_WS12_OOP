@@ -3,9 +3,6 @@ package UE1;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * @author Peter Nirschl
- */
 public class Ort {
 
 	private String address;
@@ -22,7 +19,7 @@ public class Ort {
 	// initialisiert Ort mit Standardparametern
 	// @param infrastructure != null
 	// FEHLER: die Bedingung infrastructure != null wird nicht auf Einhaltung
-	// geprüft
+	// geprueft
 	public Ort(String address, String country, String name,
 			Collection<String> infrastructure) {
 		this();
@@ -34,7 +31,7 @@ public class Ort {
 		this.infrastructure.addAll(infrastructure);
 	}
 
-	// liefert einen Hashcode für den Ort zurück
+	// liefert einen Hashcode fuer den Ort zurueck
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -47,7 +44,7 @@ public class Ort {
 		return result;
 	}
 
-	// prüft den Ort auf Gleichheit mit dem Parameter obj und gibt true zurück
+	// prueft den Ort auf Gleichheit mit dem Parameter obj und gibt true zurueck
 	// wenn der Paremeter dem Objekt gleicht.
 	@Override
 	public boolean equals(Object obj) {
@@ -81,14 +78,14 @@ public class Ort {
 		return true;
 	}
 
-	// liefert eine String-Repräsentation des Objekts zurück
+	// liefert eine String-Repräsentation des Objekts zurueck
 	@Override
 	public String toString() {
 		return "Ort [address=" + address + ", country=" + country + ", name="
 				+ name + ", infrastructure=" + infrastructure + "]";
 	}
 
-	// liefert die Adresse des Orts zurück
+	// liefert die Adresse des Orts zurueck
 	public String getAddress() {
 		return address;
 	}
@@ -98,7 +95,7 @@ public class Ort {
 		this.address = address;
 	}
 
-	// liefert das Land des Ortes zurück
+	// liefert das Land des Ortes zurueck
 	public String getCountry() {
 		return country;
 	}
@@ -108,7 +105,7 @@ public class Ort {
 		this.country = country;
 	}
 
-	// liefert den Namen des Ortes zurück
+	// liefert den Namen des Ortes zurueck
 	public String getName() {
 		return name;
 	}
@@ -118,14 +115,14 @@ public class Ort {
 		this.name = name;
 	}
 
-	// liefert die verfügbare Inrastruktur des Ortes zurück
+	// liefert die verfuegbare Inrastruktur des Ortes zurueck
 	public Collection<String> getInfrastructure() {
 		return infrastructure;
 	}
 
 	// ersetzt die Infrastruktur des Ortes
 	// @param infrastructure != null
-	// FEHLER: die Invariante "infrastructure != NulL" wird nicht geprüft
+	// FEHLER: die Invariante "infrastructure != NulL" wird nicht geprueft
 	public void setInfrastructure(Collection<String> infrastructure) {
 		this.infrastructure = infrastructure;
 	}

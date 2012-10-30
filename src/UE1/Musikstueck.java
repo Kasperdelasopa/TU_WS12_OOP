@@ -7,11 +7,16 @@ import java.util.Date;
 public class Musikstueck {
 	
 	private String name;
-	//Dauer in Sekunden
+	// name != null UND name.length() > 0
+	
 	private double dauer;
+	// dauer > 0
+	
 	private Date gespieltAb;
 	private Date gespieltBis;
+	// gespieltAb < gespieltBis
 	
+	// initialisiert das Musikstueck
 	public Musikstueck(String name, double dauer ){
 		
 		this.setName(name);
@@ -21,36 +26,42 @@ public class Musikstueck {
 		
 	}
 	
+	// liefert den Namen des Musikstuecks zurueck
 	public String getName() {
 		return name;
 	}
 
-
+	// setzt den Namen des Musikstuecks
+	// @param name != null && name.length() > 0
+	// Fehler: die Vorbedingung wird nicht geprueft
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
+	// liefert die Dauer des Musikstücks zurück
 	public double getDauer() {
 		return dauer;
 	}
 
-
+	// setzt die Dauer des Musikstücks
+	// @param laenge > 0
 	public void setDauer(double laenge) {
 		this.dauer = laenge;
 	}
 
 
+	// liefert den Zeitpunkt zurück, ab dem das Musikstück gespielt wird
 	public Date getGespieltAb() {
 		return gespieltAb;
 	}
 
-
+	// setzt den Zeitpunkt, ab dem das Musikstück gespielt wird
 	public void setGespieltAb(Date gespieltAb) {
 		this.gespieltAb = gespieltAb;
 	}
 
 
+	// liefert den Zeitpunk, bis zu dem das Musikstück gespielt wurde/wird
 	public Date getGespieltBis() {
 		Date latest;
 		try {
@@ -65,11 +76,13 @@ public class Musikstueck {
 	}
 
 
+	// setzt den Zeitpunkt, bis zu dem das Musikstück gespielt wird/wurde
 	public void setGespieltBis(Date gespielBis) {
 		this.gespieltBis = gespielBis;
 	}
 
 
+	// liefert eine String-Repräsentation der Musikstückinformationen
 	@Override
 	public String toString(){
 		
