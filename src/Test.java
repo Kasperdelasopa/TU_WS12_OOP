@@ -1,7 +1,9 @@
-// BAD:
-// Ein grundsätzlicher Fehler in unserer Anwendung ist die Vermischung von Datentransferobjekten (DTO) mit Business-Logk, 
-// die als eigene Service-Schicht hätte implementiert werden sollen. Dies führt zu einem allgemein niedrigen Klassenzusammenhang 
-// und einer mittelmäßg bis starken Objektkopplung.
+
+// Ein grundsaetzlicher Fehler in unserer Anwendung ist die Vermischung von Datentransferobjekten (DTO) mit Business-Logk, 
+// die als eigene Service-Schicht haette implementiert werden sollen.
+// Trotzdem ist in einigen Objekten der Klassenzusammenhang hoch geworden.
+// Die Wartbarkeit ist bei alen Objekten gegeben, daher bewerten wir die Objekt-Kopplung im Allgemeinen als 
+// mittelmaessig bis schwach.
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,24 +11,13 @@ import java.util.Collection;
 import java.util.Date;
 import UE1.*;
 
-/**
- * Einfache Test-Applikation.
- * 
- * @author Peter Nirschl
- */
+
 public class Test {
 
 	private static final String UE1_Name = "Die Zahnaerzte";
 	private static final String UE1_Ausrichtung = "Alternativer Mainstream-Metal-Hardcore-Punkrock";
 
-	/**
-	 * Programmeinstiegspunkt Testet die Grundfunktionalitaet der Applikation
-	 * und gibt die Ergebnisse auf den Standard-Output aus.
-	 * 
-	 * Please forgive me for writing spagetti-style. I was going for Junit...
-	 * 
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
 
 		Musikgruppe gruppe; 
@@ -389,26 +380,13 @@ public class Test {
 
 	}
 
-	/**
-	 * Schreibt Informationen zu einem Testfall auf die Standard-Ausgabe.
-	 * 
-	 * @param number
-	 *            Nummer des Testfalls
-	 * @param description
-	 *            Beschreibung des Testfalls
-	 */
+
 	private static void writeTestCaseInfo(int number, String description) {
 		System.out.print("***** Testfall ");
 		System.out.println(number);
 		System.out.println(description);
 	}
 
-	/**
-	 * Schreibt das Ergebnis zu einem Testfall auf die Standard-Ausgabe.
-	 * 
-	 * @param sucecss
-	 *            Wahr, wenn der Testfall erfolgreich abgeschlossen wurde.
-	 */
 	private static void writeTestCaseResult(boolean sucecss) {
 		if (sucecss) {
 			System.out.println("[OK]");

@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Orte {
+	
+	// GOOD: Der Klassenzusammenhang hier ist sehr hoch.
+	//       Die Objektkopplung ist schwach, da Orte nur in der Musikgruppe
+	//       referenziert wird und nur wenig Nachrichten ausgetauscht werden.
 
 	// Invariante: orte != null
 	private Collection<Ort> orte;

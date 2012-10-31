@@ -5,6 +5,9 @@ import java.util.Collection;
 
 public class Ort {
 
+	// GOOD: Der Klassenzusammenhang hier ist hoch, da Methoden und Variablen
+	//       gut miteinander zusammenarbeiten.
+	
 	private String address;
 	private String country;
 	private String name;
