@@ -3,7 +3,8 @@
 // die als eigene Service-Schicht haette implementiert werden sollen.
 // Trotzdem ist in einigen Objekten der Klassenzusammenhang hoch geworden.
 // Die Wartbarkeit ist bei alen Objekten gegeben, daher bewerten wir die Objekt-Kopplung im Allgemeinen als 
-// mittelmaessig bis schwach.
+// mittelmaessig bis schwach. Dafuer spricht auch, dass die Parameterzahl der Methoden
+// im Allgemeinen gering ist. Dagegen spricht, dass viele Methoden nach aussen sichtbar sind.
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
