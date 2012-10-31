@@ -26,7 +26,7 @@ public class Mitglied extends Person {
 		this.gesperrt = false;
 		this.repertoire = new Repertoire();
 	}
-
+    // BAD: hohe Objektkopplung - zu viele Parameter
 	public Mitglied(String name, String tele, String instro, int num,
 			Date eintritt, Date austritt) {
 		
