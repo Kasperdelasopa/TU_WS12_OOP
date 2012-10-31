@@ -46,6 +46,7 @@ public class Mitglieder extends Personen {
 	}
 
 
+	// BAD: hohe Objektkopplung - zu viele Parameter
 	public Integer addMitglied(String name, String tele, String instro) {
 		//Methode erzeugt neues Mitglied und fuegt dieses in die Liste ein
 		Integer num = Mitglieder.getNextIndex();
