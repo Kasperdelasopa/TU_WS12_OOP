@@ -1,19 +1,30 @@
-
 public class Scaled<P extends Pict> extends AbstractCompositePict<P> {
 
 	public Scaled(P[][] inhalt) {
 		this.inhalt = inhalt;
 	}
-	
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder stringRep = new StringBuilder();
+		
+		for(P[] row : inhalt) {
+			for(P column : row) {
+				stringRep.append(column.toString());
+			}
+			
+		}
+		
+		return stringRep.toString();
 	}
 
 	@Override
 	public void scale(double factor) {
-		// TODO Auto-generated method stub
+		for (P[] row : inhalt) {
+			for (P column : row) {
+				column.scale(factor);
+			}
+		}
 	}
 
 }
