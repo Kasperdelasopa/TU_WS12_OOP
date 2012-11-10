@@ -2,9 +2,6 @@ public class Scaled<P extends Pict> extends AbstractCompositePict<P> {
 	// instances represent pict compositions, that are scaled with
 	// their own scale-implementation.
 	
-	private final static String LINE_FEED = System.getProperty("line.separator");
-	// constant holding the line feed for performance reasons
-	
 	public Scaled(P[][] inhalt) {
 		this.inhalt = inhalt;
 	}
@@ -32,5 +29,4 @@ public class Scaled<P extends Pict> extends AbstractCompositePict<P> {
 			}
 		}
 	}
-
 }
