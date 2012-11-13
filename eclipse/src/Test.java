@@ -119,13 +119,16 @@ public class Test {
 		ClearBox[][] scClearBoxArray = { {scClearBox} };
 		Scaled<ClearBox> scaled2 = new Scaled<ClearBox> (scClearBoxArray);
 		
+		Box[][] scaledArray2 = { {scaledBox1, scaledBox2} };
+		Scaled<Box> scaled3 = new Scaled<Box>(scaledArray2);
+		
 		System.out.println("*********************************************************");
 		System.out.println("Scaled: [Box  hoehe = 2; breite = 2; rand = 'o'; inhalt = '.'], [Box hoehe = 2; breite = 2; rand = 'o'; inhalt = '.']");
 		System.out.println(scaled1.toString());
 		System.out.println("*********************************************************");
 
 		System.out.println("*********************************************************");
-		System.out.println("Scaled: [Box  hoehe = 2; breite = 2; rand = 'o'; inhalt = '.'], [Box hoehe = 2; breite = 2; rand = 'o'; inhalt = '.']");
+		System.out.println("Scaled: [[[Box  hoehe = 2; breite = 2; rand = 'o'; inhalt = '.']], [[Box hoehe = 2; breite = 2; rand = 'o'; inhalt = '.']]]");
 		System.out.println("scale(2.3)");
 		scaled1.scale(2.3);
 		System.out.println(scaled1.toString());
@@ -137,6 +140,12 @@ public class Test {
 		scaled2.scale(3.0);
 		System.out.println(scaled2.toString());
 		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("Scaled: [[[Box  hoehe = 2; breite = 2; rand = 'o'; inhalt = '.'], [Box hoehe = 2; breite = 2; rand = 'o'; inhalt = '.']]]");
+		System.out.println(scaled3.toString());
+		System.out.println("*********************************************************");
+
 		
 		// NOTE Test for type Repeated start here
 		
