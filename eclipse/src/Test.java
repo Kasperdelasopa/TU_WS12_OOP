@@ -53,22 +53,10 @@ public class Test {
 		System.out.println("Seitenverhätnis: "+cb.getSeitenverhaeltniss().toString());
 		System.out.println("*********************************************************");
 		
-		System.out.println("*********************************************************");
-		System.out.println("DarkBox: hoehe = 5.1; breite = 3.9; zeichen='#' ");
-		DarkBox db = new DarkBox('#' , 5.1, 3.9);	
-		System.out.println(db.toString());
-		System.out.println("*********************************************************");
-		
-		System.out.println("*********************************************************");
-		System.out.println("DarkBox: hoehe = 5.1; breite = 3.9; zeichen='#' ");
-		FreeBox fb = new FreeBox("abcabc\n12cabc\nabcabc");	
-		System.out.println(fb.toString());
-		System.out.println("*********************************************************");
-		
 		// NOTE: Tests for FreeBox start here
 		
 		System.out.println("*********************************************************");
-		System.out.println("FreeBox: hoehe = 5.1; breite = 3.9; zeichen='#' ");
+		System.out.println("FreeBox: Text:'abcabc\\nabcabc\\nabcabc' ");
 		FreeBox fb = new FreeBox("abcabc\nabcabc\nabcabc");	
 		System.out.println(fb.toString());
 		System.out.println("*********************************************************");
