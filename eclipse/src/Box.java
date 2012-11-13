@@ -6,13 +6,15 @@ public class Box implements Pict {
 	// breite, hoehe > 0
 	protected Double breite;
 	protected Double hoehe;
-	// rand <> ' '
+	// rand <> ' ' AND NOT empty
 	protected Character rand;
+	// inhalt NOT empty
 	protected Character inhalt;
 	
-	
-	//@param rand <> ' '
-	//@param breite, hoehe > 0
+	// initializes and creates a new instance of Box
+	// @param rand <> ' ' AND NOT empty
+	// @param breite, hoehe > 0
+	// @param inhalt NOT empty
 	public Box(Double hoehe, Double breite, Character rand, Character inhalt){
 				
 			this.hoehe = hoehe;
