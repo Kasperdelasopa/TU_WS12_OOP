@@ -148,6 +148,13 @@ public class Test {
 		System.out.println(scaled3.toString());
 		System.out.println("*********************************************************");
 		
+		System.out.println("*********************************************************");
+		System.out.println("Scaled: 2x2 Picts (first row 2x2; second row 4x4)");
+		System.out.println("scale(2.0)");
+		scaled3.scale(2.0);
+		System.out.println(scaled3.toString());
+		System.out.println("*********************************************************");
+		
 		// NOTE Test for type Repeated start here
 		
 	}
