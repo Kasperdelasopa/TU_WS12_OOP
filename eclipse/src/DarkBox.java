@@ -1,13 +1,17 @@
 
 public class DarkBox extends Box {
-// border=content	
+// instances represent 2-dimensional pictures
+// consisting of printable characters
+// instances dont have a border / border=content
 		
-	//zeichen <> ' '
+	//@param zeichen <> ' '
+	//@param hoehe = breite
 	public DarkBox(char zeichen, Double hoehe, Double breite) {
 		super(hoehe, breite, zeichen, zeichen);
 	}
 
-	// sets zeichen
+	// set border and content
+	// @param zeichen <> ' '
 	public void setZeichen(char zeichen){	
 		rand = zeichen;
 		inhalt = zeichen;

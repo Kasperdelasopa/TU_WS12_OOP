@@ -1,12 +1,18 @@
 
 public class Box implements Pict {
-
+// instances represent 2-dimensional pictures
+// consisting of printable characters
+	
+	// breite, hoehe > 0
 	protected Double breite;
 	protected Double hoehe;
+	// rand <> ' '
 	protected Character rand;
 	protected Character inhalt;
 	
-	//rand <> ' '
+	
+	//@param rand <> ' '
+	//@param breite, hoehe > 0
 	public Box(Double hoehe, Double breite, Character rand, Character inhalt){
 				
 			this.hoehe = hoehe;
@@ -25,6 +31,7 @@ public class Box implements Pict {
 		
 	}
 	
+	// returns the picture as String
 	@Override
 	public String toString(){
 		String ret="";

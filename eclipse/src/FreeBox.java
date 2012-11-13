@@ -1,6 +1,10 @@
 
 public class FreeBox implements Pict{
-
+	// instances represent 2-dimensional pictures
+	// consisting of printable characters
+	// Zeilen des rechteckigen Texts werden durch '\n' generiert
+	
+	// hoehe, breite > 0
 	private Double hoehe;
 	private Double breite;
 	private String text; 
@@ -15,7 +19,7 @@ public class FreeBox implements Pict{
 		
 	}
 	
-	// 0.1 <= factor <= 10.0; resize the picture
+	// 0.1 <= factor <= 10.0; resize the picture and adjust it
 	@Override
 	public void scale(double factor) {
 		int oldbreite = (int) Math.ceil(breite);
@@ -41,6 +45,7 @@ public class FreeBox implements Pict{
 			
 	}	
 
+	// returns the picture as String
 	@Override
 	public String toString(){
 		
