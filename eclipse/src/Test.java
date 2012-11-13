@@ -67,9 +67,19 @@ public class Test {
 		
 		// NOTE: Tests for FreeBox start here
 		
+		System.out.println("*********************************************************");
+		System.out.println("FreeBox: hoehe = 5.1; breite = 3.9; zeichen='#' ");
+		FreeBox fb = new FreeBox("abcabc\nabcabc\nabcabc");	
+		System.out.println(fb.toString());
+		System.out.println("*********************************************************");
 		
 		// NOTE: Tests for DarkBox start here
 		
+		System.out.println("*********************************************************");
+		System.out.println("DarkBox: hoehe = 5.1; breite = 3.9; zeichen='#' ");
+		DarkBox db = new DarkBox('#' , 5.1, 3.9);	
+		System.out.println(db.toString());
+		System.out.println("*********************************************************");
 		
 		// NOTE: Tests for Scaled start here
 		Box scaledBox1 = new Box(2.0, 2.0, 'o', '.' );
