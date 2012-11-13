@@ -10,7 +10,14 @@ public class Repeated<P> extends AbstractCompositePict<P> {
 		this.skalierungsfaktor = 1.0;
 	}
 	// inhalt != null; 
+	// inhalt.length > 0;
 	// creates a new instance of Repeated and initializes the content array
+	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+	// returns the picture as String
 	
 	@Override
 	public void scale(double factor) {

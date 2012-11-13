@@ -6,6 +6,7 @@ public class Scaled<P extends Pict> extends AbstractCompositePict<P> {
 		super(inhalt);
 	}
 	// inhalt != null; 
+	// inhalt.length > 0;
 	// creates a new instance of Scaled and initializes the content array
 
 	@Override
