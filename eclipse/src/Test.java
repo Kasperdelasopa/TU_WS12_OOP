@@ -142,71 +142,54 @@ public class Test {
 		System.out.println("*********************************************************");
 		
 		// NOTE: Tests for Scaled start here
-		Box scaledBox1 = new Box(2.0, 2.0, 'o', '.' );
-		Box scaledBox2 = new Box(2.0, 2.0, 'o', '.' );
-		Box scaledBox3 = new Box(2.0, 2.0, 'x', '.' );
-		Box scaledBox4 = new Box(4.0, 4.0, 'o', '.' );
-		Box[][] scaledArray1 = { {scaledBox1}, {scaledBox2} };
-		Scaled<Box> scaled1 = new Scaled<Box>(scaledArray1);
-		
-		ClearBox scClearBox = new ClearBox(3.0, 2.0);
-		ClearBox[][] scClearBoxArray = { {scClearBox} };
-		Scaled<ClearBox> scaled2 = new Scaled<ClearBox> (scClearBoxArray);
-		
-		Box[][] scaledArray2 = { {scaledBox3, scaledBox3}, {scaledBox4, scaledBox4} };
-		Scaled<Box> scaled3 = new Scaled<Box>(scaledArray2);
-		
+		Box scBox1 = new Box(2.0, 2.0, 'o', '.' );
+		FreeBox scBox2 = new FreeBox("Hallo\nWelt!");
+		ClearBox scBox3 = new ClearBox(3.0, 3.0);
+		DarkBox scBox4 = new DarkBox('T', 4.0, 5.0);
+		Pict[][] scArray1 = { {scBox1, scBox2}, {scBox1, scBox2}, {scBox3, scBox4} };
+		Scaled<Pict> scaled = new Scaled<Pict>(scArray1);
+
 		System.out.println("*********************************************************");
-		System.out.println("Scaled: [Box  hoehe = 2; breite = 2; rand = 'o'; inhalt = '.'], [Box hoehe = 2; breite = 2; rand = 'o'; inhalt = '.']");
-		System.out.println(scaled1.toString());
+		System.out.println("Scaled with multiple sub-types of Pict");
+		System.out.println(scaled.toString());
 		System.out.println("*********************************************************");
 
 		System.out.println("*********************************************************");
-		System.out.println("Scaled: [[[Box  hoehe = 2; breite = 2; rand = 'o'; inhalt = '.']], [[Box hoehe = 2; breite = 2; rand = 'o'; inhalt = '.']]]");
+		System.out.println("Scaled with multiple sub-types of Pict");
 		System.out.println("scale(2.3)");
-		scaled1.scale(2.3);
-		System.out.println(scaled1.toString());
+		scaled.scale(2.3);
+		System.out.println(scaled.toString());
 		System.out.println("*********************************************************");
 
 		System.out.println("*********************************************************");
-		System.out.println("Scaled: [ClearBox  hoehe = 3; breite = 2]");
-		System.out.println("scale(3.0)");
-		scaled2.scale(3.0);
-		System.out.println(scaled2.toString());
-		System.out.println("*********************************************************");
-		
-		System.out.println("*********************************************************");
-		System.out.println("Scaled: 2x2 Picts (first row 2x2; second row 4x4)");
-		System.out.println(scaled3.toString());
-		System.out.println("*********************************************************");
-		
-		System.out.println("*********************************************************");
-		System.out.println("Scaled: 2x2 Picts (first row 2x2; second row 4x4)");
-		System.out.println("scale(2.0)");
-		scaled3.scale(2.0);
-		System.out.println(scaled3.toString());
+		System.out.println("Scaled with multiple sub-types of Pict");
+		System.out.println("scale(0.3)");
+		scaled.scale(0.3);
+		System.out.println(scaled.toString());
 		System.out.println("*********************************************************");
 		
 		// NOTE Test for type Repeated start here
 		Box repBox1 = new Box(2.0, 2.0, 'o', '.' );
-		Box repBox2 = new Box(4.0, 4.0, 'X', '#' );
-		Box[][] repArray1 = { {repBox1, repBox2}, {repBox1, repBox2} };
-		Repeated<Box> repeated1 = new Repeated<Box>(repArray1);
+		FreeBox repBox2 = new FreeBox("Hallo\nWelt!");
+		ClearBox repBox3 = new ClearBox(3.0, 3.0);
+		DarkBox repBox4 = new DarkBox('T', 4.0, 5.0);
+		Pict[][] repArray1 = { {repBox1, repBox2}, {repBox1, repBox2}, {repBox3, repBox4} };
+		Repeated<Pict> repeated1 = new Repeated<Pict>(repArray1);
 		
 		System.out.println("*********************************************************");
-		System.out.println("Repeated: 2x2 Picts (row style 2x2 ; 4x4)");
+		System.out.println("Repeated with multiple sub-types of Pict");
 		System.out.println(repeated1.toString());
 		System.out.println("*********************************************************");
 		
 		System.out.println("*********************************************************");
-		System.out.println("Repeated: 2x2 Picts (row style 2x2 ; 4x4)");
+		System.out.println("Repeated");
 		System.out.println("scale(0.5)");
 		repeated1.scale(0.5);
 		System.out.println(repeated1.toString());
 		System.out.println("*********************************************************");
 		
 		System.out.println("*********************************************************");
-		System.out.println("Repeated: 2x2 Picts (row style 2x2 ; 4x4)");
+		System.out.println("Repeated");
 		System.out.println("scale(5.4)");
 		repeated1.scale(5.4);
 		System.out.println(repeated1.toString());
