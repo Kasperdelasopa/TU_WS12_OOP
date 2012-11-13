@@ -23,7 +23,9 @@
 // verletzt waere:
 // > Fuer jede Variable in T gibt es eine entsprechende Variable in U, 
 // > wobei U die deklarierten Typen der Variablen aequivalent sind.
-// (siehe UML-Klassendiagramm)
+// (siehe UML-Klassendiagramm 
+// > https://github.com/Kasperdelasopa/TU_WS12_OOP/raw/master/doc/UE4/uml_diagram.pdf
+// )
 //
 // Es kommen keine Aequivalenzen vor, d.h. fuer alle Typen T
 // und deren jeweilige Untertypen U gilt: T ist kein Untertyp von U.
