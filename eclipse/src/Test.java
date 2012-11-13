@@ -156,6 +156,47 @@ public class Test {
 		System.out.println("*********************************************************");
 		
 		// NOTE Test for type Repeated start here
+		Box repBox1 = new Box(2.0, 2.0, 'o', '.' );
+		Box repBox2 = new Box(4.0, 4.0, 'X', '#' );
+		Box[][] repArray1 = { {repBox1, repBox2}, {repBox1, repBox2} };
+		Repeated<Box> repeated1 = new Repeated<Box>(repArray1);
 		
+		System.out.println("*********************************************************");
+		System.out.println("Repeated: 2x2 Picts (row style 2x2 ; 4x4)");
+		System.out.println(repeated1.toString());
+		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("Repeated: 2x2 Picts (row style 2x2 ; 4x4)");
+		System.out.println("scale(0.5)");
+		repeated1.scale(0.5);
+		System.out.println(repeated1.toString());
+		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("Repeated: 2x2 Picts (row style 2x2 ; 4x4)");
+		System.out.println("scale(5.4)");
+		repeated1.scale(5.4);
+		System.out.println(repeated1.toString());
+		System.out.println("*********************************************************");
+		
+		Integer[][] intArray = { {2,3,5},{4,9,1},{6,0,1} };
+		Repeated<Integer> repeated2 = new Repeated<Integer> (intArray);
+		
+		System.out.println("*********************************************************");
+		System.out.println("Repeated: Integer array { {2,3,5},{4,9,1},{6,0,1} }");
+		System.out.println("scale(5.4)");
+		repeated2.scale(5.4);
+		System.out.println(repeated2.toString());
+		System.out.println("*********************************************************");
+		
+		Character[][] charArray = { {'a','b'},{'b','c'},{'c','d'} };
+		Repeated<Character> repeated3 = new Repeated<Character> (charArray);
+		
+		System.out.println("*********************************************************");
+		System.out.println("Repeated: Character array { {'a','b'},{'b','c'},{'c','d'} }");
+		System.out.println(repeated3.toString());
+		System.out.println("*********************************************************");
+	
 	}
 }

@@ -15,7 +15,20 @@ public class Repeated<P> extends AbstractCompositePict<P> {
 	
 	@Override
 	public String toString() {
-		return super.toString();
+		String[] lines = super.toString().split(LINE_FEED);
+		StringBuffer output = new StringBuffer();
+		
+		int lineWidth = lines[0].length();
+		int outWidth = (int) Math.ceil(lineWidth * skalierungsfaktor);
+		int outHeight = (int) Math.ceil(lines.length * skalierungsfaktor);
+		
+		for(int i = 0; i < outHeight; i++) {
+			for(int j = 0; j < outWidth; j++) {
+				output.append( lines[i % lines.length].charAt(j % lines[i % lines.length].length()) );
+			}
+			output.append(LINE_FEED);
+		}	
+		return output.toString();
 	}
 	// returns the picture as String
 	
