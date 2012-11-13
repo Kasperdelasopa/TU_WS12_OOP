@@ -43,14 +43,26 @@ public class Test {
 		System.out.println("ClearBox: hoehe = 4; breite = 4; rand = '*'; inhalt = ' '");
 		ClearBox cb = new ClearBox(4.0, 4.0);	
 		System.out.println(cb.toString());
-		System.out.println("Seitenverhätnis: "+cb.getSeitenverhältniss().toString());
+		System.out.println("Seitenverhätnis: "+cb.getSeitenverhaeltniss().toString());
 		System.out.println("*********************************************************");
 		
 		System.out.println("*********************************************************");
 		System.out.println("ClearBox: hoehe = 3.2; breite = 4.8; rand = '*'; inhalt = ' '");
 		cb = new ClearBox(3.2, 4.8);	
 		System.out.println(cb.toString());
-		System.out.println("Seitenverhätnis: "+cb.getSeitenverhältniss().toString());
+		System.out.println("Seitenverhätnis: "+cb.getSeitenverhaeltniss().toString());
+		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("DarkBox: hoehe = 5.1; breite = 3.9; zeichen='#' ");
+		DarkBox db = new DarkBox('#' , 5.1, 3.9);	
+		System.out.println(db.toString());
+		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("DarkBox: hoehe = 5.1; breite = 3.9; zeichen='#' ");
+		FreeBox fb = new FreeBox("abcabc\n12cabc\nabcabc");	
+		System.out.println(fb.toString());
 		System.out.println("*********************************************************");
 		
 		// NOTE: Tests for FreeBox start here

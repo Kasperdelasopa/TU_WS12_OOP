@@ -5,8 +5,8 @@ public class ClearBox extends Box {
 		super(hoehe, breite, '*', ' ');
 	}
 
-	// getSeitenverhältniss() > 0
-	public Double getSeitenverhältniss(){	
+	// getSeitenverhaeltniss() > 0
+	public Double getSeitenverhaeltniss(){	
 		return breite / hoehe;
 	}
 }
