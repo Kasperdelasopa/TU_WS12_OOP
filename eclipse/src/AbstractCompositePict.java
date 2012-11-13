@@ -9,8 +9,17 @@ public abstract class AbstractCompositePict<P> implements Pict {
 	protected P[][] inhalt;
 	// inhalt != null; objects that form the picture composition
 	
+	public AbstractCompositePict(P[][] inhalt) {
+		this.inhalt = inhalt;
+	}
+	// inhalt != null; 
+	// initializes the content array
+	
 	@Override
-	public abstract String toString();
+	public String toString() {
+		
+		return null;
+	}
 	// returns the picture as String
 	
 	public abstract void scale(double factor);
