@@ -56,10 +56,50 @@ public class Test {
 		// NOTE: Tests for FreeBox start here
 		
 		System.out.println("*********************************************************");
-		System.out.println("FreeBox: Text:'abcabc\\nabcabc\\nabcabc' ");
-		FreeBox fb = new FreeBox("abcabc\nabcabc\nabcabc");	
+		System.out.println("FreeBox fb: Text:'123456\\n123456\\n123456' ");
+		System.out.println("hoehe = 3; breite = 6;");
+		FreeBox fb = new FreeBox("123456\n123456\n123456");	
 		System.out.println(fb.toString());
 		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("FreeBox fb: scale(0.2)  -> hoehe=1; breite=2;");
+		fb.scale(0.2);
+		System.out.println(fb.toString());
+		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("FreeBox fb: scale(6.8)  -> hoehe=5; breite=9;");
+		fb.scale(6.8);
+		System.out.println(fb.toString());
+		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("FreeBox fx: Text:'1234\\n5678' ");
+		System.out.println("hoehe = 2; breite = 4;");
+		FreeBox fx = new FreeBox("1234\n5678");	
+		System.out.println(fx.toString());
+		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("FreeBox fx: scale(1.5)  -> hoehe=3; breite=6;");
+		fx.scale(1.5);
+		System.out.println(fx.toString());
+		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("FreeBox fx: scale(3.5)  -> hoehe=7; breite=14;");
+		fx.scale(2.3);
+		System.out.println(fx.toString());
+		System.out.println("*********************************************************");
+		
+		System.out.println("*********************************************************");
+		System.out.println("FreeBox fx: scale(0.15)  -> hoehe=2; breite=3;");
+		fx.scale(0.15);
+		System.out.println(fx.toString());
+		System.out.println("*********************************************************");
+		
+		
 		
 		// NOTE: Tests for DarkBox start here
 		
