@@ -112,6 +112,8 @@ public class Test {
 		// NOTE: Tests for Scaled start here
 		Box scaledBox1 = new Box(2.0, 2.0, 'o', '.' );
 		Box scaledBox2 = new Box(2.0, 2.0, 'o', '.' );
+		Box scaledBox3 = new Box(2.0, 2.0, 'x', '.' );
+		Box scaledBox4 = new Box(4.0, 4.0, 'o', '.' );
 		Box[][] scaledArray1 = { {scaledBox1}, {scaledBox2} };
 		Scaled<Box> scaled1 = new Scaled<Box>(scaledArray1);
 		
@@ -119,7 +121,7 @@ public class Test {
 		ClearBox[][] scClearBoxArray = { {scClearBox} };
 		Scaled<ClearBox> scaled2 = new Scaled<ClearBox> (scClearBoxArray);
 		
-		Box[][] scaledArray2 = { {scaledBox1, scaledBox2} };
+		Box[][] scaledArray2 = { {scaledBox3, scaledBox3}, {scaledBox4, scaledBox4} };
 		Scaled<Box> scaled3 = new Scaled<Box>(scaledArray2);
 		
 		System.out.println("*********************************************************");
@@ -142,10 +144,9 @@ public class Test {
 		System.out.println("*********************************************************");
 		
 		System.out.println("*********************************************************");
-		System.out.println("Scaled: [[[Box  hoehe = 2; breite = 2; rand = 'o'; inhalt = '.'], [Box hoehe = 2; breite = 2; rand = 'o'; inhalt = '.']]]");
+		System.out.println("Scaled: 2x2 Picts (first row 2x2; second row 4x4)");
 		System.out.println(scaled3.toString());
 		System.out.println("*********************************************************");
-
 		
 		// NOTE Test for type Repeated start here
 		
