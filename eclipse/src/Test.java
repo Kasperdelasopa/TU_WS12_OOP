@@ -1,4 +1,34 @@
 
+// Auf Grund der Transitivitaet sind die Klassen
+// * AbstractCompositePict
+// * Box
+// * ClearBox
+// * DarkBox
+// * FreeBox
+// * Repeated
+// * Scaled
+// Untertypen von Pict.
+//
+// Die Klassen
+// * Scaled
+// * Repeated
+// sind Untertypen von AbstractCompositePict.
+// 
+// Die Klassen
+// * ClearBox
+// * DarkBox
+// sind Untertypen von Box.
+//
+// Sonst kommen keine Untertypenbeziehungen vor, da folgende Bedingung 
+// verletzt waere:
+// > Fuer jede Variable in T gibt es eine entsprechende Variable in U, 
+// > wobei U die deklarierten Typen der Variablen aequivalent sind.
+// (siehe UML-Klassendiagramm)
+//
+// Es kommen keine Aequivalenzen vor, d.h. fuer alle Typen T
+// und deren jeweilige Untertypen U gilt: T ist kein Untertyp von U.
+//
+
 public class Test {
 
 	public static void main(String[] args) {
