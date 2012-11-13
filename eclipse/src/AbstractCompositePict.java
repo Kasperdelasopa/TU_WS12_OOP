@@ -14,7 +14,7 @@ public abstract class AbstractCompositePict<P> implements Pict {
 	public AbstractCompositePict(P[][] inhalt) {
 		this.inhalt = inhalt;
 	}
-	// inhalt != null; 
+	// @param inhalt != null AND inhalt.length > 0; 
 	// initializes the content array
 	
 	@Override
