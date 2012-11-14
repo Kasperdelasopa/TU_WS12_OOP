@@ -4,8 +4,8 @@ import java.util.Iterator;
 public class Set<P> implements Iterable<P> {
 
 	protected class SetElement {
-		P value;
-		SetElement next;
+		private P value;
+		protected SetElement next;
 		
 		public SetElement(P value, SetElement next) {
 			this.value = value;

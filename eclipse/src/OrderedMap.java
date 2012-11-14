@@ -5,6 +5,7 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 
 	protected class MapElement extends SetElement {
 		private Set<Q> set;
+		protected MapElement next;
 		
 		public MapElement(P value, SetElement next) {
 			super(value, next);
@@ -13,13 +14,23 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 		public Iterator<Q> getSetIterator() {
 			return set.iterator();
 		}
+		
 	}
 
-	protected MapElement startElement;
+	protected MapElement startElement = null;
 	
 	@Override
 	public void insert(P element) {
-		// TODO implement
+		MapElement current = startElement;
+		
+		if(current == null) {
+			startElement = new MapElement(element, null);
+		} else {
+			while(current.getValue().shorter(element) && current.getNext() != null) {
+				// TODO finish method implementation
+			}
+			
+		}
 	}
 	
 	@Override

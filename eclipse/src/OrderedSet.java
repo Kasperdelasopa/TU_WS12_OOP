@@ -1,5 +1,7 @@
 
 public class OrderedSet<P extends Shorter<P>> extends Set<P> {
+	// instances are sorted containers, which use the Shorter.shorter()
+	// method for comparison of elements.
 	
 	@Override
 	public void insert(P element) {
