@@ -15,6 +15,7 @@ public class Set<P> implements Iterable<P> {
 		// TODO Bitte Zusicherungen hinzufuegen!
 		
 		public P getValue() { return value; }
+		public void setValue(P value) { this.value = value; }
 		public SetElement getNext() { return next; }
 		public void setNext(SetElement element) { next = element; }
 	}
