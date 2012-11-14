@@ -3,6 +3,24 @@ import java.util.Iterator;
 
 public class Set<P> implements Iterable<P> {
 
+	protected class SetElement {
+		P value;
+		SetElement next;
+		
+		public SetElement(P value, SetElement next) {
+			this.value = value;
+			this.next = next;
+		}
+		
+		// TODO Bitte Zusicherungen hinzufuegen!
+		
+		public P getValue() { return value; }
+		public SetElement getNext() { return next; }
+		public void setNext(SetElement element) { next = element; }
+	}
+	
+	protected SetElement startElement;
+	
 	public void insert(P element) {
 		// TODO implement
 	}
