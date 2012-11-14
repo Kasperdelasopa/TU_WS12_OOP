@@ -1,0 +1,20 @@
+** Aufteilung
+
+PN
+	OrderedSet
+	OrderedMap
+		MapElement
+	
+MS
+	SetIterator
+	MapIterator
+	Set
+		SetElement
+	
+GF
+	Shorter
+	Description
+	ElapsedTime
+	MeanElapsedTime
+	CompositeTime
+	Test

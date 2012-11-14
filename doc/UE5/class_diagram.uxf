@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.5.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>470</x>
+      <y>370</y>
+      <w>340</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>OrderedMap &lt;P implemets Shorter, Q&gt;
+--
+-startElement : SetContainer
+--
++insert(element :P)
++iterator() : MapIterator&lt;P&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>30</y>
+      <w>250</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Set &lt;P&gt;
+{implements Iterable&lt;T&gt;}
+--
+-startElement : SetContainer
+--
++insert(element :P)
++iterator() : SetIterator&lt;P&gt;
+--
+/ SetContainer ist eine Inner Class</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>150</y>
+      <w>50</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>510</x>
+      <y>490</y>
+      <w>240</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Shorter &lt;P&gt;
+--
++shorter(element : P) : bool
+--
+/ P = implementierender Subtyp</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>270</x>
+      <y>210</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>MapIterator &lt;P&gt;
+--
+
+--
++iterator() : SetIterator
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>220</y>
+      <w>250</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>OrderedSet &lt;P implements Shorter&gt;
+--
+-startElement : SetContainer
+--
++insert(element :P)
++iterator() : SetIterator&lt;P&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>290</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>290</x>
+      <y>30</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>SetIterator &lt;P&gt;
+{implements Iterator&lt;E&gt;}
+--
+
+--
++remove(element : P)
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>360</x>
+      <y>120</y>
+      <w>70</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;50;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>820</x>
+      <y>370</y>
+      <w>270</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>MapElement&lt;P, K&gt;
+--
+-set : Set&lt;K&gt;
+--
++getSetIterator() : SetIterator&lt;K&gt;
+--
+/ ist Inner Class von OrderedMap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>830</x>
+      <y>50</y>
+      <w>250</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>SetElement&lt;P&gt;
+--
+-value : P
+-next : SetElement&lt;P&gt;
+--
++getValue() : P
++getNext() : SetElement&lt;P&gt;
+--
+/ ist Inner Class von Set</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>890</x>
+      <y>150</y>
+      <w>90</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70;30;30;220</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>750</x>
+      <y>670</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ElapsedTime 
+--
+-numberOfMeasurements : int
+-duration : Double
+--
++count() : int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>650</x>
+      <y>570</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;130;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>560</x>
+      <y>830</y>
+      <w>260</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>MeanElapsedTime  
+--
+-measurements : Set&lt;Double&gt;
+--
++add(Double)
++getHighestMeasurement() : Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>740</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>160;30;30;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>870</x>
+      <y>830</y>
+      <w>260</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>CompositeTime   
+--
+-times : Double[]
+--
++CompositeTime(Double[])
++getMinimumTime() : Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>870</x>
+      <y>740</y>
+      <w>150</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;130;90</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>360</x>
+      <y>670</y>
+      <w>240</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Description  
+--
+-text : String
+--
++getLineCount() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>510</x>
+      <y>570</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110;30;30;100</additional_attributes>
+  </element>
+</diagram>
