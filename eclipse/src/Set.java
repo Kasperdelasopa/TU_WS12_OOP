@@ -26,6 +26,10 @@ public class Set<P> implements Iterable<P> {
 		// TODO implement
 	}
 	
+	protected SetElement getInsertPosition(P element) {
+		return startElement;
+	}
+	
 	@Override
 	public Iterator<P> iterator() {
 		// TODO Auto-generated method stub

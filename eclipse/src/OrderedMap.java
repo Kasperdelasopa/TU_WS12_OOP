@@ -1,6 +1,5 @@
 import java.util.Iterator;
 
-
 public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 
 	protected class MapElement extends SetElement {
@@ -21,15 +20,12 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 	
 	@Override
 	public void insert(P element) {
-		MapElement current = startElement;
-		
-		if(current == null) {
+		SetElement insertPosition = getInsertPosition(element);
+		if (insertPosition == null) {
 			startElement = new MapElement(element, null);
 		} else {
-			while(current.value.shorter(element) && current.next != null) {
-				// TODO finish method implementation
-			}
-			
+			SetElement successor = insertPosition.next;
+			insertPosition.next = new MapElement(element, successor);
 		}
 	}
 	
