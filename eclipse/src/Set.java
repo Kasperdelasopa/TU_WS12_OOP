@@ -17,7 +17,7 @@ public class Set<P> implements Iterable<P> {
 			this.next = next;
 		}
 		
-		// TODO Bitte Zusicherungen hinzufuegen!
+		// TODO Bitte Zusicherungen und Kommentare hinzufuegen!
 	}
 	
 	protected SetElement startElement;
@@ -25,11 +25,7 @@ public class Set<P> implements Iterable<P> {
 	public void insert(P element) {
 		// TODO implement
 	}
-	
-	protected SetElement getInsertPosition(P element) {
-		return startElement;
-	}
-	
+		
 	@Override
 	public Iterator<P> iterator() {
 		// TODO Auto-generated method stub
