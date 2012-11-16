@@ -45,10 +45,8 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 	
 	@Override
 	public Iterator<P> iterator() {
-		// TODO return a MapIterator
+		// TODO please implement
 		return null;
 	}
-	// @param element != null; 
-	// returns the predecessor of the given element
-	
+	// TODO constraints and description
 }

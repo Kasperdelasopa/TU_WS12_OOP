@@ -12,22 +12,19 @@ public class OrderedSet<P extends Shorter<P>> extends Set<P> {
 			insertPosition.next = new SetElement(element, successor);
 		}
 	}
-	// @param element != null; 
+	// @param element != null;
 	// inserts the given element at its correct position
 
 	protected SetElement getInsertPosition(P element) {
 		SetElement current = startElement;
 
 		if (current != null) {
-			startElement = new SetElement(element, null);
-		} else {
 			while (current.value.shorter(element) && current.next != null) {
 				current = current.next;
 			}
 		}
 		return current;
 	}
-	// @param element != null; 
+	// @param element != null;
 	// returns the predecessor of the given element
-
 }
