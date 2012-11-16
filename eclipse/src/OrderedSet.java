@@ -10,11 +10,11 @@ public class OrderedSet<P extends Shorter<P>> extends Set<P> {
 		if(current == null) {
 			startElement = new SetElement(element, null);
 		} else {
-			while(current.getValue().shorter(element) && current.getNext() != null) {
-				current = current.getNext();
+			while(current.value.shorter(element) && current.next != null) {
+				current = current.next;
 			}
-			SetElement successor = current.getNext();
-			current.setNext(new SetElement(element, successor));
+			SetElement successor = current.next;
+			current.next = new SetElement(element, successor);
 		}
 	}
 	

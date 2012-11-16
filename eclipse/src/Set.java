@@ -4,20 +4,20 @@ import java.util.Iterator;
 public class Set<P> implements Iterable<P> {
 
 	protected class SetElement {
-		private P value;
+		protected P value;
 		protected SetElement next;
 		
+		public SetElement() {
+			value = null; 
+			next = null;
+		}
+
 		public SetElement(P value, SetElement next) {
 			this.value = value;
 			this.next = next;
 		}
 		
 		// TODO Bitte Zusicherungen hinzufuegen!
-		
-		public P getValue() { return value; }
-		public void setValue(P value) { this.value = value; }
-		public SetElement getNext() { return next; }
-		public void setNext(SetElement element) { next = element; }
 	}
 	
 	protected SetElement startElement;

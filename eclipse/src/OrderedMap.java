@@ -4,7 +4,7 @@ import java.util.Iterator;
 public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 
 	protected class MapElement extends SetElement {
-		private Set<Q> set;
+		protected Set<Q> set;
 		protected MapElement next;
 		
 		public MapElement(P value, SetElement next) {
@@ -26,7 +26,7 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 		if(current == null) {
 			startElement = new MapElement(element, null);
 		} else {
-			while(current.getValue().shorter(element) && current.getNext() != null) {
+			while(current.value.shorter(element) && current.next != null) {
 				// TODO finish method implementation
 			}
 			
