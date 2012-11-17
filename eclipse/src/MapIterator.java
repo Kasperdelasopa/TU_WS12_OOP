@@ -1,4 +1,16 @@
+import java.util.Iterator;
 
-public class MapIterator<P> extends SetIterator<P> {
-	// TODO bitte in OrderedMap den Iterator aufsetzen und zurueckgeben!
+
+public class MapIterator<P ,Q> extends SetIterator<P> {
+	
+	public MapIterator(Set<P>.SetElement e) {
+		super(e);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Iterator<Q> iterator(){
+
+		return null;
+	}
 }

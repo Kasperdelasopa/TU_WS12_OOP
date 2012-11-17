@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 	// instances are sorted containers, which use the Shorter.shorter()
@@ -45,8 +46,43 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 	
 	@Override
 	public Iterator<P> iterator() {
-		// TODO please implement
-		return null;
+		
+		MapIterator<P,Q> mit = new MapIterator<P,Q>(startElement){
+			
+			MapElement element = startElement;
+			MapElement old;
+			
+			@Override
+			public boolean hasNext() {				 
+				return (element.next != null);
+			}
+			//return false when there is no next element, else true
+
+			@Override
+			public P next() {
+				if(hasNext()){
+					old = element;
+					element = element.next;
+					return element.value;
+				}
+				else
+					throw new NoSuchElementException();
+			}
+			//returns the next element
+
+			@Override
+			public void remove() {
+				if(old != null){
+					old.next = element.next;
+					element = null;
+				}
+			}
+			//deletes current element			
+			public Iterator<Q> iterator(){
+				return element.set.iterator();
+			}
+		};
+		return mit;
 	}
-	// TODO constraints and description
+	//returns an Iterator for
 }

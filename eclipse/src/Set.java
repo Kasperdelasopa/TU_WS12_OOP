@@ -50,8 +50,10 @@ public class Set<P> implements Iterable<P> {
 		
 	@Override
 	public Iterator<P> iterator() {
-		// TODO please implement
-		return null;
+				
+		SetIterator<P> sit = new SetIterator<P>(startElement);
+
+		return sit;
 	}
 	// TODO Constraints and description
 }
