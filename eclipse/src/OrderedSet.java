@@ -6,10 +6,10 @@ public class OrderedSet<P extends Shorter<P>> extends Set<P> {
 	public void insert(P element) {
 		SetElement insertPosition = getInsertPosition(element);
 		if (insertPosition == null) {
-			startElement = new SetElement(element, null);
+			startElement = new SetElement(element, null, null);
 		} else {
 			SetElement successor = insertPosition.next;
-			insertPosition.next = new SetElement(element, successor);
+			insertPosition.next = new SetElement(element, insertPosition, successor);
 		}
 	}
 	// @param element != null;

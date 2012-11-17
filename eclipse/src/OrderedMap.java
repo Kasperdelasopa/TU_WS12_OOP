@@ -1,5 +1,5 @@
 import java.util.Iterator;
-import java.util.NoSuchElementException;
+
 
 public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 	// instances are sorted containers, which use the Shorter.shorter()
@@ -16,8 +16,8 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 		
 		protected MapElement next;
 		
-		public MapElement(P value, SetElement next) {
-			super(value, next);
+		public MapElement(P value, SetElement previous, SetElement next) {
+			super(value, previous, next);
 			set = new Set<Q> ();
 		}
 		// value != null; 
@@ -35,10 +35,10 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 	public void insert(P element) {
 		SetElement insertPosition = getInsertPosition(element);
 		if (insertPosition == null) {
-			startElement = new MapElement(element, null);
+			startElement = new MapElement(element, null, null);
 		} else {
 			SetElement successor = insertPosition.next;
-			insertPosition.next = new MapElement(element, successor);
+			insertPosition.next = new MapElement(element, insertPosition, successor);
 		}
 	}
 	// @param element != null; 
@@ -47,42 +47,7 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 	@Override
 	public Iterator<P> iterator() {
 		
-		MapIterator<P,Q> mit = new MapIterator<P,Q>(startElement){
-			
-			MapElement element = startElement;
-			MapElement old;
-			
-			@Override
-			public boolean hasNext() {				 
-				return (element.next != null);
-			}
-			//return false when there is no next element, else true
-
-			@Override
-			public P next() {
-				if(hasNext()){
-					old = element;
-					element = element.next;
-					return element.value;
-				}
-				else
-					throw new NoSuchElementException();
-			}
-			//returns the next element
-
-			@Override
-			public void remove() {
-				if(old != null){
-					old.next = element.next;
-					element = null;
-				}
-			}
-			//deletes current element			
-			public Iterator<Q> iterator(){
-				return element.set.iterator();
-			}
-		};
-		return mit;
+		return null;
 	}
-	//returns an Iterator for
+	// returns an iterator for the sequence
 }
