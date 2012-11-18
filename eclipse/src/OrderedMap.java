@@ -52,6 +52,7 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 		return new MapIterator<P, Q>() {
 
 			MapElement current = startElement;
+			
 
 			@Override
 			public boolean hasNext() {
@@ -81,7 +82,7 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 
 			@Override
 			public void add(P element) {
-				// TODO implement
+				insert(element);
 			}
 			// Inserts the specified element into the list. The element is
 			// inserted immediately before the next element that would be
@@ -89,8 +90,7 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 
 			@Override
 			public Iterator<Q> iterator() {
-				// TODO implement
-				return null;
+				return current.set.iterator();
 			}
 			// returns an iterator for the sequence of Q-type elements, that are
 			// referenced by the current P-type element
