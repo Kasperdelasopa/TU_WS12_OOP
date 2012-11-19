@@ -5,5 +5,5 @@ public interface Shorter<P> {
 	
 	public boolean shorter(P element);
 	// @param element != null;
-	// returns true if element is shorter than the current instance.
+	// returns true if the current instance is shorter than element.
 }
