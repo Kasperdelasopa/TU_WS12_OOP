@@ -26,32 +26,19 @@ public class Set<P> implements Iterable<P> {
 	protected SetElement startElement = null;
 
 	public void insert(P element) {
-		SetElement insertPosition = getInsertPosition();
-
-		if (insertPosition == null) {
-			startElement = new SetElement(element, null, null);
-		} else {
-			SetElement successor = insertPosition.next;
-			insertPosition.next = new SetElement(element, insertPosition, successor);
-		}
-	}
-
-	// @param element != null;
-	// inserts the given element at the end of the sequence.
-
-	protected SetElement getInsertPosition() {
 		SetElement current = startElement;
 
-		if (current != null) {
-			while (current.next != null) {
+		if (current == null) {
+			startElement = new SetElement(element, null, null);
+		} else {
+			while(current.next != null) {
 				current = current.next;
 			}
+			current.next = new SetElement(element, current, null);
 		}
-		return current;
 	}
-
 	// @param element != null;
-	// returns the predecessor of the given element
+	// inserts the given element at the end of the sequence.
 
 	@Override
 	public Iterator<P> iterator() {

@@ -1,6 +1,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+
 public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 	// instances are sorted containers, which use the Shorter.shorter()
 	// method for comparison of elements. An instance of P can point
@@ -35,19 +36,8 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 
 	@Override
 	public void insert(P element) {
-		SetElement insertPosition = getInsertPosition(element);
-		if (insertPosition == null) {
-			startElement = new MapElement(element, null, null);
-		} else {
-			if(insertPosition == startElement) {
-				startElement.previous = new MapElement(element, null, insertPosition); 
-				startElement = startElement.previous; 
-			} else {
-				MapElement insertElement =  new MapElement(element, insertPosition.previous, insertPosition);
-				insertPosition.previous.next = insertElement;
-				insertPosition.previous = insertElement;
-			}
-		}
+		MapElement sequenceElement = new MapElement(element, getPredecessor(element), getSuccessor(element));
+		reconnectSequenceElement(sequenceElement);		
 	}
 	// @param element != null;
 	// inserts the given element at its correct position
@@ -55,10 +45,9 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 	@Override
 	public MapIterator<P, Q> iterator() {
 		return new MapIterator<P, Q>() {
-
+			
 			MapElement current = startElement;
 			
-
 			@Override
 			public boolean hasNext() {
 				return (current != null);
