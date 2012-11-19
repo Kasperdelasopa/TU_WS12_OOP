@@ -1,9 +1,40 @@
 
+
 public class Test {
 
 	public static void main(String[] args) {
-
-		Description desc1 = new Description("abcdefgh");
+		
+		System.out.println("###############################################################");
+		System.out.println("#######-FALL 1-################################################");
+		
+		OrderedSet<Description> ordered = new OrderedSet<Description>();
+		
+		ordered.insert(new Description("zeile1\nzeile2\nzeile3\nzeile4\nzeile4"));
+		ordered.insert(new Description("1234"));		
+		ordered.insert(new Description("xyz\nxyz"));
+		ordered.insert(new Description("first\nsecond\nthird"));
+		ordered.insert(new Description("abcd"));
+		
+		for(Description e: ordered)
+		{
+			System.out.println(e.getLineCount());
+		}
+		ordered.insert(new Description("abcd"));
+		ordered.insert(new Description("abcd"));
+		System.out.println("---------------");
+		for(Description e: ordered)
+		{
+			System.out.println(e.getLineCount());
+		}
+		System.out.println("###############################################################");
+		System.out.println("#######-FALL 2-################################################");
+		
+		System.out.println("###############################################################");
+		System.out.println("#######-FALL 3-################################################");
+		
+		System.out.println("###############################################################");
+		System.out.println("#######-FALL 4-################################################");
+	/*	Description desc1 = new Description("abcdefgh");
 		Description desc2 = new Description("abcd");
 		System.out.println("Desc1:"+desc1.toString());
 		System.out.println("Desc2:"+desc2.toString());
@@ -25,7 +56,7 @@ public class Test {
 		System.out.println("Comp1 lowest:"+comp1.getMinimumTime() + ", Anzahl: " + comp1.count());
 		System.out.println("Comp2 lowest:"+comp2.getMinimumTime() + ", Anzahl: " + comp2.count());
 		if(comp1.shorter(comp2)) System.out.println("Comp1 is lower");else System.out.println("Comp2 is shorter");
-		
+		*/
 		
 	
 		 
