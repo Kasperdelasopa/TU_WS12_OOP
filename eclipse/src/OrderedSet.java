@@ -8,8 +8,14 @@ public class OrderedSet<P extends Shorter<P>> extends Set<P> {
 		if (insertPosition == null) {
 			startElement = new SetElement(element, null, null);
 		} else {
-			SetElement successor = insertPosition.next;
-			insertPosition.next = new SetElement(element, insertPosition, successor);
+			if(insertPosition == startElement) {
+				startElement.previous = new SetElement(element, null, insertPosition); 
+				startElement = startElement.previous; 
+			} else {
+				SetElement insertElement =  new SetElement(element, insertPosition.previous, insertPosition);
+				insertPosition.previous.next = insertElement;
+				insertPosition.previous = insertElement;
+			}
 		}
 	}
 	// @param element != null;
@@ -26,5 +32,5 @@ public class OrderedSet<P extends Shorter<P>> extends Set<P> {
 		return current;
 	}
 	// @param element != null;
-	// returns the predecessor of the given element
+	// returns the successor of the given element
 }

@@ -17,7 +17,7 @@ public class Test {
 		
 		for(Description e: ordered)
 		{
-			System.out.println(e.getLineCount());
+			System.out.println(e.toString().length());
 		}
 		ordered.insert(new Description("abcd"));
 		ordered.insert(new Description("abcd"));

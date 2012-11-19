@@ -39,9 +39,14 @@ public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
 		if (insertPosition == null) {
 			startElement = new MapElement(element, null, null);
 		} else {
-			SetElement successor = insertPosition.next;
-			insertPosition.next = new MapElement(element, insertPosition,
-					successor);
+			if(insertPosition == startElement) {
+				startElement.previous = new MapElement(element, null, insertPosition); 
+				startElement = startElement.previous; 
+			} else {
+				MapElement insertElement =  new MapElement(element, insertPosition.previous, insertPosition);
+				insertPosition.previous.next = insertElement;
+				insertPosition.previous = insertElement;
+			}
 		}
 	}
 	// @param element != null;
