@@ -1,10 +1,10 @@
 
-public class Description<P> implements Shorter<P>{
+public class Description implements Shorter<Description>{
 
 	private String text;
 	
-	public Description(P element){
-		this.text=element.toString();
+	public Description(String text){
+		this.text=text;
 	}
 	
 	public int getLineCount() {
@@ -13,7 +13,7 @@ public class Description<P> implements Shorter<P>{
 	}
 	
 	@Override
-	public boolean shorter(P element) {
+	public boolean shorter(Description element) {
 		if(this.toString().length() < element.toString().length()) return true;
 		return false;
 	}
