@@ -44,6 +44,7 @@ public class Set<P> implements Iterable<P> {
 		return new SetIterator<P>() {
 			
 			SetElement current = startElement;
+			SetElement oldStart = startElement;
 
 			@Override
 			public boolean hasNext() {
@@ -74,6 +75,9 @@ public class Set<P> implements Iterable<P> {
 			@Override
 			public void add(P element) {
 				insert(element);
+				if(current == oldStart) {
+					current = startElement;
+				}
 			}
 		};
 	}
