@@ -105,10 +105,9 @@ public class Test {
 		
 		OrderedSet<MeanElapsedTime> testSet = (OrderedSet<MeanElapsedTime>) map;
 		
-		for(MeanElapsedTime e: map)
+		for(MeanElapsedTime e: testSet)
 		{
 			System.out.println(  e.getHighestMeasurement());
-			
 		}
 		System.out.println("=================after adding more instances================");
 		
