@@ -37,21 +37,20 @@ public class Test {
 		Double [] x1 = {1.0, 2.0, 4.3};
 		CompositeTime comp1 = new CompositeTime(x1);
 		
-		/*
+		
 		map.insert(new MeanElapsedTime(2.0));
 		map.insert(new MeanElapsedTime(1.0));
 		map.insert(new MeanElapsedTime(3.0));
 		
 		MapIterator<MeanElapsedTime, CompositeTime> i = map.iterator();
 		i.add(new MeanElapsedTime(2.0));
-		System.out.println("X:"+ i.next());
 		while(i.hasNext())
 		{
-			System.out.println("1");
+			System.out.println(i.next().getHighestMeasurement());
 			//map.iterator().add(comp1);
 			
 		}
-		*/
+		
 		System.out.println("###############################################################");
 		System.out.println("#######-FALL 3-################################################");
 		

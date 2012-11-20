@@ -32,8 +32,6 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 		// returns an iterator to access the Q references of value P
 	}
 
-	protected MapElement startElement = null;
-
 	@Override
 	public void insert(P element) {
 		MapElement sequenceElement = new MapElement(element, getPredecessor(element), getSuccessor(element));
@@ -46,8 +44,8 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 	public MapIterator<P, Q> iterator() {
 		return new MapIterator<P, Q>() {
 			
-			MapElement current = startElement;
-			
+			SetElement current = startElement;
+						
 			@Override
 			public boolean hasNext() {
 				return (current != null);
@@ -56,9 +54,9 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 			@Override
 			public P next() {
 				if (hasNext()) {
-					MapElement element = current;
+					P value = current.value;
 					current = current.next;
-					return element.value;
+					return value;
 				} else {
 					throw new NoSuchElementException();
 				}
@@ -82,12 +80,19 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 			// inserted immediately before the next element that would be
 			// returned by next, if any.
 
+			@SuppressWarnings("unchecked")
 			@Override
 			public Iterator<Q> iterator() {
-				return current.set.iterator();
+				if(current != null) {
+					if(current instanceof OrderedMap.MapElement) {
+						return ((MapElement)current).set.iterator();
+					}
+				} 
+				return null;
 			}
 			// returns an iterator for the sequence of Q-type elements, that are
-			// referenced by the current P-type element
+			// referenced by the current P-type element or null if there are no
+			// such elements.
 		};
 	}
 	// returns an iterator for the sequence
