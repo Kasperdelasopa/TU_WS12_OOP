@@ -10,7 +10,7 @@ public class OrderedSet<P extends Shorter<? super P>> extends Set<P> {
 	// @param element != null;
 	// inserts the given element at its correct position
 
-	protected SetElement getPredecessor(P element) {
+	private SetElement getPredecessor(P element) {
 		SetElement current = startElement;
 		SetElement prev = null;
 		
@@ -27,7 +27,7 @@ public class OrderedSet<P extends Shorter<? super P>> extends Set<P> {
 	// @param element != null;
 	// returns the preceding element inside the sequence.
 	
-	protected SetElement getSuccessor(P element) {
+	private SetElement getSuccessor(P element) {
 		SetElement current = startElement;
 		
 		while(current != null) {
@@ -42,7 +42,7 @@ public class OrderedSet<P extends Shorter<? super P>> extends Set<P> {
 	// @param element != null;
 	// returns the succeeding element inside the sequence.
 	
-	protected void reconnectSequenceElement(SetElement element) {
+	private void reconnectSequenceElement(SetElement element) {
 		if(element.previous == null) {
 			startElement = element;
 		} else {

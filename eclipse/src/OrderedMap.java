@@ -1,6 +1,4 @@
-import java.util.Iterator;
 import java.util.NoSuchElementException;
-
 
 public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 	// instances are sorted containers, which use the Shorter.shorter()
@@ -8,45 +6,94 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 	// to several instances of Q. These elements are accessible through
 	// the iterator.
 
-	protected class MapElement extends SetElement {
+	protected class MapElement {
 		// instances represent single map elements, holding exactly one instance
 		// of P, P's references of type Q and the following element within the
 		// map.
 
+		protected P value;
+		// value != null;
+		
 		protected Set<Q> set;
 		// set != null;
 
 		protected MapElement next;
 		protected MapElement previous;
 
-		public MapElement(P value, SetElement previous, SetElement next) {
-			super(value, previous, next);
+		public MapElement(P value, MapElement previous, MapElement next) {
+			this.next = next;
+			this.previous = previous;
+			this.value = value;
 			set = new Set<Q>();
 		}
 		// value != null;
 		// sets up an internal map element
-
-		public Iterator<Q> getSetIterator() {
-			return set.iterator();
-		}
-		// returns an iterator to access the Q references of value P
 	}
+	
+	protected MapElement startElement;
 
 	@Override
 	public void insert(P element) {
 		MapElement sequenceElement = new MapElement(element, getPredecessor(element), getSuccessor(element));
-		reconnectSequenceElement(sequenceElement);		
+		reconnectSequenceElement(sequenceElement);
 	}
 	// @param element != null;
 	// inserts the given element at its correct position
+	
+	private MapElement getPredecessor(P element) {
+		MapElement current = startElement;
+		MapElement prev = null;
+		
+		while(current != null) {
+			if(current.value.shorter(element)) {
+				prev = current;
+				current = current.next;
+			} else {
+				break;
+			}
+		}
+		return prev;
+	}
+	// @param element != null;
+	// returns the preceding element inside the sequence.
+	
+	private MapElement getSuccessor(P element) {
+		MapElement current = startElement;
+		
+		while(current != null) {
+			if(current.value.shorter(element)) {
+				current = current.next;
+			} else {
+				break;
+			}
+		}
+		return current;
+	}
+	// @param element != null;
+	// returns the succeeding element inside the sequence.
+	
+	private void reconnectSequenceElement(MapElement element) {
+		if(element.previous == null) {
+			startElement = element;
+		} else {
+			element.previous.next = element;
+		}
+		
+		if(element.next != null) {
+			element.next.previous = element;
+		}
+	}
+	// @param element != null;
+	// integrates the element into the sequence by updating the successor and
+	// predecessor, if any.
 
 	@Override
 	public MapIterator<P, Q> iterator() {
 		return new MapIterator<P, Q>() {
 			
-			SetElement current = startElement;
-			SetElement old_Start = startElement;
-						
+			private MapElement current = startElement;
+			private boolean started = false;		
+			
 			@Override
 			public boolean hasNext() {
 				return (current != null);
@@ -55,6 +102,7 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 			@Override
 			public P next() {
 				if (hasNext()) {
+					started = true;
 					P value = current.value;
 					current = current.next;
 					return value;
@@ -76,7 +124,7 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 			@Override
 			public void add(P element) {
 				insert(element);
-				if(current == old_Start) {
+				if(!started && current == null) {
 					current = startElement;
 				}
 			}
@@ -84,15 +132,13 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 			// inserted immediately before the next element that would be
 			// returned by next, if any.
 
-			@SuppressWarnings("unchecked")
 			@Override
 			public SetIterator<Q> iterator() {
 				if(current != null) {
-					if(current instanceof OrderedMap.MapElement) {
-						return ((MapElement)current).set.iterator();
-					}
-				} 
-				return null;
+					return current.set.iterator();
+				} else {
+					return null;
+				}
 			}
 			// returns an iterator for the sequence of Q-type elements, that are
 			// referenced by the current P-type element or null if there are no

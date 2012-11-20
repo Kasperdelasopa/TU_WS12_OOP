@@ -50,9 +50,6 @@ public class Test {
 			SetIterator<CompositeTime> compIterator = i.iterator();
 			if(compIterator != null) {
 				compIterator.add(new CompositeTime(x1));
-				if(compIterator.hasNext()) {
-					System.out.println(compIterator.next().getMinimumTime());
-				}
 			}
 		}
 		
