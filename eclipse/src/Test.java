@@ -6,10 +6,8 @@ public class Test {
 		
 		System.out.println("###############################################################");
 		System.out.println("#######-FALL 1-################################################");
-		
 		OrderedSet<Description> ordered = new OrderedSet<Description>();
-		
-		ordered.insert(new Description("zeile1\nzeile2\nzeile3\nzeile4\nzeile4"));
+		ordered.insert(new Description("zeile1\nzeile2\nzeile3\nzeile4\nzeile5"));
 		ordered.insert(new Description("1234"));		
 		ordered.insert(new Description("xyz\nxyz"));
 		ordered.insert(new Description("first\nsecond\nthird"));
@@ -17,47 +15,49 @@ public class Test {
 		
 		for(Description e: ordered)
 		{
-			System.out.println(e.toString().length());
+			System.out.println(  e.toString());
+			System.out.println("Lines: " +e.getLineCount());
 		}
-		ordered.insert(new Description("abcd"));
-		ordered.insert(new Description("abcd"));
-		System.out.println("---------------");
+		
+		
+		System.out.println("--------------after adding more instances");
+		ordered.insert(new Description("lin1\nlin2\nlin3\nlin4\nlin5\nlin6\nlin7\nlin8"));
+		ordered.insert(new Description("111\222\n333"));
+		ordered.insert(new Description("oneline"));
+		
 		for(Description e: ordered)
 		{
-			System.out.println(e.getLineCount());
+			System.out.println( e.toString());
+			System.out.println("Zeilen: " +e.getLineCount());
 		}
 		System.out.println("###############################################################");
 		System.out.println("#######-FALL 2-################################################");
+		OrderedMap<MeanElapsedTime, CompositeTime> map = new OrderedMap<MeanElapsedTime, CompositeTime>();
 		
+		Double [] x1 = {1.0, 2.0, 4.3};
+		CompositeTime comp1 = new CompositeTime(x1);
+		
+		/*
+		map.insert(new MeanElapsedTime(2.0));
+		map.insert(new MeanElapsedTime(1.0));
+		map.insert(new MeanElapsedTime(3.0));
+		
+		MapIterator<MeanElapsedTime, CompositeTime> i = map.iterator();
+		i.add(new MeanElapsedTime(2.0));
+		System.out.println("X:"+ i.next());
+		while(i.hasNext())
+		{
+			System.out.println("1");
+			//map.iterator().add(comp1);
+			
+		}
+		*/
 		System.out.println("###############################################################");
 		System.out.println("#######-FALL 3-################################################");
 		
 		System.out.println("###############################################################");
 		System.out.println("#######-FALL 4-################################################");
-	/*	Description desc1 = new Description("abcdefgh");
-		Description desc2 = new Description("abcd");
-		System.out.println("Desc1:"+desc1.toString());
-		System.out.println("Desc2:"+desc2.toString());
-		if(desc1.shorter(desc2)) System.out.println("Desc1 is shorter"); else System.out.println("Desc2 is shorter");
-		System.out.println("##########################################");
-		MeanElapsedTime mean1 = new MeanElapsedTime(2.0);
-		mean1.add(6.0);
-		mean1.add(2.0);
-		mean1.add(2.0);
-		MeanElapsedTime mean2 = new MeanElapsedTime(5.0);
-		System.out.println("Mean1 highest:"+mean1.getHighestMeasurement() + ", Anzahl: " + mean1.count());
-		System.out.println("Mean2 highest:"+mean2.getHighestMeasurement() + ", Anzahl: " + mean2.count());
-		if(mean1.shorter(mean2)) System.out.println("Mean1 is lower"); else System.out.println("Mean2 is shorter"); 
-		System.out.println("##########################################"); 
-		Double [] x1 = {1.0, 2.0, 4.3};
-		CompositeTime comp1 = new CompositeTime(x1);
-		Double [] x2 = {1.0, 2.0, 4.4};
-		CompositeTime comp2 = new CompositeTime(x2);
-		System.out.println("Comp1 lowest:"+comp1.getMinimumTime() + ", Anzahl: " + comp1.count());
-		System.out.println("Comp2 lowest:"+comp2.getMinimumTime() + ", Anzahl: " + comp2.count());
-		if(comp1.shorter(comp2)) System.out.println("Comp1 is lower");else System.out.println("Comp2 is shorter");
-		*/
-		
+		OrderedSet<ElapsedTime> ordset = new OrderedSet<ElapsedTime>();
 	
 		 
 		
