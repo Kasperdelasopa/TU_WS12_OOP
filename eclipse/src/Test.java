@@ -103,6 +103,8 @@ public class Test {
 		System.out.println("###############################################################");
 		System.out.println("#######-FALL 3-################################################");
 		
+		OrderedSet<MeanElapsedTime> testSet = (OrderedSet<MeanElapsedTime>) map;
+		
 		for(MeanElapsedTime e: map)
 		{
 			System.out.println(  e.getHighestMeasurement());
@@ -115,13 +117,12 @@ public class Test {
 		MeanElapsedTime meany =  new MeanElapsedTime(8.8);
 		meany.add(45.21);meany.add(10.4);meany.add(1.4);
 		
-		map.insert(meanx);
-		map.insert(meany);
+		testSet.insert(meanx);
+		testSet.insert(meany);
 		
-		for(MeanElapsedTime e: map)
+		for(MeanElapsedTime e: testSet)
 		{
 			System.out.println(  e.getHighestMeasurement());
-			
 		}
 		
 		System.out.println("###############################################################");
