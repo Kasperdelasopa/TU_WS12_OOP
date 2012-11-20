@@ -103,7 +103,7 @@ public class Test {
 		System.out.println("###############################################################");
 		System.out.println("#######-FALL 3-################################################");
 		
-		OrderedSet<MeanElapsedTime> testSet = (OrderedSet<MeanElapsedTime>) map;
+		OrderedSet<MeanElapsedTime> testSet = map;
 		
 		for(MeanElapsedTime e: testSet)
 		{

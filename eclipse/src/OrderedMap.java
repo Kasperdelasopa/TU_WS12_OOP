@@ -30,7 +30,7 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 		// sets up an internal map element
 	}
 	
-	protected MapElement startElement;
+	protected MapElement mapStartElement;
 
 	@Override
 	public void insert(P element) {
@@ -41,7 +41,7 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 	// inserts the given element at its correct position
 	
 	private MapElement getPredecessor(P element) {
-		MapElement current = startElement;
+		MapElement current = mapStartElement;
 		MapElement prev = null;
 		
 		while(current != null) {
@@ -58,7 +58,7 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 	// returns the preceding element inside the sequence.
 	
 	private MapElement getSuccessor(P element) {
-		MapElement current = startElement;
+		MapElement current = mapStartElement;
 		
 		while(current != null) {
 			if(current.value.shorter(element)) {
@@ -74,7 +74,7 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 	
 	private void reconnectSequenceElement(MapElement element) {
 		if(element.previous == null) {
-			startElement = element;
+			mapStartElement = element;
 		} else {
 			element.previous.next = element;
 		}
@@ -91,7 +91,7 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 	public MapIterator<P, Q> iterator() {
 		return new MapIterator<P, Q>() {
 			
-			private MapElement current = startElement;
+			private MapElement current = mapStartElement;
 			private boolean started = false;		
 			
 			@Override
@@ -113,9 +113,9 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 
 			@Override
 			public void remove() {
-				if (current == startElement) {
-					startElement = startElement.next;
-					current = startElement;
+				if (current == mapStartElement) {
+					mapStartElement = mapStartElement.next;
+					current = mapStartElement;
 				} else {
 					current.previous.next = current.next;
 				}
@@ -125,7 +125,7 @@ public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 			public void add(P element) {
 				insert(element);
 				if(!started && current == null) {
-					current = startElement;
+					current = mapStartElement;
 				}
 			}
 			// Inserts the specified element into the list. The element is
