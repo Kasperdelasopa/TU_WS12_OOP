@@ -1,4 +1,3 @@
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Set<P> implements Iterable<P> {
@@ -41,8 +40,8 @@ public class Set<P> implements Iterable<P> {
 	// inserts the given element at the end of the sequence.
 
 	@Override
-	public Iterator<P> iterator() {
-		return new Iterator<P>() {
+	public SetIterator<P> iterator() {
+		return new SetIterator<P>() {
 			
 			SetElement current = startElement;
 
@@ -70,6 +69,11 @@ public class Set<P> implements Iterable<P> {
 				} else {
 					current.previous.next = current.next;
 				}
+			}
+
+			@Override
+			public void add(P element) {
+				insert(element);
 			}
 		};
 	}
