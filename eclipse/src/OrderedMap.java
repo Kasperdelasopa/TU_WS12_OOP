@@ -2,7 +2,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
-public class OrderedMap<P extends Shorter<P>, Q> extends OrderedSet<P> {
+public class OrderedMap<P extends Shorter<? super P>, Q> extends OrderedSet<P> {
 	// instances are sorted containers, which use the Shorter.shorter()
 	// method for comparison of elements. An instance of P can point
 	// to several instances of Q. These elements are accessible through
