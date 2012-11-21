@@ -10,4 +10,10 @@ public abstract class Schwerarbeiter extends Android {
 	protected Skin setSkin(Skin skin) {
 		return skin.setSkinForAndroid(this);
 	}
+	
+	@Override
+	public String toString(){
+		return "Schwerarbeiter";
+	}
+	//returns the description for this class
 }

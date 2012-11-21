@@ -17,4 +17,9 @@ public class Servicetechniker extends Schwerarbeiter {
 		return sensorAktorenKit.setSensorAktorenKitForAndroid(this, software);
 	}
 
+	@Override
+	public String toString(){
+		return "Servicetechniker";
+	}
+	//returns the description for this class
 }

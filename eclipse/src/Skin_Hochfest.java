@@ -11,4 +11,9 @@ public class Skin_Hochfest extends Skin {
 		return null;
 	}
 
+	@Override
+	public String toString(){
+		return "hochfester Skin";
+	}
+	//returns the description for this class
 }

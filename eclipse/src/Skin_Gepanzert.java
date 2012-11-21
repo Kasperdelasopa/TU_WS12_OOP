@@ -10,5 +10,11 @@ public class Skin_Gepanzert extends Skin {
 	public Skin setSkinForAndroid(Beschuetzer beschuetzer) {
 		return this;
 	}
+	
+	@Override
+	public String toString(){
+		return "gepanzerter Skin";
+	}
+	//returns the description for this class
 
 }

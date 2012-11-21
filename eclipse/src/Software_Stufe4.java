@@ -25,5 +25,11 @@ public class Software_Stufe4 extends Software {
 	public Software setSoftwareForAndroid(Beschuetzer beschuetzer) {
 		return this;
 	}
+	
+	@Override
+	public String toString(){
+		return "Software d. Stufe 4";
+	}
+	//returns the description for this class
 
 }

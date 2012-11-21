@@ -11,4 +11,9 @@ public abstract class Beschuetzer extends Android {
 		return skin.setSkinForAndroid(this);
 	}
 
+	@Override
+	public String toString(){
+		return "Beschuetzer";
+	}
+	//returns the description for this class
 }

@@ -10,5 +10,11 @@ public class Skin_Beruehrungsintensiv extends Skin {
 	public Skin setSkinForAndroid(Beschuetzer beschuetzer) {
 		return null;
 	}
+	
+	@Override
+	public String toString(){
+		return "beruerungsempfindlicher Skin";
+	}
+	//returns the description for this class
 
 }

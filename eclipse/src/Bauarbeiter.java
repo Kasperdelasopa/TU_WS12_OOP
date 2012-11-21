@@ -16,5 +16,11 @@ public class Bauarbeiter extends Schwerarbeiter {
 			SensorAktorenKit sensorAktorenKit, Software software) {
 		return sensorAktorenKit.setSensorAktorenKitForAndroid(this, software);
 	}
+	
+	@Override
+	public String toString(){
+		return "Bauarbeiter";
+	}
+	//returns the description for this class
 
 }

@@ -16,5 +16,11 @@ public class Objektbewacher extends Beschuetzer {
 			SensorAktorenKit sensorAktorenKit, Software software) {
 		return sensorAktorenKit.setSensorAktorenKitForAndroid(this, software);
 	}
+	
+	@Override
+	public String toString(){
+		return "Objektwaechter";
+	}
+	//returns the description for this class
 
 }

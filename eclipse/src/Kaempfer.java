@@ -16,4 +16,10 @@ public class Kaempfer extends Beschuetzer {
 			SensorAktorenKit sensorAktorenKit, Software software) {
 		return sensorAktorenKit.setSensorAktorenKitForAndroid(this);
 	}
+	
+	@Override
+	public String toString(){
+		return "Kämpfer";
+	}
+	//returns the description for this class
 }

@@ -25,5 +25,11 @@ public class Software_Stufe5 extends Software {
 	public Software setSoftwareForAndroid(Beschuetzer beschuetzer) {
 		return null;
 	}
+	
+	@Override
+	public String toString(){
+		return "Software d. Stufe 5";
+	}
+	//returns the description for this class
 
 }

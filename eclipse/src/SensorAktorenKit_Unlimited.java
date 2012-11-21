@@ -29,4 +29,9 @@ public class SensorAktorenKit_Unlimited extends SensorAktorenKit {
 		return null;
 	}
 
+	@Override
+	public String toString(){
+		return "unlimitiertes Sensor-Aktor-Kit";
+	}
+	//returns the description for this class
 }

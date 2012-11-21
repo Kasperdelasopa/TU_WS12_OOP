@@ -17,4 +17,9 @@ public class Hilfskraft extends Bediener {
 		return sensorAktorenKit.setSensorAktorenKitForAndroid(this);
 	}
 
+	@Override
+	public String toString(){
+		return "Hilfskraft";
+	}
+	//returns the description for this class
 }

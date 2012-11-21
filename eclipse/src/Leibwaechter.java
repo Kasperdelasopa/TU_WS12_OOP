@@ -17,4 +17,9 @@ public class Leibwaechter extends Beschuetzer {
 		return sensorAktorenKit.setSensorAktorenKitForAndroid(this, software);
 	}
 
+	@Override
+	public String toString(){
+		return "Leibwaechter";
+	}
+	//returns the description for this class
 }
