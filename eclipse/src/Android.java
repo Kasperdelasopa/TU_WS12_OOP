@@ -14,10 +14,14 @@ public abstract class Android {
 	public Android(int serienNummer, Skin skin, Software software, SensorAktorenKit kit) {
 		
 		this.serienNummer = serienNummer;
+		
+		skin.setSerienNummer(serienNummer);
+		software.setSerienNummer(serienNummer);
+		kit.setSerienNummer(serienNummer);
+		
 		this.skin = setSkin(skin);
 		this.software = setSoftware(software);
 		this.sensorenAktorenKit = setSensorAktorenKit(kit, this.software);
-		
 	}
 	
 	public int getSerienNummer() {
