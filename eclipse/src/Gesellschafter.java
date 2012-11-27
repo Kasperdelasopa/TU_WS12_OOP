@@ -20,5 +20,10 @@ public class Gesellschafter extends Bediener {
 	}
 	//null will be allowed if this Android to use the given SensorActor Kit and Software
 	//else the object itself will be returned
-
+	
+	@Override
+	public String toString(){
+		return "Gesellschafter";
+	}
+	//returns the description for this class
 }
