@@ -10,12 +10,16 @@ public class Objektbewacher extends Beschuetzer {
 	protected Software setSoftware(Software software) {
 		return software.setSoftwareForAndroid(this);
 	}
+	//null will be allowed if this Android to use the given Software
+	//else the object itself will be returned
 
 	@Override
 	protected SensorAktorenKit setSensorAktorenKit(
 			SensorAktorenKit sensorAktorenKit, Software software) {
 		return sensorAktorenKit.setSensorAktorenKitForAndroid(this, software);
 	}
+	//null will be allowed if this Android to use the given SensorActor Kit and Software
+	//else the object itself will be returned
 	
 	@Override
 	public String toString(){

@@ -10,5 +10,7 @@ public abstract class Bediener extends Android {
 	protected Skin setSkin(Skin skin) {
 		return skin.setSkinForAndroid(this);
 	}
+	//null will be allowed if this Android to use the given skin
+	//else the object itself will be returned
 	
 }

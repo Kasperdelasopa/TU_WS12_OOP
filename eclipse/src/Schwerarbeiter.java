@@ -10,6 +10,8 @@ public abstract class Schwerarbeiter extends Android {
 	protected Skin setSkin(Skin skin) {
 		return skin.setSkinForAndroid(this);
 	}
+	//null will be allowed if this Android to use the given skin
+	//else the object itself will be returned
 	
 	@Override
 	public String toString(){
