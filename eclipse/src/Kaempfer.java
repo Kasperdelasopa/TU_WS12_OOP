@@ -23,7 +23,7 @@ public class Kaempfer extends Beschuetzer {
 	
 	@Override
 	public String toString(){
-		return "Kämpfer";
+		return "Kaempfer";
 	}
 	//returns the description for this class
 }

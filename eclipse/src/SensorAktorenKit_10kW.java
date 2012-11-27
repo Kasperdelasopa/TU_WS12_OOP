@@ -17,22 +17,6 @@ public class SensorAktorenKit_10kW extends SensorAktorenKit {
 
 	@Override
 	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android,
-			Software_Stufe3 software) {
-		return null;
-	}
-	//a android with Software-Level 3 is not allowed to use a 10KW SensorAktorKit
-	//null will be returned instead of an error message 
-
-	@Override
-	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android,
-			Software_Stufe4 software) {
-		return this;
-	}
-	//a android with a Software-Level 4 is allowed to use a 10KW SensorAktorKit
-	//so this object will be returned; 
-
-	@Override
-	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android,
 			Software software) {
 		return null;
 	}

@@ -18,22 +18,6 @@ public class SensorAktorenKit_1kW extends SensorAktorenKit {
 
 	@Override
 	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android,
-			Software_Stufe3 software) {
-		return this;
-	}
-	//a Android with Software Level 3 is allowed to use a 1KW SensorAktorKit
-	//so this object will be returned;
-
-	@Override
-	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android,
-			Software_Stufe4 software) {
-		return this;
-	}
-	//a Android with Software Level 4 is allowed to use a 1KW SensorAktorKit
-	//so this object will be returned;
-
-	@Override
-	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android,
 			Software software) {
 		return this;
 	}
