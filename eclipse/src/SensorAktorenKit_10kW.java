@@ -16,9 +16,8 @@ public class SensorAktorenKit_10kW extends SensorAktorenKit {
 	//so this object will be returned; 
 
 	@Override
-	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android,
-			Software software) {
-		return null;
+	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android) {
+		return android.getSoftware().setSensorAktorenKitForSoftware(this);
 	}
 	//for any other android null will be returned; 
 

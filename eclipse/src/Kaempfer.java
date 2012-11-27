@@ -15,7 +15,7 @@ public class Kaempfer extends Beschuetzer {
 
 	@Override
 	protected SensorAktorenKit setSensorAktorenKit(
-			SensorAktorenKit sensorAktorenKit, Software software) {
+			SensorAktorenKit sensorAktorenKit) {
 		return sensorAktorenKit.setSensorAktorenKitForAndroid(this);
 	}
 	//null will be allowed if this Android to use the given SensorActor Kit and Software

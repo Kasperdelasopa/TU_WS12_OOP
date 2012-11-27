@@ -16,4 +16,22 @@ public class Software_Bauarbeiter_Stufe3 extends Software_Schwerarbeiter {
 		return null;
 	}
 
+	@Override
+	public SensorAktorenKit setSensorAktorenKitForSoftware(
+			SensorAktorenKit_1kW sensorAktorenKit) {
+		return sensorAktorenKit;
+	}
+
+	@Override
+	public SensorAktorenKit setSensorAktorenKitForSoftware(
+			SensorAktorenKit_5kW sensorAktorenKit) {
+		return sensorAktorenKit;
+	}
+
+	@Override
+	public SensorAktorenKit setSensorAktorenKitForSoftware(
+			SensorAktorenKit_10kW sensorAktorenKit) {
+		return null;
+	}
+
 }

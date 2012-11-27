@@ -41,4 +41,22 @@ public class Software_Kaempfer_Stufe5 extends Software {
 		return this;
 	}
 
+	@Override
+	public SensorAktorenKit setSensorAktorenKitForSoftware(
+			SensorAktorenKit_1kW sensorAktorenKit) {
+		return sensorAktorenKit;
+	}
+
+	@Override
+	public SensorAktorenKit setSensorAktorenKitForSoftware(
+			SensorAktorenKit_5kW sensorAktorenKit) {
+		return sensorAktorenKit;
+	}
+
+	@Override
+	public SensorAktorenKit setSensorAktorenKitForSoftware(
+			SensorAktorenKit_10kW sensorAktorenKit) {
+		return sensorAktorenKit;
+	}
+
 }

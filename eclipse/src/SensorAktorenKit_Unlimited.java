@@ -16,8 +16,7 @@ public class SensorAktorenKit_Unlimited extends SensorAktorenKit {
 	//so this object will be returned;
 
 	@Override
-	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android,
-			Software software) {		
+	public SensorAktorenKit setSensorAktorenKitForAndroid(Android android) {		
 		return null;
 	}
 	//any Android else with eany Softwarw is not allowed to use a unlimitd SensorAktorKit

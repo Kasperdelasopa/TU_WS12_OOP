@@ -1,6 +1,6 @@
 
-public class Software_Servicetechniker_Stufe4 extends
-		Software_Servicetechniker_Stufe3 {
+public class Software_Transportarbeiter_Stufe4 extends
+		Software_Transportarbeiter_Stufe3 {
 
 	@Override
 	public SensorAktorenKit setSensorAktorenKitForSoftware(

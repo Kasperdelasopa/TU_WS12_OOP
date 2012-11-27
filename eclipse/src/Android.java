@@ -8,7 +8,7 @@ public abstract class Android {
 	private SensorAktorenKit sensorenAktorenKit;
 	
 	protected abstract Software setSoftware(Software software);
-	protected abstract SensorAktorenKit setSensorAktorenKit(SensorAktorenKit sensorAktorenKit, Software software);
+	protected abstract SensorAktorenKit setSensorAktorenKit(SensorAktorenKit sensorAktorenKit);
 	protected abstract Skin setSkin(Skin skin);
 	
 	public Android(int serienNummer, Skin skin, Software software, SensorAktorenKit kit) {
@@ -21,7 +21,9 @@ public abstract class Android {
 		
 		this.skin = setSkin(skin);
 		this.software = setSoftware(software);
-		this.sensorenAktorenKit = setSensorAktorenKit(kit, this.software);
+		if(this.software != null) {
+			this.sensorenAktorenKit = setSensorAktorenKit(kit);
+		}
 	}
 	
 	public int getSerienNummer() {

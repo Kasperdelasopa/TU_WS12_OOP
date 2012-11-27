@@ -15,8 +15,8 @@ public class Servicetechniker extends Schwerarbeiter {
 
 	@Override
 	protected SensorAktorenKit setSensorAktorenKit(
-			SensorAktorenKit sensorAktorenKit, Software software) {
-		return sensorAktorenKit.setSensorAktorenKitForAndroid(this, software);
+			SensorAktorenKit sensorAktorenKit) {
+		return sensorAktorenKit.setSensorAktorenKitForAndroid(this);
 	}
 	//null will be allowed if this Android to use the given software and sensor actor kit
 	//else the object itself will be returned

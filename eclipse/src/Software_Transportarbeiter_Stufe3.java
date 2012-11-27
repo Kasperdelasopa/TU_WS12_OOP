@@ -1,15 +1,5 @@
 
-public class Software_Objektbewacher_Stufe4 extends Software {
-
-	@Override
-	public Software setSoftwareForAndroid(Hilfskraft android) {
-		return null;
-	}
-
-	@Override
-	public Software setSoftwareForAndroid(Gesellschafter android) {
-		return null;
-	}
+public class Software_Transportarbeiter_Stufe3 extends Software_Schwerarbeiter {
 
 	@Override
 	public Software setSoftwareForAndroid(Bauarbeiter android) {
@@ -23,22 +13,7 @@ public class Software_Objektbewacher_Stufe4 extends Software {
 
 	@Override
 	public Software setSoftwareForAndroid(Transportarbeiter android) {
-		return null;
-	}
-
-	@Override
-	public Software setSoftwareForAndroid(Objektbewacher android) {
 		return this;
-	}
-
-	@Override
-	public Software setSoftwareForAndroid(Leibwaechter android) {
-		return null;
-	}
-
-	@Override
-	public Software setSoftwareForAndroid(Kaempfer android) {
-		return null;
 	}
 
 	@Override
@@ -56,7 +31,7 @@ public class Software_Objektbewacher_Stufe4 extends Software {
 	@Override
 	public SensorAktorenKit setSensorAktorenKitForSoftware(
 			SensorAktorenKit_10kW sensorAktorenKit) {
-		return sensorAktorenKit;
+		return null;
 	}
 
 }

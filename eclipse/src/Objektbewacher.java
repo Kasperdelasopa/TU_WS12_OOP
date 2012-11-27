@@ -15,8 +15,8 @@ public class Objektbewacher extends Beschuetzer {
 
 	@Override
 	protected SensorAktorenKit setSensorAktorenKit(
-			SensorAktorenKit sensorAktorenKit, Software software) {
-		return sensorAktorenKit.setSensorAktorenKitForAndroid(this, software);
+			SensorAktorenKit sensorAktorenKit) {
+		return sensorAktorenKit.setSensorAktorenKitForAndroid(this);
 	}
 	//null will be allowed if this Android to use the given SensorActor Kit and Software
 	//else the object itself will be returned
