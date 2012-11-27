@@ -3,6 +3,7 @@ public abstract class Android {
 	// instances repersent android robots
 	
 	private int serienNummer; 
+	// serienNummer > 0
 	private Skin skin;
 	private Software software;
 	private SensorAktorenKit sensorenAktorenKit;
@@ -25,6 +26,10 @@ public abstract class Android {
 			this.sensorenAktorenKit = setSensorAktorenKit(kit);
 		}
 	}
+	// @param serienNummer > 0;
+	// @param skin != null; skin.getSerienNummer() == this.serienNummer;
+	// @param software != null; software.getSerienNummer() == this.serienNummer; 
+	// @param kit != null; kit.getSerienNummer() == this.serienNummer;
 	
 	public int getSerienNummer() {
 		return serienNummer;
