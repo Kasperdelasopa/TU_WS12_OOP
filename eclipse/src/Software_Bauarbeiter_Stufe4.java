@@ -6,6 +6,8 @@ public class Software_Bauarbeiter_Stufe4 extends Software_Bauarbeiter_Stufe3 {
 			SensorAktorenKit_10kW sensorAktorenKit) {
 		return sensorAktorenKit;
 	}
+	//SensorAktorenKit_10kW is allowed in this object
+	//so it will be returned
 	
 	@Override
 	public String toString(){

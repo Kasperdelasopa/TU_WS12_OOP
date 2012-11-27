@@ -7,6 +7,8 @@ public class Software_Transportarbeiter_Stufe4 extends
 			SensorAktorenKit_10kW sensorAktorenKit) {
 		return sensorAktorenKit;
 	}
+	//SensorAktorenKit_10kW is allowed in this object
+	//so it will be returned
 	
 	@Override
 	public String toString(){

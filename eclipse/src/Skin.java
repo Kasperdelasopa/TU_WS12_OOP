@@ -6,4 +6,6 @@ public abstract class Skin extends AbstractAndroidPart {
 	public Skin setSkinForAndroid(Android android) {
 		return this;
 	}
+	//ervery Android is alowed to use a skin
+	//this object will be returned
 }
