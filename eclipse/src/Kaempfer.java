@@ -1,4 +1,3 @@
-
 public class Kaempfer extends Beschuetzer {
 
 	public Kaempfer(int serienNummer, Skin skin, Software software,
@@ -7,23 +6,23 @@ public class Kaempfer extends Beschuetzer {
 	}
 
 	@Override
-	protected Software setSoftware(Software software) {
-		return software.setSoftwareForAndroid(this);
+	public void setSoftware(Software software) {
+		this.software = software.setSoftwareForAndroid(this);
 	}
-	//null will be allowed if this Android to use the given Software
-	//else the object itself will be returned
+	// @param software != null; software.getSerienNummer() == this.getSerienNummer()
+	// sets the software if it does not violate the android rules
 
 	@Override
-	protected SensorAktorenKit setSensorAktorenKit(
-			SensorAktorenKit sensorAktorenKit) {
-		return sensorAktorenKit.setSensorAktorenKitForAndroid(this);
+	public void setSensorAktorenKit(SensorAktorenKit sensorAktorenKit) {
+		this.sensorenAktorenKit = sensorAktorenKit
+				.setSensorAktorenKitForAndroid(this);
 	}
-	//null will be allowed if this Android to use the given SensorActor Kit and Software
-	//else the object itself will be returned
-	
+	// @param sensorAktorenKit != null; sensorAktorenKit.getSerienNummer() == this.getSerienNummer()
+	// sets the SensorAktorKit if it does not violate the android rules
+
 	@Override
-	public String toString(){
+	public String toString() {
 		return "Kaempfer";
 	}
-	//returns the description for this class
+	// returns the description for this class
 }

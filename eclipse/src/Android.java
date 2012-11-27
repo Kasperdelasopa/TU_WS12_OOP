@@ -4,13 +4,21 @@ public abstract class Android {
 	
 	private int serienNummer; 
 	// serienNummer > 0
-	private Skin skin;
-	private Software software;
-	private SensorAktorenKit sensorenAktorenKit;
+	protected Skin skin;
+	protected Software software;
+	protected SensorAktorenKit sensorenAktorenKit;
 	
-	protected abstract Software setSoftware(Software software);
-	protected abstract SensorAktorenKit setSensorAktorenKit(SensorAktorenKit sensorAktorenKit);
-	protected abstract Skin setSkin(Skin skin);
+	public abstract void setSoftware(Software software);
+	// @param software != null; software.getSerienNummer() == this.getSerienNummer()
+	// sets the software if it does not violate the android rules
+	
+	public abstract void setSensorAktorenKit(SensorAktorenKit sensorAktorenKit);
+	// @param sensorAktorenKit != null; sensorAktorenKit.getSerienNummer() == this.getSerienNummer()
+	// sets the SensorAktorKit if it does not violate the android rules
+	
+	public abstract void setSkin(Skin skin);
+	// @param skin != null; skin.getSerienNummer() == this.getSerienNummer()
+	// sets the skin if it does not violate the android rules
 	
 	public Android(int serienNummer, Skin skin, Software software, SensorAktorenKit kit) {
 		
@@ -20,10 +28,10 @@ public abstract class Android {
 		software.setSerienNummer(serienNummer);
 		kit.setSerienNummer(serienNummer);
 		
-		this.skin = setSkin(skin);
-		this.software = setSoftware(software);
+		setSkin(skin);
+		setSoftware(software);
 		if(this.software != null) {
-			this.sensorenAktorenKit = setSensorAktorenKit(kit);
+			setSensorAktorenKit(kit);
 		}
 	}
 	// @param serienNummer > 0;

@@ -7,16 +7,15 @@ public class Gesellschafter extends Bediener {
 	}
 
 	@Override
-	protected Software setSoftware(Software software) {
-		return software.setSoftwareForAndroid(this);
+	public void setSoftware(Software software) {
+		this.software = software.setSoftwareForAndroid(this);
 	}
 	//null will be allowed if this Android to use the given Software
 	//else the object itself will be returned
 
 	@Override
-	protected SensorAktorenKit setSensorAktorenKit(
-			SensorAktorenKit sensorAktorenKit) {
-		return sensorAktorenKit.setSensorAktorenKitForAndroid(this);
+	public void setSensorAktorenKit(SensorAktorenKit sensorAktorenKit) {
+		this.sensorenAktorenKit = sensorAktorenKit.setSensorAktorenKitForAndroid(this);
 	}
 	//null will be allowed if this Android to use the given SensorActor Kit and Software
 	//else the object itself will be returned

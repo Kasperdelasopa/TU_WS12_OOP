@@ -7,19 +7,19 @@ public class Transportarbeiter extends Schwerarbeiter {
 	}
 
 	@Override
-	protected Software setSoftware(Software software) {
-		return software.setSoftwareForAndroid(this);
+	public void setSoftware(Software software) {
+		this.software = software.setSoftwareForAndroid(this);
 	}
-	//null will be allowed if this Android to use the given software
-	//else the object itself will be returned
+	// @param software != null; software.getSerienNummer() == this.getSerienNummer()
+	// sets the software if it does not violate the android rules
 
 	@Override
-	protected SensorAktorenKit setSensorAktorenKit(
+	public void setSensorAktorenKit(
 			SensorAktorenKit sensorAktorenKit) {
-		return sensorAktorenKit.setSensorAktorenKitForAndroid(this);
+		this.sensorenAktorenKit = sensorAktorenKit.setSensorAktorenKitForAndroid(this);
 	}
-	//null will be allowed if this Android to use the given software and sensor actor kit
-	//else the object itself will be returned
+	// @param sensorAktorenKit != null; sensorAktorenKit.getSerienNummer() == this.getSerienNummer()
+	// sets the SensorAktorKit if it does not violate the android rules
 	
 	@Override
 	public String toString(){

@@ -7,12 +7,12 @@ public abstract class Beschuetzer extends Android {
 	}
 	
 	@Override
-	protected Skin setSkin(Skin skin) {
-		return skin.setSkinForAndroid(this);
+	public void setSkin(Skin skin) {
+		this.skin = skin.setSkinForAndroid(this);
 	}
-	//null will be allowed if this Android to use the given skin
-	//else the object itself will be returned
-
+	// @param skin != null; skin.getSerienNummer() == this.getSerienNummer()
+	// sets the skin if it does not violate the android rules
+	
 	@Override
 	public String toString(){
 		return "Beschuetzer";
