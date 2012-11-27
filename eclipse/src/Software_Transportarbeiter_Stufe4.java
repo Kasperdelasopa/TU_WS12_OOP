@@ -8,4 +8,9 @@ public class Software_Transportarbeiter_Stufe4 extends
 		return sensorAktorenKit;
 	}
 	
+	@Override
+	public String toString(){
+		return "Transportarbeiter-Software d. Stufe 4";
+	}
+	//returns the description for this class
 }

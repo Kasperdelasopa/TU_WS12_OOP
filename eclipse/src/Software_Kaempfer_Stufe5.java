@@ -58,5 +58,11 @@ public class Software_Kaempfer_Stufe5 extends Software {
 			SensorAktorenKit_10kW sensorAktorenKit) {
 		return sensorAktorenKit;
 	}
+	
+	@Override
+	public String toString(){
+		return "Kaempfer-Software d. Stufe 5";
+	}
+	//returns the description for this class
 
 }

@@ -8,4 +8,10 @@ public class Software_Servicetechniker_Stufe4 extends
 		return sensorAktorenKit;
 	}
 	
+	@Override
+	public String toString(){
+		return "Servicetechniker-Software d. Stufe 4";
+	}
+	//returns the description for this class
+	
 }

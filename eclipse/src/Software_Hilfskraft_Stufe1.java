@@ -58,5 +58,11 @@ public class Software_Hilfskraft_Stufe1 extends Software {
 			SensorAktorenKit_10kW sensorAktorenKit) {
 		return null;
 	}
+	
+	@Override
+	public String toString(){
+		return "Hilfskraft-Software d. Stufe 1";
+	}
+	//returns the description for this class
 
 }

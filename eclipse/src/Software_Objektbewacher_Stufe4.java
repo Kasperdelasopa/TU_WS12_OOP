@@ -58,5 +58,11 @@ public class Software_Objektbewacher_Stufe4 extends Software {
 			SensorAktorenKit_10kW sensorAktorenKit) {
 		return sensorAktorenKit;
 	}
+	
+	@Override
+	public String toString(){
+		return "Objektbewacher-Software d. Stufe 4";
+	}
+	//returns the description for this class
 
 }

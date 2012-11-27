@@ -59,4 +59,9 @@ public class Software_Leibwaechter_Stufe4 extends Software {
 		return sensorAktorenKit;
 	}
 
+	@Override
+	public String toString(){
+		return "Leibwaechter-Software d. Stufe 4";
+	}
+	//returns the description for this class
 }

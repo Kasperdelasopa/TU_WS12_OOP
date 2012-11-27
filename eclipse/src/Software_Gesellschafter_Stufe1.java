@@ -59,4 +59,9 @@ public class Software_Gesellschafter_Stufe1 extends Software {
 		return null;
 	}
 
+	@Override
+	public String toString(){
+		return "Gesellschafter-Software d. Stufe 1";
+	}
+	//returns the description for this class
 }
