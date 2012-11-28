@@ -1,11 +1,14 @@
 public class Tracker {
-
+// represents a list
+// instances of Android can be added to the list
+	
 	private java.util.HashMap<Integer, java.util.ArrayList<Android>> map;
 
 	public Tracker() {
 		map = new java.util.HashMap<Integer, java.util.ArrayList<Android>>();
 	}
-
+	// initializes the HashMap - Key: Integer, Value:ArrayList<Android>
+	
 	public boolean insert(Android android) {
 
 		if ( android.getSensorenAktorenKit() != null && android.getSkin() != null && android.getSoftware() != null ) {

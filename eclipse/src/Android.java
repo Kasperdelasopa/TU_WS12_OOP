@@ -1,6 +1,6 @@
 
 public abstract class Android {
-	// instances repersent android robots
+	// instances represent android robots
 	
 	private int serienNummer; 
 	// serienNummer > 0
@@ -42,20 +42,20 @@ public abstract class Android {
 	public int getSerienNummer() {
 		return serienNummer;
 	}
-	//returnes the serialnumber according to this Andoid if set else null
+	//returns the serialnumber according to this Android if set else null
 	
 	public Skin getSkin() {
 		return skin;
 	}
-	//returnes the actual skin if set else null
+	//returns the actual skin if set else null
 	
 	public Software getSoftware() {
 		return software;
 	}
-	//returnes the software of the Android if set else null
+	//returns the software of the Android if set else null
 	
 	public SensorAktorenKit getSensorenAktorenKit() {
 		return sensorenAktorenKit;
 	}
-	//returnes the actual set sensor actor kit else null
+	//returns the actual set sensor actor kit else null
 }

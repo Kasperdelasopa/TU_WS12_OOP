@@ -25,7 +25,7 @@ public class SensorAktorenKit_1kW extends SensorAktorenKit {
 	
 	@Override
 	public String toString(){
-		return "1KW Sensor-Aktor-Kit";
+		return "1kW Sensor-Aktor-Kit";
 	}
 	//returns the description for this class
 }
