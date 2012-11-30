@@ -7,8 +7,8 @@ public abstract class Auto {
 	private int punkte;
 	private AutoEventListener autoEventListeners; 
 	private int anzahlSchritte;
-	public final abstract int GESCHWINDIGKEIT;
-	public final int MAX_SCHRITTE;
+	public int GESCHWINDIGKEIT;
+	public final int MAX_SCHRITTE = 200;
 	
 	
 	public Fahrtrichtung getRichtung() {

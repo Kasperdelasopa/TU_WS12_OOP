@@ -1,8 +1,10 @@
+import java.util.Random;
+
 
 public class Rennstrecke {
 	private int laenge;
 	private int breite;
-	
+	private Feld startFeld;
 	private Feld[][] rennstrecke;
 	
 	public Rennstrecke(int laenge, int breite){
@@ -10,6 +12,7 @@ public class Rennstrecke {
 		this.breite = breite;
 		
 		this.rennstrecke = buildStrecke(laenge, breite);
+		this.startFeld = rennstrecke[1][1];
 	}
 
 	private Feld[][] buildStrecke(int laenge, int breite){
@@ -55,7 +58,31 @@ public class Rennstrecke {
 	public int getBreite() {
 		return breite;
 	}
+	//returns width of Rennstrecke
 	
+	public Feld[][] getRennstrecke(){
+		return this.rennstrecke;
+	}
+	//returns the whole Rennstrecke
 	
-
+	public Feld getStartField(){
+		return this.startFeld;
+	}
+	//Returnes the Startfeld
+	//by default Startfeld = rennstrecke[1][1];
+	
+	public void setStartFeld(Feld feld){
+		this.startFeld = feld;
+	}
+	//sets a new Feld to StartFeld
+	
+	public Feld getRandomFeld(){
+		Random r = new Random();
+		
+		int b = r.nextInt(this.breite);
+		int l = r.nextInt(this.laenge);
+		
+		return this.rennstrecke[b][l];
+	}
+	//returns a random Field in Rennstrecke
 }
