@@ -1,6 +1,7 @@
 public abstract class Auto implements Runnable {
 
 	public final int MAX_SCHRITTE = 200;
+	public final int MAX_PUNKTE = 50;
 
 	private Fahrtrichtung richtung;
 	private Strategie strategie;
@@ -34,6 +35,19 @@ public abstract class Auto implements Runnable {
 					collision.getAuto().decrementPunkte();
 				case KeinAufprall:
 					// do nothing
+				}
+			}
+			this.anzahlSchritte++;
+			if(this.anzahlSchritte == MAX_SCHRITTE) {
+				AutoEventListener listener = getAutoEventListener();
+				if(listener != null) {
+					listener.notifyMaxSchritteReached();
+				}
+			}
+			if(this.punkte == MAX_PUNKTE) {
+				AutoEventListener listener = getAutoEventListener();
+				if(listener != null) {
+					listener.notifyMaxPukteReached();
 				}
 			}
 		}
