@@ -1,5 +1,5 @@
 
 public interface AutoEventListener {
-	public void notifyMaxPukteReached();
+	public void notifyMaxPunkteReached();
 	public void notifyMaxSchritteReached();
 }
