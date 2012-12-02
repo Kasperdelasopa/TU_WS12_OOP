@@ -7,14 +7,13 @@ public class SchnellesAuto extends Auto {
 	}
 
 	@Override
-	protected void move() {
-		// TODO Auto-generated method stub
-
+	public long getGeschwindigkeit() {
+		return 50;
 	}
 
 	@Override
-	public int getGeschwindigkeit() {
-		return 50;
+	protected Feld getNextFeldFromStrategie() {
+		return getStrategie().getNextField(this);
 	}
 
 }
