@@ -1,8 +1,9 @@
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
 
-
+import java.util.List;
 
 public class Test {
 
@@ -15,7 +16,10 @@ public class Test {
 		starttime = System.currentTimeMillis();
 		
 		//TODO create Rennen and start it
-		
+		List<Auto> autos = new ArrayList<Auto>();
+		Auto auto = new SchnellesAuto(new Feld(),Fahrtrichtung.West,new RandomStrategie());
+		autos.add(auto);
+		Rennen rennen1= new Rennen(20,20, autos);
 		
 		elapsedTime = System.currentTimeMillis() - starttime;
 		//TODO print informations

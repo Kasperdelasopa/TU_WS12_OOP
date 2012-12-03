@@ -5,6 +5,8 @@ public class KreisStrategie implements Strategie {
 	int position=0;
 	List<Character> strategie = new ArrayList<Character>();
 	
+	public KreisStrategie(){}
+	
 	public KreisStrategie(Rennstrecke strecke, Auto auto){
 		Fahrtrichtung richtung = auto.getRichtung();
 		int laenge=0;
