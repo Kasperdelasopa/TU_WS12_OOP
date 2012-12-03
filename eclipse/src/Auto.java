@@ -64,7 +64,7 @@ public abstract class Auto implements Runnable {
 		while (run) {
 			move();
 			try {
-				this.wait(1 / getGeschwindigkeit());
+				synchronized(this) {this.wait(1 / getGeschwindigkeit());}
 			} catch (InterruptedException e) {
 				run = false;
 			}

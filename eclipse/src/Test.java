@@ -15,10 +15,13 @@ public class Test {
 		//#####   Rennen 1
 		starttime = System.currentTimeMillis();
 		//TODO create Rennen and start it
+		
+		Rennstrecke strecke = new Rennstrecke(20,20);
+		
 		List<Auto> autos = new ArrayList<Auto>();
-		Auto auto = new SchnellesAuto(new Feld(),Fahrtrichtung.West,new RandomStrategie());
+		Auto auto = new SchnellesAuto(strecke.getRandomFeld(),Fahrtrichtung.West,new RandomStrategie());
 		autos.add(auto);
-		Rennen rennen1= new Rennen(20,20, autos);
+		Rennen rennen1= new Rennen(strecke, autos);
 		
 		elapsedTime = System.currentTimeMillis() - starttime;
 		//TODO print informations
