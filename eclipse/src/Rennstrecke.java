@@ -26,7 +26,7 @@ public class Rennstrecke {
 		
 		for(int b = 0; b < breite; b++){
 			for(int l = 0; l < laenge; l++){
-				if(b<(breite-1)){
+				if(l<(laenge-1)){
 					feld[b][l].Ost = feld[b][l+1];
 					feld[b][l+1].West = feld[b][l];
 				}
@@ -34,13 +34,13 @@ public class Rennstrecke {
 					feld[b][l].SuedOst = feld[b+1][l+1];
 					feld[b+1][l+1].NordWest = feld[b][l];
 				}
-				if(l<(laenge-1)){
-					feld[b][l].Sued = feld[b][l+1];
-					feld[b][l+1].Nord = feld[b][l];
+				if(b<(breite-1)){
+					feld[b][l].Sued = feld[b+1][l];
+					feld[b+1][l].Nord = feld[b][l];
 				}
-				if(b>0 && l<(laenge-1)){
-					feld[b][l].SuedWest = feld[b-1][l+1];
-					feld[b-1][l+1].NordOst = feld[b][l];
+				if(l>0 && b<(breite-1)){
+					feld[b][l].SuedWest = feld[b+1][l-1];
+					feld[b+1][l-1].NordOst = feld[b][l];
 				}
 			}
 		}

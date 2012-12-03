@@ -14,7 +14,6 @@ public class Test {
 		//###############################################################################
 		//#####   Rennen 1
 		starttime = System.currentTimeMillis();
-		
 		//TODO create Rennen and start it
 		List<Auto> autos = new ArrayList<Auto>();
 		Auto auto = new SchnellesAuto(new Feld(),Fahrtrichtung.West,new RandomStrategie());
