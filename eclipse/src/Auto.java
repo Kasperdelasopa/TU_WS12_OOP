@@ -1,4 +1,4 @@
-public abstract class Auto implements Runnable {
+public abstract class Auto extends Thread {
 
 	public final int MAX_SCHRITTE = 200;
 	public final int MAX_PUNKTE = 50;
@@ -10,7 +10,7 @@ public abstract class Auto implements Runnable {
 	private AutoEventListener autoEventListener;
 	private int anzahlSchritte = 0;
 
-	public abstract long getGeschwindigkeit();
+	public abstract long getVerzoegerung();
 
 	protected abstract Feld getNextFeldFromStrategie();
 
@@ -43,11 +43,21 @@ public abstract class Auto implements Runnable {
 				if(listener != null) {
 					listener.notifyMaxSchritteReached();
 				}
+				try {
+					this.interrupt();
+				} catch(SecurityException e) {
+					// ignore
+				}
 			}
 			if(this.punkte == MAX_PUNKTE) {
 				AutoEventListener listener = getAutoEventListener();
 				if(listener != null) {
 					listener.notifyMaxPunkteReached();
+				}
+				try {
+					this.interrupt();
+				} catch(SecurityException e) {
+					// ignore
 				}
 			}
 		}
@@ -64,7 +74,7 @@ public abstract class Auto implements Runnable {
 		while (run) {
 			move();
 			try {
-				synchronized(this) {this.wait(1 / getGeschwindigkeit());}
+				Thread.sleep(getVerzoegerung());
 			} catch (InterruptedException e) {
 				run = false;
 			}

@@ -7,8 +7,8 @@ public class BeweglichesAuto extends Auto {
 	}
 
 	@Override
-	public long getGeschwindigkeit() {
-		return 10;
+	public long getVerzoegerung() {
+		return 100;
 	}
 
 	@Override

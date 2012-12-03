@@ -7,7 +7,7 @@ public class SchnellesAuto extends Auto {
 	}
 
 	@Override
-	public long getGeschwindigkeit() {
+	public long getVerzoegerung() {
 		return 50;
 	}
 
