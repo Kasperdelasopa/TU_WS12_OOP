@@ -47,7 +47,7 @@ public abstract class Auto implements Runnable {
 			if(this.punkte == MAX_PUNKTE) {
 				AutoEventListener listener = getAutoEventListener();
 				if(listener != null) {
-					listener.notifyMaxPukteReached();
+					listener.notifyMaxPunkteReached();
 				}
 			}
 		}
