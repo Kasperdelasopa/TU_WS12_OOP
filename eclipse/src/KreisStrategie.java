@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 public class KreisStrategie implements Strategie {
+// represents a circle strategy for a car
 	private int durchmesser; // durchmesser>=0
 	int position=0; // position>=0
 	List<Character> strategie;
@@ -8,7 +9,7 @@ public class KreisStrategie implements Strategie {
 	public KreisStrategie(){
 		strategie = new ArrayList<Character>();
 	}
-	//initializes
+	//initializes and creates KreisStrategie
 	
 	public void setKreisStrategie(Rennstrecke strecke, Auto auto){
 		Fahrtrichtung richtung = auto.getRichtung();
@@ -70,7 +71,8 @@ public class KreisStrategie implements Strategie {
 				}
 			}
 		
-		}
+		} 
+		
 		
 		if((richtung==Fahrtrichtung.Nord && b1>b2)||(richtung==Fahrtrichtung.Sued && b2>b1)||(richtung==Fahrtrichtung.West && l1>l2)||(richtung==Fahrtrichtung.Ost &&l2>l1) ){
 			position=1;
@@ -79,7 +81,7 @@ public class KreisStrategie implements Strategie {
 	}
 	//@param auto!=null
 	//@param strecke !=null
-	//creates the strategy for the car
+	//creates the strategy for the car and sets position how the car should start
 	
 
 	

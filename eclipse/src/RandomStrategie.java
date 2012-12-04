@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 
 
 public class RandomStrategie implements Strategie {
-	
+//represents a random strategy for a car
 	public RandomStrategie(){
 	}
-	//initializes
+	// creates instance
 	
 	public Feld getNextField(BeweglichesAuto auto){
 		Fahrtrichtung richtung= auto.getRichtung();
