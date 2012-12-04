@@ -31,10 +31,13 @@ public abstract class Auto extends Thread {
 				switch(collision.getCollisionType()) {
 				case Frontalaufprall:
 					this.punkte++;
+					break;
 				case SeitenOderHeckaufprall:
 					collision.getAuto().decrementPunkte();
+					break;
 				case KeinAufprall:
 					// do nothing
+					break;
 				}
 			}
 			this.anzahlSchritte++;
