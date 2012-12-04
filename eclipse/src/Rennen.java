@@ -2,16 +2,22 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Rennen extends Thread implements AutoEventListener {
-	private List<Auto> autos = new ArrayList<Auto>();
+//instance represents a race
+	private List<Auto> autos; // autos !=null
 	private boolean run;
 		
 	public Rennen(Rennstrecke rennstrecke, List<Auto> autos){
+		autos=new ArrayList<Auto>();
 		this.autos.addAll(autos);
 		
 		for (Auto auto : autos){
 			auto.setAutoEventListener(this);
 		}
 	}
+	//@param rennstrecke != null
+	//@param autos !=null && must contain cars
+	//initializes and creates the race
+	//adds all cars to list autos and sets the AutoEventListener for each car
 	
 	@Override
 	public void run() {
@@ -30,14 +36,12 @@ public class Rennen extends Thread implements AutoEventListener {
 			}
 		}
 	}
+	//starts the thread for each car and runs the race 
 	
-	public synchronized void notifyMaxPunkteReached() {
+	public synchronized void notifyEndOfRace() {
 		interruptThreads();
 	}
-	
-	public synchronized void notifyMaxSchritteReached() {
-		interruptThreads();
-	}
+	//calls the method interruptThreads();
 	
 	private synchronized void interruptThreads() {
 		for(Thread thread : autos) {
@@ -50,5 +54,7 @@ public class Rennen extends Thread implements AutoEventListener {
 		this.run = false;
 		this.interrupt();
 	}
+	//interrupts the threads of all cars
+	//cancels the race and interrupts the class Rennen
 
 }

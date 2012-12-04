@@ -68,7 +68,7 @@ public abstract class Auto extends Thread {
 			if(this.anzahlSchritte == MAX_SCHRITTE) {
 				AutoEventListener listener = getAutoEventListener();
 				if(listener != null) {
-					listener.notifyMaxSchritteReached();
+					listener.notifyEndOfRace();
 				}
 				try {
 					this.interrupt();
@@ -79,7 +79,7 @@ public abstract class Auto extends Thread {
 			if(this.punkte == MAX_PUNKTE) {
 				AutoEventListener listener = getAutoEventListener();
 				if(listener != null) {
-					listener.notifyMaxPunkteReached();
+					listener.notifyEndOfRace();
 				}
 				try {
 					this.interrupt();

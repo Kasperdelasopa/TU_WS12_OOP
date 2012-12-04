@@ -4,6 +4,7 @@ public class RandomStrategie implements Strategie {
 	
 	public RandomStrategie(){
 	}
+	//
 	
 	public Feld getNextField(BeweglichesAuto auto){
 		Fahrtrichtung richtung= auto.getRichtung();
@@ -73,14 +74,6 @@ public class RandomStrategie implements Strategie {
 				}
 			}
 		}
-		
-		/*System.out.println(currentpos);
-		System.out.println("w "+currentpos.West);
-		System.out.println("o "+currentpos.Ost);
-		System.out.println("n "+currentpos.Nord);
-		System.out.println("s "+currentpos.Sued);
-		System.out.println("nw "+currentpos.Nord.West);	*/
-		
 		
 		if(richtung == Fahrtrichtung.West){
 			if(currentpos.West!=null ){
