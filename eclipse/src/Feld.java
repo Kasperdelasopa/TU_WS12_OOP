@@ -56,7 +56,7 @@ public class Feld {
 		else
 			collisions.add(new Collision(null, CollisionType.KeinAufprall));
 		
-		this.autos.add(auto);	
+		this.autos.add(auto);
 		return collisions;
 	}
 	//Fahrtrichting has to be updated before visiting this Method

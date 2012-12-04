@@ -1,26 +1,34 @@
 import java.util.List;
 import java.util.ArrayList;
 
-public class Rennen implements AutoEventListener {
+public class Rennen extends Thread implements AutoEventListener {
 	private List<Auto> autos = new ArrayList<Auto>();
-	private Rennstrecke strecke;
-	
-	
-	public Rennen(Rennstrecke rennstrecke, List<Auto> auto){
-		autos=auto;
+	private boolean run;
 		
-		for (Auto e : autos){
-			e.setAutoEventListener(this);
+	public Rennen(Rennstrecke rennstrecke, List<Auto> autos){
+		this.autos.addAll(autos);
+		
+		for (Auto auto : autos){
+			auto.setAutoEventListener(this);
 		}
-		
-		start();
 	}
 	
-	public void start(){
+	@Override
+	public void run() {
+		run = true;
+		
 		for (Thread thread : autos){
 			thread.start();
 		}
 		
+		while(run) {
+			try {
+				// wait for other threads to interrupt
+				Thread.sleep(2);
+			} catch (InterruptedException e) {
+				// ignore
+			}
+		}
 	}
 	
 	public synchronized void notifyMaxPunkteReached() {
@@ -31,7 +39,7 @@ public class Rennen implements AutoEventListener {
 		interruptThreads();
 	}
 	
-	private void interruptThreads() {
+	private synchronized void interruptThreads() {
 		for(Thread thread : autos) {
 			try {
 				thread.interrupt();
@@ -39,6 +47,8 @@ public class Rennen implements AutoEventListener {
 				e.printStackTrace();
 			}
 		}
+		this.run = false;
+		this.interrupt();
 	}
 
 }

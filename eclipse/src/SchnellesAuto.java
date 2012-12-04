@@ -8,7 +8,7 @@ public class SchnellesAuto extends Auto {
 
 	@Override
 	public long getVerzoegerung() {
-		return 50;
+		return 70;
 	}
 
 	@Override

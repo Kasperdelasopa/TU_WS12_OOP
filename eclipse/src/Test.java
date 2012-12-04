@@ -42,13 +42,24 @@ public class Test {
 		autos.add(auto6);
 		Rennen rennen1= new Rennen(strecke, autos);
 		
+		rennen1.start();
+		try {
+			rennen1.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		elapsedTime = System.currentTimeMillis() - starttime;
 		//TODO print informations
 		System.out.println("Elapsed time for race #1: "+ getDuration(elapsedTime));
 		//###############################################################################
 
-		
-		
+		System.out.println(auto1);
+		System.out.println(auto2);
+		System.out.println(auto3);
+		System.out.println(auto4);
+		System.out.println(auto5);
+		System.out.println(auto6);
 	}
 	
 	public static String getDuration(long milliSecs)

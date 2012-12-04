@@ -22,7 +22,11 @@ public abstract class Auto extends Thread {
 	}
 
 	protected void move() {
-		Feld nextFeld = getNextFeldFromStrategie();
+		Feld nextFeld;
+		
+		do {
+			nextFeld = getNextFeldFromStrategie();
+		} while(nextFeld == null);
 
 		synchronized (this) {
 			currentField.moveOut(this);
@@ -41,7 +45,7 @@ public abstract class Auto extends Thread {
 				}
 			}
 			this.anzahlSchritte++;
-			System.out.println(getAnzahlSchritte());
+			this.currentField = nextFeld;
 			if(this.anzahlSchritte == MAX_SCHRITTE) {
 				AutoEventListener listener = getAutoEventListener();
 				if(listener != null) {
@@ -67,7 +71,7 @@ public abstract class Auto extends Thread {
 		}
 	}
 	
-	public void decrementPunkte() {
+	public synchronized void decrementPunkte() {
 		this.punkte--;
 	}
 
@@ -116,5 +120,10 @@ public abstract class Auto extends Thread {
 	public void setRichtung(Fahrtrichtung richtung){
 		this.richtung=richtung;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Auto [richtung=" + richtung + ", punkte=" + punkte
+				+ ", anzahlSchritte=" + anzahlSchritte + "]";
+	}
 }
