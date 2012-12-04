@@ -4,7 +4,7 @@ public class RandomStrategie implements Strategie {
 	
 	public RandomStrategie(){
 	}
-	//
+	//initializes
 	
 	public Feld getNextField(BeweglichesAuto auto){
 		Fahrtrichtung richtung= auto.getRichtung();
@@ -41,6 +41,8 @@ public class RandomStrategie implements Strategie {
 		}
 		return auto.getCurrentField();
 	}
+	//@param auto!= null
+	//returns the next random field for the car of type BeweglichesAuto
 	
 	public Feld getNextField(SchnellesAuto auto){
 		Fahrtrichtung richtung= auto.getRichtung();
@@ -87,4 +89,6 @@ public class RandomStrategie implements Strategie {
 		
 		return auto.getCurrentField();
 	}
+	//@param auto!= null
+	//returns the next random field for the car of type SchnellesAuto
 }

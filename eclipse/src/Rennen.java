@@ -7,7 +7,7 @@ public class Rennen extends Thread implements AutoEventListener {
 	private boolean run;
 		
 	public Rennen(Rennstrecke rennstrecke, List<Auto> autos){
-		autos=new ArrayList<Auto>();
+		this.autos=new ArrayList<Auto>();
 		this.autos.addAll(autos);
 		
 		for (Auto auto : autos){

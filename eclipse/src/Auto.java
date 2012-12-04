@@ -4,8 +4,8 @@ public abstract class Auto extends Thread {
 	// by another thread or they reach either the maximum number of points
 	// or the maximum number of fields.
 
-	public final int MAX_SCHRITTE = 50;
-	public final int MAX_PUNKTE = 50;
+	public final int MAX_SCHRITTE = 30;
+	public final int MAX_PUNKTE = 10;
 
 	private Fahrtrichtung richtung;
 	private Strategie strategie;

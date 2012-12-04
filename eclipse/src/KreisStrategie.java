@@ -1,11 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 public class KreisStrategie implements Strategie {
-	private int durchmesser;
-	int position=0;
-	List<Character> strategie = new ArrayList<Character>();
+	private int durchmesser; // durchmesser>=0
+	int position=0; // position>=0
+	List<Character> strategie;
 	
-	public KreisStrategie(){}
+	public KreisStrategie(){
+		strategie = new ArrayList<Character>();
+	}
+	//initializes
 	
 	public void setKreisStrategie(Rennstrecke strecke, Auto auto){
 		Fahrtrichtung richtung = auto.getRichtung();
@@ -74,6 +77,9 @@ public class KreisStrategie implements Strategie {
 		}
 		
 	}
+	//@param auto!=null
+	//@param strecke !=null
+	//creates the strategy for the car
 	
 
 	
@@ -102,6 +108,8 @@ public class KreisStrategie implements Strategie {
 		return current;	
 	
 	}
+	//@param auto!=null
+	//returns the next field from the strategy for the car of type BeweglichesAuto and increments position
 	
 	public Feld getNextField(SchnellesAuto auto){
 		Fahrtrichtung richtung = auto.getRichtung();
@@ -130,6 +138,8 @@ public class KreisStrategie implements Strategie {
 		return current;	
 	
 	}
+	//@param auto!=null
+	//returns the next field from the strategy for the car of type SchnellesAuto and increments position
 	
 	private void geradeAus(Fahrtrichtung richtung, Feld current){
 		if( richtung==Fahrtrichtung.West) current=current.West;
@@ -137,8 +147,11 @@ public class KreisStrategie implements Strategie {
 		if( richtung==Fahrtrichtung.Sued) current=current.Sued;
 		if( richtung==Fahrtrichtung.Nord) current=current.Nord;
 	}
+	//@param richtung!=null
+	//returns the next field from same direction 
 	
 	private void nextRound(){
 		if(position>=strategie.size()) position=0;
 	}
+	//if the car is at the end of the route, position will be set 0
 }
