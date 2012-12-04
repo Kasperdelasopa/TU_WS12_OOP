@@ -6,6 +6,10 @@ public class SchnellesAuto extends Auto {
 			Strategie strategie) {
 		super(startFeld, initialRichtung, strategie);
 	}
+	// initializes a new fast car instance
+	// @param startFeld != null
+	// @param initialRichtung != null
+	// @param strategie != null
 
 	@Override
 	protected Feld getNextFeldFromStrategie() {

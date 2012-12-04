@@ -39,6 +39,10 @@ public abstract class Auto extends Thread {
 		this.strategie = strategie;
 		this.verzoegerung = getRandomVerzoegerung();
 	}
+	// initializes a new car instance
+	// @param startFeld != null
+	// @param initialRichtung != null
+	// @param strategie != null
 
 	protected void move() {
 		Feld nextFeld;
