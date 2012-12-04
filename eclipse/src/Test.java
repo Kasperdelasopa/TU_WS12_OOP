@@ -17,7 +17,7 @@ public class Test {
 		//#####   Rennen 1
 		starttime1 = System.currentTimeMillis();
 
-		Rennstrecke strecke1 = new Rennstrecke(12,12);		
+		Rennstrecke strecke1 = new Rennstrecke(10,10);		
 		List<Auto> autos1 = new ArrayList<Auto>();
 		
 		KreisStrategie kreis1 = new KreisStrategie();
@@ -35,6 +35,8 @@ public class Test {
 		Auto auto4 = new SchnellesAuto(strecke1.getRandomFeld(),Fahrtrichtung.West,new RandomStrategie());
 		Auto auto5 = new BeweglichesAuto(strecke1.getRandomFeld(),Fahrtrichtung.Sued,new RandomStrategie());
 		Auto auto6 = new BeweglichesAuto(strecke1.getRandomFeld(),Fahrtrichtung.Ost,new RandomStrategie());
+		Auto auto19 = new BeweglichesAuto(strecke1.getRandomFeld(),Fahrtrichtung.West,new RandomStrategie());
+		Auto auto20 = new BeweglichesAuto(strecke1.getRandomFeld(),Fahrtrichtung.Nord,new RandomStrategie());
 		
 		autos1.add(auto1);
 		autos1.add(auto2);
@@ -42,6 +44,8 @@ public class Test {
 		autos1.add(auto4);
 		autos1.add(auto5);
 		autos1.add(auto6);
+		autos1.add(auto19);
+		autos1.add(auto20);
 		Rennen rennen1= new Rennen(strecke1, autos1);
 		
 		rennen1.start();
@@ -61,12 +65,14 @@ public class Test {
 		System.out.println(auto4);
 		System.out.println(auto5);
 		System.out.println(auto6);
+		System.out.println(auto19);
+		System.out.println(auto20);
 		
 		//###############################################################################
 		//#####   Rennen 2
 		starttime2 = System.currentTimeMillis();
 
-		Rennstrecke strecke2 = new Rennstrecke(9,9);		
+		Rennstrecke strecke2 = new Rennstrecke(6,6);		
 		List<Auto> autos2 = new ArrayList<Auto>();
 				
 		Auto auto7 = new SchnellesAuto(strecke2.getRandomFeld(),Fahrtrichtung.Sued,new RandomStrategie());
@@ -110,7 +116,7 @@ public class Test {
 		//#####   Rennen 3
 		starttime3 = System.currentTimeMillis();
 
-		Rennstrecke strecke3 = new Rennstrecke(7,7);		
+		Rennstrecke strecke3 = new Rennstrecke(5,5);		
 		List<Auto> autos3 = new ArrayList<Auto>();
 						
 		Auto auto13 = new SchnellesAuto(strecke3.getRandomFeld(),Fahrtrichtung.Sued,new RandomStrategie());
@@ -118,14 +124,12 @@ public class Test {
 		Auto auto15 = new SchnellesAuto(strecke3.getRandomFeld(),Fahrtrichtung.Nord,new RandomStrategie());
 		Auto auto16 = new SchnellesAuto(strecke3.getRandomFeld(),Fahrtrichtung.Ost,new RandomStrategie());
 		Auto auto17 = new BeweglichesAuto(strecke3.getRandomFeld(),Fahrtrichtung.Ost,new RandomStrategie());
-		Auto auto18 = new BeweglichesAuto(strecke3.getRandomFeld(),Fahrtrichtung.Sued,new RandomStrategie());
 								
 		autos3.add(auto13);
 		autos3.add(auto14);
 		autos3.add(auto15);
 		autos3.add(auto16);
 		autos3.add(auto17);
-		autos3.add(auto18);
 		
 		Rennen rennen3= new Rennen(strecke3, autos3);
 						
@@ -145,7 +149,6 @@ public class Test {
 		System.out.println(auto15);
 		System.out.println(auto16);
 		System.out.println(auto17);
-		System.out.println(auto18);
 			
 	}
 	
