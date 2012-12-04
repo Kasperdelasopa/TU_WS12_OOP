@@ -87,16 +87,16 @@ public class KreisStrategie implements Strategie {
 			geradeAus(richtung, current);
 		}
 		if(strategie.get(position).equals('R')){
-			if( richtung==Fahrtrichtung.West) current=current.Nord;
-			if( richtung==Fahrtrichtung.Ost) current=current.Sued;
-			if( richtung==Fahrtrichtung.Sued) current=current.West;
-			if( richtung==Fahrtrichtung.Nord) current=current.Ost;
+			if( richtung==Fahrtrichtung.West) current=current.Nord; auto.setRichtung(Fahrtrichtung.Nord);
+			if( richtung==Fahrtrichtung.Ost) current=current.Sued; auto.setRichtung(Fahrtrichtung.Sued);
+			if( richtung==Fahrtrichtung.Sued) current=current.West; auto.setRichtung(Fahrtrichtung.West);
+			if( richtung==Fahrtrichtung.Nord) current=current.Ost; auto.setRichtung(Fahrtrichtung.Ost);
 		}
 		if(strategie.get(position).equals('L')){
-			if( richtung==Fahrtrichtung.West) current=current.Sued;
-			if( richtung==Fahrtrichtung.Ost) current=current.Nord;
-			if( richtung==Fahrtrichtung.Sued) current=current.Ost;
-			if( richtung==Fahrtrichtung.Nord) current=current.West;
+			if( richtung==Fahrtrichtung.West) current=current.Sued; auto.setRichtung(Fahrtrichtung.Sued);
+			if( richtung==Fahrtrichtung.Ost) current=current.Nord; auto.setRichtung(Fahrtrichtung.Nord);
+			if( richtung==Fahrtrichtung.Sued) current=current.Ost; auto.setRichtung(Fahrtrichtung.Ost);
+			if( richtung==Fahrtrichtung.Nord) current=current.West; auto.setRichtung(Fahrtrichtung.West);
 		}
 		position++;
 		return current;	
@@ -115,16 +115,16 @@ public class KreisStrategie implements Strategie {
 			geradeAus(richtung, current);
 		}
 		if(strategie.get(position).equals('R')){
-			if( richtung==Fahrtrichtung.West) current=current.NordWest;
-			if( richtung==Fahrtrichtung.Ost) current=current.SuedOst;
-			if( richtung==Fahrtrichtung.Sued) current=current.SuedWest;
-			if( richtung==Fahrtrichtung.Nord) current=current.NordOst;
+			if( richtung==Fahrtrichtung.West) current=current.NordWest; auto.setRichtung(Fahrtrichtung.Nord);
+			if( richtung==Fahrtrichtung.Ost) current=current.SuedOst; auto.setRichtung(Fahrtrichtung.Sued);
+			if( richtung==Fahrtrichtung.Sued) current=current.SuedWest; auto.setRichtung(Fahrtrichtung.West);
+			if( richtung==Fahrtrichtung.Nord) current=current.NordOst; auto.setRichtung(Fahrtrichtung.Ost);
 		}
 		if(strategie.get(position).equals('L')){
-			if( richtung==Fahrtrichtung.West) current=current.SuedWest;
-			if( richtung==Fahrtrichtung.Ost) current=current.NordOst;
-			if( richtung==Fahrtrichtung.Sued) current=current.SuedOst;
-			if( richtung==Fahrtrichtung.Nord) current=current.NordWest;
+			if( richtung==Fahrtrichtung.West) current=current.SuedWest; auto.setRichtung(Fahrtrichtung.Sued);
+			if( richtung==Fahrtrichtung.Ost) current=current.NordOst; auto.setRichtung(Fahrtrichtung.Nord);
+			if( richtung==Fahrtrichtung.Sued) current=current.SuedOst; auto.setRichtung(Fahrtrichtung.Ost);
+			if( richtung==Fahrtrichtung.Nord) current=current.NordWest; auto.setRichtung(Fahrtrichtung.West);
 		}
 		position++;
 		return current;	

@@ -38,6 +38,7 @@ public abstract class Auto extends Thread {
 				}
 			}
 			this.anzahlSchritte++;
+			System.out.println(getAnzahlSchritte());
 			if(this.anzahlSchritte == MAX_SCHRITTE) {
 				AutoEventListener listener = getAutoEventListener();
 				if(listener != null) {
@@ -108,4 +109,9 @@ public abstract class Auto extends Thread {
 	public int getAnzahlSchritte() {
 		return anzahlSchritte;
 	}
+	
+	public void setRichtung(Fahrtrichtung richtung){
+		this.richtung=richtung;
+	}
+	
 }
