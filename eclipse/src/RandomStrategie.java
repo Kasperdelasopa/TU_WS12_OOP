@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-
-
 
 public class RandomStrategie implements Strategie {
 //represents a random strategy for a car
