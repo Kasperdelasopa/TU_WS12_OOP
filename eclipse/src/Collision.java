@@ -9,6 +9,9 @@ public class Collision {
 		this.collisionType = type;
 		
 	}
+	//@param auto !=null
+	//@param type
+	//initializes and creates Collision
 
 	public Auto getAuto() {
 		return auto;

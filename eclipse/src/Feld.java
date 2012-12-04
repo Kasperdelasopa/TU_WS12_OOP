@@ -13,12 +13,13 @@ public class Feld {
 	public Feld West = null;
 	public Feld NordWest = null;
 	
-	public List<Auto> autos = new ArrayList<Auto>();
+	public List<Auto> autos;
 	
 	public Feld(){
-		
+	 this.autos= new ArrayList<Auto>();
 	}
-
+	//initializes and creates Feld
+	
 	public synchronized List<Collision> moveIn(Auto auto){
 		
 		List<Collision> collisions = new ArrayList<Collision>();
