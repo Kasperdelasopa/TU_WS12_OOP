@@ -18,19 +18,26 @@ public abstract class Auto extends Thread {
 	private AutoEventListener autoEventListener;
 	private int anzahlSchritte = 0;
 	// anzahlSchritte > 0
-
-	public abstract long getVerzoegerung();
-	// returns the number of milliseconds to wait until the next move is performed;
-	// return value > 20
+	
+	protected long verzoegerung;
+	// verzoegerung > 10
+	
+	protected static java.util.Random randomNumberGenerator = new java.util.Random();
 
 	protected abstract Feld getNextFeldFromStrategie();
 	// triggers the given strategy and returns the next field, that will be visited next
+	
+	protected abstract long getRandomVerzoegerung();
+	// generates a random number representing the time between two movements in milliseconds
+	// thus emulating the speed of the car.
+	// return value > 10
 
 	public Auto(Feld startFeld, Fahrtrichtung initialRichtung,
 			Strategie strategie) {
 		this.currentField = startFeld;
 		this.richtung = initialRichtung;
 		this.strategie = strategie;
+		this.verzoegerung = getRandomVerzoegerung();
 	}
 
 	protected void move() {
@@ -109,6 +116,12 @@ public abstract class Auto extends Thread {
 	// The general contract of the method run is that it may take any action whatsoever.
 	// see http://docs.oracle.com/javase/6/docs/api/java/lang/Runnable.html#run%28%29
 
+	public long getVerzoegerung() {
+		return verzoegerung;
+	}
+	// returns the number of milliseconds to wait until the next move is performed.
+	// this property emulates the speed of the car.
+	
 	public Fahrtrichtung getRichtung() {
 		return richtung;
 	}
@@ -154,7 +167,8 @@ public abstract class Auto extends Thread {
 	@Override
 	public String toString() {
 		return "Auto [richtung=" + richtung + ", punkte=" + punkte
-				+ ", anzahlSchritte=" + anzahlSchritte + "]";
+				+ ", anzahlSchritte=" + anzahlSchritte + ", verzoegerung="
+				+ verzoegerung + "]";
 	}
 	// returns a string representation of the car, containing direction, points and number of steps
 }
