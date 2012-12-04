@@ -47,33 +47,49 @@ public class RandomStrategie implements Strategie {
 		
 		int i = (int) (Math.random()*3+1);
 		if(richtung == Fahrtrichtung.Nord){
-			switch(i){
-			case 1: if(currentpos.NordWest.West!=null) {auto.setRichtung(Fahrtrichtung.West); return currentpos.NordWest;} else {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.NordOst;}
-			case 2: if(currentpos.Nord.Nord!=null) return currentpos.Nord; else if(currentpos.NordWest.West!=null) {auto.setRichtung(Fahrtrichtung.West); return currentpos.NordWest;} else {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.NordOst;}
-			case 3: if(currentpos.NordOst.Ost!=null) {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.NordOst;} else {auto.setRichtung(Fahrtrichtung.West); return currentpos.NordWest;}
+			if(currentpos.Nord!=null){
+				switch(i){
+				case 1: if(currentpos.NordWest!=null) if(currentpos.NordWest.West!=null) {auto.setRichtung(Fahrtrichtung.West); return currentpos.NordWest;} else {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.NordOst;}
+				case 2: if(currentpos.Nord.Nord!=null) return currentpos.Nord; else if(currentpos.NordWest!=null) if(currentpos.NordWest.West!=null) {auto.setRichtung(Fahrtrichtung.West); return currentpos.NordWest;} else {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.NordOst;}
+				case 3: if(currentpos.NordOst!=null) if(currentpos.NordOst.Ost!=null) {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.NordOst;} else {auto.setRichtung(Fahrtrichtung.West); return currentpos.NordWest;}
+				}
 			}
 		}
 		if(richtung == Fahrtrichtung.Ost){
-			switch(i){
-			case 1: if(currentpos.NordOst.Nord!=null) {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordOst;} else {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedOst;}
-			case 2: if(currentpos.Ost.Ost!=null)  return currentpos.Ost; else if(currentpos.NordOst.Nord!=null) {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordOst;} else {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedOst;}
-			case 3: if(currentpos.SuedOst.Sued!=null) {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedOst;} else {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordOst;}
+			if(currentpos.Ost!=null){
+				switch(i){
+				case 1: if(currentpos.NordOst!=null) if(currentpos.NordOst.Nord!=null) {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordOst;} else {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedOst;}
+				case 2: if(currentpos.Ost.Ost!=null)  return currentpos.Ost; else if(currentpos.NordOst!=null) if(currentpos.NordOst.Nord!=null) {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordOst;} else {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedOst;}
+				case 3: if(currentpos.SuedOst!=null) if(currentpos.SuedOst.Sued!=null) {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedOst;} else {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordOst;}
+				}
 			}
 		}
 		if(richtung == Fahrtrichtung.Sued){
-			switch(i){
-			case 1: if(currentpos.SuedOst.Ost!=null) {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.SuedOst;} else {auto.setRichtung(Fahrtrichtung.West);return currentpos.SuedWest;}
-			case 2: if(currentpos.Sued.Sued!=null) return currentpos.Sued; else if(currentpos.SuedOst.Ost!=null) {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.SuedOst;} else {auto.setRichtung(Fahrtrichtung.West);return currentpos.SuedWest;}
-			case 3: if(currentpos.SuedWest.West!=null) {auto.setRichtung(Fahrtrichtung.West);return currentpos.SuedWest;} else {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.SuedOst;}
+			if(currentpos.Sued!=null){
+				switch(i){
+				case 1: if(currentpos.SuedOst!=null) if(currentpos.SuedOst.Ost!=null) {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.SuedOst;} else {auto.setRichtung(Fahrtrichtung.West);return currentpos.SuedWest;}
+				case 2: if(currentpos.Sued.Sued!=null) return currentpos.Sued; else if(currentpos.SuedOst!=null) if(currentpos.SuedOst.Ost!=null) {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.SuedOst;} else {auto.setRichtung(Fahrtrichtung.West);return currentpos.SuedWest;}
+				case 3: if(currentpos.SuedWest!=null) if(currentpos.SuedWest.West!=null) {auto.setRichtung(Fahrtrichtung.West);return currentpos.SuedWest;} else {auto.setRichtung(Fahrtrichtung.Ost);return currentpos.SuedOst;}
+				}
 			}
 		}
 		
+		/*System.out.println(currentpos);
+		System.out.println("w "+currentpos.West);
+		System.out.println("o "+currentpos.Ost);
+		System.out.println("n "+currentpos.Nord);
+		System.out.println("s "+currentpos.Sued);
+		System.out.println("nw "+currentpos.Nord.West);	*/
+		
+		
 		if(richtung == Fahrtrichtung.West){
-			switch(i){
-			case 1: if(currentpos.NordWest.Nord!=null) {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordWest;} else {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedWest;}
-			case 2: if(currentpos.West.West!=null) return currentpos.West; else if(currentpos.NordWest.Nord!=null)  {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordWest;} else {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedWest;}
-			case 3: if(currentpos.SuedWest.Sued!=null){auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedWest;} else  {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordWest;}
-			}		
+			if(currentpos.West!=null ){
+				switch(i){
+				case 1: if(currentpos.NordWest!=null) if(currentpos.NordWest.Nord!=null) {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordWest;} else {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedWest;}
+				case 2: if(currentpos.West.West!=null) return currentpos.West; else  if(currentpos.NordWest!=null)  if(currentpos.NordWest.Nord!=null)  {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordWest;} else {auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedWest;}
+				case 3: if(currentpos.SuedWest!=null) if(currentpos.SuedWest.Sued!=null){auto.setRichtung(Fahrtrichtung.Sued);return currentpos.SuedWest;} else  {auto.setRichtung(Fahrtrichtung.Nord);return currentpos.NordWest;}
+				}		
+			}
 		}
 		
 		return auto.getCurrentField();

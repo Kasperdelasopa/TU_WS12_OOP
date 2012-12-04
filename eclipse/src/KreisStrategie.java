@@ -7,7 +7,7 @@ public class KreisStrategie implements Strategie {
 	
 	public KreisStrategie(){}
 	
-	public KreisStrategie(Rennstrecke strecke, Auto auto){
+	public void setKreisStrategie(Rennstrecke strecke, Auto auto){
 		Fahrtrichtung richtung = auto.getRichtung();
 		int laenge=0;
 		int breite=0;

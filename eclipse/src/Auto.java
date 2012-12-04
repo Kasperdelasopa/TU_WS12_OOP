@@ -1,6 +1,6 @@
 public abstract class Auto extends Thread {
 
-	public final int MAX_SCHRITTE = 200;
+	public final int MAX_SCHRITTE = 50;
 	public final int MAX_PUNKTE = 50;
 
 	private Fahrtrichtung richtung;
