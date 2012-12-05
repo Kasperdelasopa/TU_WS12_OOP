@@ -1,12 +1,11 @@
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
 
-
+@Guarantor(person="Manuel Schmitt")
 public class Dieseltrakor extends Traktor {
 
 	public Dieseltrakor(){
 	}
 	
-
+	@Guarantor(person="Manuel Schmitt")
 	public String toString(){
 		return "Dieseltraktor";
 	}

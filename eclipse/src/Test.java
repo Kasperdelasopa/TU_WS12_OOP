@@ -3,7 +3,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Guarantor(person="Alle Gruppenmitglieder")
 public class Test {
 
 	static List<Traktor> traktoren = null;
@@ -26,23 +26,24 @@ public class Test {
 		gt.setFunktion(new Drillmaschine());
 		traktoren.add(gt);
 
+		for(Traktor t : getSubset(GasTraktor.class, Drillmaschine.class) ){
+			System.out.println(t.toString()+";"+t.getFunktion().toString());
+		}
+		
 		
 		/**
 		 * Ausgabe der Anotations
 		 */
-		/*
-		Class[] classes = new Class[]{Bauernhof.class};
-		for(Class c : classes){
-			System.out.println("The Class <<"+c.getName()+">> was written by "+c.get.class.getAnnotation(Guarantor.class).person());
-			
-			for(Method m : c.getMethods()){
-				System.out.println("  The Method <"+m.getName()+"> in Class <<"+c.getName()+">> was written by "+m.getAnnotation(Guarantor.class).person());
-			}
-		}*/
+		printInfoForClass(Bauernhof.class);
+		printInfoForClass(Dieseltrakor.class);
+		printInfoForClass(Drillmaschine.class);
+		printInfoForClass(Duengestreuer.class);
+		printInfoForClass(GasTraktor.class);
+		printInfoForClass(Guarantor.class);
+		printInfoForClass(IFunktion.class);
+		printInfoForClass(Test.class);
+		printInfoForClass(Traktor.class);
 		
-		for(Traktor t : getSubset(GasTraktor.class, Drillmaschine.class) ){
-			System.out.println(t.toString()+";"+t.getFunktion().toString());
-		}
 	}
 	
 	private static List<Traktor> getSubset(Class traktor, Class funktion){
@@ -54,7 +55,22 @@ public class Test {
 				t.add(tr);	
 		}
 		
+		
+		
 		return t;
 		
+	}
+	
+	public static void printInfoForClass(Class c){
+		
+		Guarantor g1 = ((Guarantor)c.getAnnotation(Guarantor.class));
+		if(g1 != null)
+			System.out.println("The Class <<"+c.getName()+">> was written by "+g1.person());
+		
+		for(Method m : c.getMethods()){
+			Guarantor g2 = ((Guarantor)m.getAnnotation(Guarantor.class));
+			if(g2 != null)
+				System.out.println("  The Method <"+m.getName()+"> in Class <<"+c.getName()+">> was written by "+g2.person());
+		}
 	}
 }
