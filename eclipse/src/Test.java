@@ -47,6 +47,7 @@ public class Test {
 		printInfoForClass(TraktorList.class);
 		printInfoForClass(DieselTraktorList.class);
 		printInfoForClass(GasTraktorList.class);
+		printInfoForClass(BauernhofList.class);
 	}
 	
 	private static List<Traktor> getSubset(Class traktor, Class funktion){
