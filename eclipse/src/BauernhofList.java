@@ -8,7 +8,12 @@ public class BauernhofList implements Iterable<Bauernhof> {
 	
 	@Guarantor(person="Peter Nirschl")
 	protected class ListElement  {
+		// instances are used as element containers, that can be connected to a
+		// predecessor and to a successor.
+		
 		public Bauernhof value;
+		// value != null
+		
 		public ListElement next;
 		public ListElement prev;
 				
@@ -16,6 +21,8 @@ public class BauernhofList implements Iterable<Bauernhof> {
 			this.next = next;
 			this.value = value;
 		}
+		// initializes a new list element
+		// @param value != null
 	}
 	
 	private ListElement start = null;
@@ -26,10 +33,12 @@ public class BauernhofList implements Iterable<Bauernhof> {
 	public int size() {
 		return count;
 	}
+	// returns the number of elements within the list.
+	// returned value >= 0
 	
 	@Guarantor(person="Peter Nirschl")
-	public void add(Bauernhof traktor) {
-		ListElement insertElement = new ListElement(traktor, null, null);
+	public void add(Bauernhof bauernhof) {
+		ListElement insertElement = new ListElement(bauernhof, null, null);
 		
 		if(end == null) {
 			start = insertElement;
@@ -41,6 +50,8 @@ public class BauernhofList implements Iterable<Bauernhof> {
 		}
 		count++;
 	}
+	// adds an element to the end of the list
+	// @param bauernhof != null
 		
 	@Guarantor(person="Peter Nirschl")
 	public Iterator<Bauernhof> iterator() {
@@ -83,5 +94,6 @@ public class BauernhofList implements Iterable<Bauernhof> {
 			}
 		};
 	}
-	
+	// returns an iterator allowing iteration over all list elements
+
 }

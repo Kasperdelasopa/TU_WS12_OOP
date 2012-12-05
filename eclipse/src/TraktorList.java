@@ -9,7 +9,12 @@ public class TraktorList implements Iterable<Traktor> {
 
 	@Guarantor(person="Peter Nirschl")
 	protected class ListElement  {
+		// instances are used as element containers, that can be connected to a
+		// predecessor and to a successor.
+		
 		public Traktor value;
+		// value != null
+		
 		public ListElement next;
 		public ListElement prev;
 				
@@ -17,6 +22,8 @@ public class TraktorList implements Iterable<Traktor> {
 			this.next = next;
 			this.value = value;
 		}
+		// initializes a new list element
+		// @param value != null
 	}
 	
 	private ListElement start = null;
@@ -27,6 +34,8 @@ public class TraktorList implements Iterable<Traktor> {
 	public int size() {
 		return count;
 	}
+	// returns the number of elements within the list.
+	// returned value >= 0
 	
 	@Guarantor(person="Peter Nirschl")
 	public void add(Traktor traktor) {
@@ -42,6 +51,8 @@ public class TraktorList implements Iterable<Traktor> {
 		}
 		count++;
 	}
+	// adds an element to the end of the list
+	// @param traktor != null
 	
 	@Guarantor(person="Peter Nirschl")
 	public TraktorList getDrillmaschinen() {
@@ -104,4 +115,6 @@ public class TraktorList implements Iterable<Traktor> {
 			}
 		};
 	}
+	// returns an iterator allowing iteration over all list elements
+	
 }
