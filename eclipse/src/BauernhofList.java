@@ -63,6 +63,7 @@ public class BauernhofList implements Iterable<Bauernhof> {
 			public boolean hasNext() {
 				return (current != null);
 			}
+			// returns true if there is an element to return, otherwise false.
 
 			@Override
 			public Bauernhof next() {
@@ -74,6 +75,7 @@ public class BauernhofList implements Iterable<Bauernhof> {
 					throw new NoSuchElementException();
 				}
 			}
+			// returns the next element within the list or throws a NoSuchElementException if there is no such element
 
 			@Override
 			public void remove() {
@@ -92,6 +94,8 @@ public class BauernhofList implements Iterable<Bauernhof> {
 				current = nextElement;
 				BauernhofList.this.count--;
 			}
+			// removes the element from the list, that would be returned by calling next()
+			// if next() would not return an element a NoSuchElementException is thrown
 		};
 	}
 	// returns an iterator allowing iteration over all list elements

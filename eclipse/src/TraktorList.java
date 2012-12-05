@@ -53,26 +53,64 @@ public class TraktorList implements Iterable<Traktor> {
 	}
 	// adds an element to the end of the list
 	// @param traktor != null
+	// @param traktor: the concrete type must be either GasTraktor or DieselTraktor.
+	//                 other possible subtypes of Traktor are not allowed!
 	
 	@Guarantor(person="Peter Nirschl")
 	public TraktorList getDrillmaschinen() {
-		return null;
+		TraktorList newList = new TraktorList();
+		
+		for(Traktor traktor : this) {
+			if(traktor.getFunktion() != null) {
+				if(traktor.getFunktion() instanceof Drillmaschine) {
+					newList.add(traktor);
+				}
+			}
+		}
+		return newList;
 	}
+	// returns a new list containing only Traktor elements that are used as Drillmaschinen
 	
 	@Guarantor(person="Peter Nirschl")
 	public TraktorList getDuengerstreuer() {
-		return null;
+		TraktorList newList = new TraktorList();
+		
+		for(Traktor traktor : this) {
+			if(traktor.getFunktion() != null) {
+				if(traktor.getFunktion() instanceof Duengestreuer) {
+					newList.add(traktor);
+				}
+			}
+		}		
+		return newList;
 	}
+	// returns a new list containing only Traktor elements that are used as Duengerstreuer
 	
 	@Guarantor(person="Peter Nirschl")
 	public DieselTraktorList getDieselTraktoren() {
-		return null;
+		DieselTraktorList dieselTraktorList = new DieselTraktorList();
+		
+		for(Traktor traktor : this) {
+			if(traktor instanceof DieselTraktor) {
+				dieselTraktorList.add((DieselTraktor)traktor);
+			}
+		}
+		return dieselTraktorList;
 	}
+	// returns a new list containing only the DieselTraktor elements of the current instance
 	
 	@Guarantor(person="Peter Nirschl")
 	public GasTraktorList getGasTraktoren() {
-		return null;
+		GasTraktorList gasTraktorList = new GasTraktorList();
+		
+		for(Traktor traktor : this) {
+			if(traktor instanceof GasTraktor) {
+				gasTraktorList.add((GasTraktor)traktor);
+			}
+		}
+		return gasTraktorList;
 	}
+	// returns a new list containing only the GasTraktor elements of the current instance
 	
 	@Guarantor(person="Peter Nirschl")
 	public Iterator<Traktor> iterator() {
@@ -84,6 +122,7 @@ public class TraktorList implements Iterable<Traktor> {
 			public boolean hasNext() {
 				return (current != null);
 			}
+			// returns true if there is an element to return, otherwise false.
 
 			@Override
 			public Traktor next() {
@@ -95,6 +134,7 @@ public class TraktorList implements Iterable<Traktor> {
 					throw new NoSuchElementException();
 				}
 			}
+			// returns the next element within the list or throws a NoSuchElementException if there is no such element (thank you, Mr. Obvious!)
 
 			@Override
 			public void remove() {
@@ -113,6 +153,8 @@ public class TraktorList implements Iterable<Traktor> {
 				current = nextElement;
 				TraktorList.this.count--;
 			}
+			// removes the element from the list, that would be returned by calling next()
+			// if next() would not return an element a NoSuchElementException is thrown
 		};
 	}
 	// returns an iterator allowing iteration over all list elements

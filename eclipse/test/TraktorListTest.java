@@ -106,5 +106,85 @@ public class TraktorListTest {
 	public void retrieveFromEmptyList() {
 		list.iterator().next();
 	}
+	
+	@Test
+	public void addTraktorenAndGetDieselOnly() {
+		DieselTraktor traktor1 = new DieselTraktor();
+		DieselTraktor traktor2 = new DieselTraktor();
+		GasTraktor traktor3 = new GasTraktor();
+		
+		list.add(traktor1);
+		list.add(traktor2);
+		list.add(traktor3);
+		
+		DieselTraktorList dieselList = list.getDieselTraktoren();
+		Iterator<DieselTraktor> iterator = dieselList.iterator();
+		
+		assertEquals(traktor1, iterator.next());
+		assertEquals(traktor2, iterator.next());
+		assertFalse(iterator.hasNext());
+	}
+	
+	@Test
+	public void addTraktorenAndGetGasOnly() {
+		DieselTraktor traktor1 = new DieselTraktor();
+		DieselTraktor traktor2 = new DieselTraktor();
+		GasTraktor traktor3 = new GasTraktor();
+		
+		list.add(traktor1);
+		list.add(traktor2);
+		list.add(traktor3);
+		
+		GasTraktorList gasList = list.getGasTraktoren();
+		Iterator<GasTraktor> iterator = gasList.iterator();
+		
+		assertEquals(traktor3, iterator.next());
+		assertFalse(iterator.hasNext());
+	}
 
+	@Test
+	public void addTraktorenAndGetDrillmaschinenOnly() {
+		DieselTraktor traktor1 = new DieselTraktor();
+		DieselTraktor traktor2 = new DieselTraktor();
+		GasTraktor traktor3 = new GasTraktor();
+		GasTraktor traktor4 = new GasTraktor();
+		
+		traktor1.setFunktion(new Drillmaschine());
+		traktor2.setFunktion(new Duengestreuer());
+		traktor3.setFunktion(new Drillmaschine());
+		traktor4.setFunktion(new Duengestreuer());
+		
+		list.add(traktor1);
+		list.add(traktor2);
+		list.add(traktor3);
+		list.add(traktor4);
+		
+		Iterator<Traktor> iterator = list.getDrillmaschinen().iterator();
+		assertEquals(traktor1, iterator.next());
+		assertEquals(traktor3, iterator.next());
+		assertFalse(iterator.hasNext());
+	}
+	
+	@Test
+	public void addTraktorenAndGetDuengerstreuerOnly() {
+		DieselTraktor traktor1 = new DieselTraktor();
+		DieselTraktor traktor2 = new DieselTraktor();
+		GasTraktor traktor3 = new GasTraktor();
+		GasTraktor traktor4 = new GasTraktor();
+		
+		traktor1.setFunktion(new Drillmaschine());
+		traktor2.setFunktion(new Duengestreuer());
+		traktor3.setFunktion(new Drillmaschine());
+		traktor4.setFunktion(new Duengestreuer());
+		
+		list.add(traktor1);
+		list.add(traktor2);
+		list.add(traktor3);
+		list.add(traktor4);
+		
+		Iterator<Traktor> iterator = list.getDuengerstreuer().iterator();
+		assertEquals(traktor2, iterator.next());
+		assertEquals(traktor4, iterator.next());
+		assertFalse(iterator.hasNext());
+	}
 }

@@ -8,7 +8,11 @@ public class GasTraktorList {
 
 	@Guarantor(person = "Peter Nirschl")
 	protected class ListElement {
+		// instances are used as element containers, that can be connected to a
+		// predecessor and to a successor.
+		
 		public GasTraktor value;
+		// value != null
 		public ListElement next;
 		public ListElement prev;
 
@@ -16,6 +20,8 @@ public class GasTraktorList {
 			this.next = next;
 			this.value = value;
 		}
+		// initializes a new list element
+		// @param value != null	
 	}
 
 	private ListElement start = null;
@@ -56,6 +62,7 @@ public class GasTraktorList {
 			public boolean hasNext() {
 				return (current != null);
 			}
+			// returns true if there is an element to return, otherwise false.
 
 			@Override
 			public GasTraktor next() {
@@ -67,6 +74,7 @@ public class GasTraktorList {
 					throw new NoSuchElementException();
 				}
 			}
+			// returns the next element within the list or throws a NoSuchElementException if there is no such element
 
 			@Override
 			public void remove() {
@@ -85,6 +93,8 @@ public class GasTraktorList {
 				current = nextElement;
 				GasTraktorList.this.count--;
 			}
+			// removes the element from the list, that would be returned by calling next()
+			// if next() would not return an element a NoSuchElementException is thrown
 		};
 	}
 	// returns an iterator allowing iteration over all list elements
