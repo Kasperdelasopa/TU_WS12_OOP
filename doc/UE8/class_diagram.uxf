@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.5.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>790</x>
+      <y>310</y>
+      <w>340</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>DieselTraktor
+--
+-verbrauchteMenge : int
+--
++getVerbrauch() : int
++incrementVerbrauch(int)
+
+bg=blue
+fg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>80</x>
+      <y>230</y>
+      <w>410</w>
+      <h>420</h>
+    </coordinates>
+    <panel_attributes>Bauernhof
+--
+-name : String {final}
+--
++Bauernhof(name : String)
+
+
++getAverageBetriebsstunden() : double
++getAverageBetriebsstndenDrillmaschine() : double
++getAverageBetriebsstundenDuengerstreuer() : double
+
++getAverageBetriebsstundenDieselTraktor() : double
++getAverageBetriebsstundenGasTraktor() : double
+
++getAverageDieselVerbrauch() : double
++getAverageDieselVerbrauchDrillmaschine() : double
++getAverageDieselVerbrauchDuengerstreuer() : double
+
++getAverageGasVerbrauch() : double
++getAverageGasVerbrauchDrillmaschine() : double
++getAverageGasVerbrauchDuengerstreuer() : double
+
++getMinSaeschare() : double
++getMaxSaeschare() : double
++getMinSaeschareDieselTraktor() : double
++getMaxSaeschareDieselTraktor() : double
++getMaxSaeschareGasTraktor() : double
++getMinSaeschareGasTraktor() : double
+
++getAverageFassungskapazitaet() : double
++getAverageFassungskapazitaetDieselTraktor() : double
++getAverageFassungskapazitaetGasTraktor() : double
+
+bg=red
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>970</x>
+      <y>20</y>
+      <w>340</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>Traktor
+{abstract}
+--
+_id_counter : int = 0_
+-id : int {final}
+-betriebsstunden : int
+-funktion : IFunktion
+--
+_-getNextId() : int_
+
++getId() : int
++getBetriebsstunden() : int
++incrementBetriebsstunden()
++getFunktion() : IFunktion
++setFunktion(IFunktion)
+
+bg=blue
+fg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>1150</x>
+      <y>310</y>
+      <w>340</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>GasTraktor
+--
+-verbrauchteMenge : double
+--
++getVerbrauch() : double
++incrementVerbrauch(double)
+
+bg=blue
+fg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>960</x>
+      <y>230</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140;30;30;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>1090</x>
+      <y>230</y>
+      <w>250</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;230;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>940</x>
+      <y>570</y>
+      <w>320</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Duengerstreuer
+--
+-fassungskapazitaet : double
+--
++Duengerstreuer(fassungskapazitaet : double)
+
+bg=blue
+fg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>680</x>
+      <y>570</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Drillmaschine
+--
+-mengeSaeschare : int
+--
++Drillmaschine(saeschare : int)
+
+bg=blue
+fg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>800</x>
+      <y>440</y>
+      <w>270</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IFunktion
+--
++getMengeSaeschare() : Integer
++getFassungskapazitaet() : Double
+
+bg=blue
+fg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>760</x>
+      <y>500</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>150;30;30;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>910</x>
+      <y>500</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>30;30;140;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>50</y>
+      <w>300</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>TraktorList
+--
++getDieselTraktoren() : DieselTraktorList
++getGasTraktoren() : GasTraktorList
++getDrillmaschinen() : TraktorList
++getDuengerstreuer() : TraktorList
++add(Traktor) 
++getIterator() : Iterator&lt;Traktor&gt;
+
+bg=green
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>80</x>
+      <y>770</y>
+      <w>340</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>BauernhofList
+--
+
+--
++getIterator() : Iterator&lt;Bauernhof&gt;
+
+bg=green
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>160</x>
+      <y>620</y>
+      <w>108</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=0..n
+enthält&gt;</panel_attributes>
+    <additional_attributes>60;150;60;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>80</x>
+      <y>50</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Manuel
+bg=blue
+fg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>80</x>
+      <y>90</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Peter
+bg=green
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Note</type>
+    <coordinates>
+      <x>80</x>
+      <y>130</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Goran
+bg=red
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>290</x>
+      <y>50</y>
+      <w>260</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>DieselTraktorList
+--
++add(DieselTraktor)
++getIterator() : Iterator&lt;DieselTraktor&gt;
+
+bg=green
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>290</x>
+      <y>120</y>
+      <w>260</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>GasTraktorList
+--
+
++add(DieselTraktor)
++getIterator() : Iterator&lt;GasTraktor&gt;
+
+bg=green
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
