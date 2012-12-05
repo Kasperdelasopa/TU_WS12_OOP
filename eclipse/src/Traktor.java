@@ -10,6 +10,7 @@ public abstract class Traktor {
 	public Traktor(){
 		this.id = getNextId();
 	}
+	//sets the id, id can't be changed then
 		
 	@Guarantor(person="Manuel Schmitt")
 	public void incrementBetriebsstunden(){
@@ -44,7 +45,7 @@ public abstract class Traktor {
 	//@funktion must not be null
 	
 	@Guarantor(person="Manuel Schmitt")
-	public static int getNextId() {
+	private static int getNextId() {
 		return id_counter++;
 	}
 	//returns the next free ID
