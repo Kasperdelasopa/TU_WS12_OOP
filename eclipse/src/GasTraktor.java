@@ -7,7 +7,7 @@ public class GasTraktor extends Traktor {
 	
 	@Guarantor(person="Manuel Schmitt")
 	public String toString(){
-		return "Gastraktor";
+		return "GasTraktor";
 	}
 	//returns a description
 

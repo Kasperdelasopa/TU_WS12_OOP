@@ -50,5 +50,9 @@ public abstract class Traktor {
 	}
 	//returns the next free ID
 	
-
+	@Guarantor(person="Manuel Schmitt")
+	public int getID(){
+		return id;
+	}
+	//returns ID
 }

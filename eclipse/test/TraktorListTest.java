@@ -149,10 +149,10 @@ public class TraktorListTest {
 		GasTraktor traktor3 = new GasTraktor();
 		GasTraktor traktor4 = new GasTraktor();
 		
-		traktor1.setFunktion(new Drillmaschine());
-		traktor2.setFunktion(new Duengestreuer());
-		traktor3.setFunktion(new Drillmaschine());
-		traktor4.setFunktion(new Duengestreuer());
+		traktor1.setFunktion(new Drillmaschine(5));
+		traktor2.setFunktion(new Duengestreuer(2.8));
+		traktor3.setFunktion(new Drillmaschine(6));
+		traktor4.setFunktion(new Duengestreuer(10.8));
 		
 		list.add(traktor1);
 		list.add(traktor2);
@@ -172,10 +172,10 @@ public class TraktorListTest {
 		GasTraktor traktor3 = new GasTraktor();
 		GasTraktor traktor4 = new GasTraktor();
 		
-		traktor1.setFunktion(new Drillmaschine());
-		traktor2.setFunktion(new Duengestreuer());
-		traktor3.setFunktion(new Drillmaschine());
-		traktor4.setFunktion(new Duengestreuer());
+		traktor1.setFunktion(new Drillmaschine(7));
+		traktor2.setFunktion(new Duengestreuer(3.8));
+		traktor3.setFunktion(new Drillmaschine(7));
+		traktor4.setFunktion(new Duengestreuer(6.9));
 		
 		list.add(traktor1);
 		list.add(traktor2);

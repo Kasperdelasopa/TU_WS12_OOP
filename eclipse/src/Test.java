@@ -1,41 +1,16 @@
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 
 @Guarantor(person="Alle Gruppenmitglieder")
 public class Test {
 
-	static List<Traktor> traktoren = null;
-	
 	public static void main(String[] args) {
-		
-		traktoren = new ArrayList<Traktor>();
-		
-		Dieseltrakor dt = new Dieseltrakor();
-		dt.setFunktion(new Drillmaschine(3));
-		traktoren.add(dt);
-		GasTraktor gt = new GasTraktor();
-		gt.setFunktion(new Duengestreuer(2.0));
-		traktoren.add(gt);
-		
-		dt = new Dieseltrakor();
-		dt.setFunktion(new Duengestreuer(2.0));
-		traktoren.add(dt);
-		gt = new GasTraktor();
-		gt.setFunktion(new Drillmaschine(3));
-		traktoren.add(gt);
-
-		for(Traktor t : getSubset(GasTraktor.class, Drillmaschine.class) ){
-			System.out.println(t.toString()+";"+t.getFunktion().toString());
-		}
-		
 		
 		/**
 		 * Ausgabe der Anotations
 		 */
 		printInfoForClass(Bauernhof.class);
-		printInfoForClass(Dieseltrakor.class);
+		printInfoForClass(DieselTraktor.class);
 		printInfoForClass(Drillmaschine.class);
 		printInfoForClass(Duengestreuer.class);
 		printInfoForClass(GasTraktor.class);
@@ -50,21 +25,7 @@ public class Test {
 		printInfoForClass(BauernhofList.class);
 	}
 	
-	private static List<Traktor> getSubset(Class traktor, Class funktion){
-		
-		List<Traktor> t = new ArrayList<Traktor>();
-		
-		for(Traktor tr : traktoren){
-			if(traktor.isInstance(tr) && funktion.isInstance(tr.getFunktion()))
-				t.add(tr);	
-		}
-		
-		
-		
-		return t;
-		
-	}
-	
+	@Guarantor(person="Alle Gruppenmitglieder")
 	public static void printInfoForClass(Class c){
 		
 		Guarantor g1 = ((Guarantor)c.getAnnotation(Guarantor.class));
@@ -77,4 +38,6 @@ public class Test {
 				System.out.println("  The Method <"+m.getName()+"> in Class <<"+c.getName()+">> was written by "+g2.person());
 		}
 	}
+	//prints out the Annotations for classes and methods
+	//@param c must not be null
 }
