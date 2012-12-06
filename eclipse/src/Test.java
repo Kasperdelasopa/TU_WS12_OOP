@@ -13,17 +13,17 @@ public class Test {
 		traktoren = new ArrayList<Traktor>();
 		
 		Dieseltrakor dt = new Dieseltrakor();
-		dt.setFunktion(new Drillmaschine());
+		dt.setFunktion(new Drillmaschine(3));
 		traktoren.add(dt);
 		GasTraktor gt = new GasTraktor();
-		gt.setFunktion(new Duengestreuer());
+		gt.setFunktion(new Duengestreuer(2.0));
 		traktoren.add(gt);
 		
 		dt = new Dieseltrakor();
-		dt.setFunktion(new Duengestreuer());
+		dt.setFunktion(new Duengestreuer(2.0));
 		traktoren.add(dt);
 		gt = new GasTraktor();
-		gt.setFunktion(new Drillmaschine());
+		gt.setFunktion(new Drillmaschine(3));
 		traktoren.add(gt);
 
 		for(Traktor t : getSubset(GasTraktor.class, Drillmaschine.class) ){
