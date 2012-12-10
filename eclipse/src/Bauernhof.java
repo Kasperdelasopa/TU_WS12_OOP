@@ -1,3 +1,4 @@
+import java.util.Iterator;
 
 
 @Guarantor(person="Goran Filcic")
@@ -29,7 +30,7 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public void removeTraktor(int i){
-		ITraktorIterator it = traktoren.iterator();
+		Iterator<Traktor> it = traktoren.iterator();
 		while(it.hasNext()){
 			if(it.next().getID()==i){
 				it.remove();
@@ -42,9 +43,7 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public void erhoeheDieselVerbrauch(int i){
-		IDieselTraktorIterator iterator = traktoren.getDieselTraktoren().iterator();
-		while(iterator.hasNext()) {
-			DieselTraktor e = iterator.next();
+		for(DieselTraktor e: traktoren.getDieselTraktoren()){
 			if(e.getID()==i){
 				e.incrementVerbrauch();
 				break;
@@ -56,9 +55,7 @@ public class Bauernhof {
 
 	@Guarantor(person="Goran Filcic")
 	public void erhoeheGasVerbrauch(int i){
-		IGasTraktorIterator iterator = traktoren.getGasTraktoren().iterator();
-		while(iterator.hasNext()){
-			GasTraktor e = iterator.next();
+		for(GasTraktor e: traktoren.getGasTraktoren()){
 			if(e.getID()==i){
 				e.incrementVerbrauch();
 				break;
@@ -70,9 +67,7 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public void aendereFunktion(int i, IFunktion funktion){
-		ITraktorIterator iterator = traktoren.iterator();
-		while(iterator.hasNext()){
-			Traktor e = iterator.next();
+		for(Traktor e: traktoren){
 			if(e.getID()==i){
 				e.setFunktion(funktion);
 				break;
@@ -84,37 +79,13 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public double getAverageBetriebsstunden(){
-<<<<<<< HEAD
-		double summe = 0.0;
-		
-		ITraktorIterator it = traktoren.iterator();
-		while(it.hasNext()){
-			Traktor e = it.next();
-			summe+=e.getBetriebsstunden();
-		}
-		
-		return summe/traktoren.size();
-=======
 		return averageBetrieb(0);
->>>>>>> branch 'master' of https://github.com/Kasperdelasopa/TU_WS12_OOP.git
 	}
 	//returns the average of operating hours from all instances of Traktor
 	
 	@Guarantor(person="Goran Filcic")
 	public double getAverageBetriebsstundenDrillmaschine(){
-<<<<<<< HEAD
-		double summe=0.0;
-		
-		ITraktorIterator iterator =  traktoren.getDrillmaschinen().iterator();
-		while(iterator.hasNext())
-		{
-			Traktor e = iterator.next();
-			summe+=e.getBetriebsstunden();
-		}
-		return summe/traktoren.getDrillmaschinen().size();
-=======
 		return averageBetrieb(1);
->>>>>>> branch 'master' of https://github.com/Kasperdelasopa/TU_WS12_OOP.git
 	}
 	//returns the average of operating hours from all instances of Traktor with IFunktion Drillmaschine
 	
@@ -126,10 +97,6 @@ public class Bauernhof {
 	
 	private double averageBetrieb(int i){
 		double summe=0.0;
-<<<<<<< HEAD
-		ITraktorIterator iterator =  traktoren.getDuengerstreuer().iterator();
-		while(iterator.hasNext())
-=======
 		TraktorList list;
 		switch(i){
 			case 1: list= traktoren.getDrillmaschinen(); break;
@@ -138,9 +105,7 @@ public class Bauernhof {
 		}
 		
 		for(Traktor e: list)
->>>>>>> branch 'master' of https://github.com/Kasperdelasopa/TU_WS12_OOP.git
 		{
-			Traktor e = iterator.next();
 			summe+=e.getBetriebsstunden();
 		}
 		
@@ -153,10 +118,8 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getAverageBetriebsstundenDieselTraktor(){
 		double summe=0.0;
-		IDieselTraktorIterator iterator =  traktoren.getDieselTraktoren().iterator();
-		while(iterator.hasNext())
+		for(Traktor e: traktoren.getDieselTraktoren())
 		{
-			Traktor e = iterator.next();
 			summe+=e.getBetriebsstunden();
 		}
 		
@@ -247,10 +210,8 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getAverageBetriebsstundenGasTraktor(){
 		double summe=0.0;
-		IGasTraktorIterator iterator = traktoren.getGasTraktoren().iterator();
-		while(iterator.hasNext())
+		for(Traktor e: traktoren.getGasTraktoren())
 		{
-			Traktor e = iterator.next();
 			summe+=e.getBetriebsstunden();
 		}
 			
@@ -259,95 +220,13 @@ public class Bauernhof {
 	
 	}
 	//returns the average of operating hours from all instances of GasTraktor
-<<<<<<< HEAD
-	
-	@Guarantor(person="Goran Filcic")
-	public double getAverageDieselVerbrauch(){
-		double summe=0.0;
-		IDieselTraktorIterator iterator = traktoren.getDieselTraktoren().iterator();
-		while(iterator.hasNext())
-		{
-			DieselTraktor e = iterator.next();
-			summe+=e.getVerbrauch();
-		}
-		return summe/traktoren.getDieselTraktoren().size();
-	}
-	//returns the average of diesel consumption from all instances of DieselTraktor
-	
-	@Guarantor(person="Goran Filcic")
-	public double getAverageDieselVerbrauchDrillmaschine(){
-		double summe=0.0;
-		IDieselTraktorIterator iterator = traktoren.getDrillmaschinen().getDieselTraktoren().iterator();
-		while(iterator.hasNext())
-		{
-			DieselTraktor e = iterator.next();
-			summe+=e.getVerbrauch();
-		}
-		return summe/traktoren.getDrillmaschinen().getDieselTraktoren().size();
-	}
-	//returns the average of diesel consumption from all instances of DieselTraktor with IFunktion Drillmaschine
-	
-	@Guarantor(person="Goran Filcic")
-	public double getAverageDieselVerbrauchDuengerstreuer(){
-		double summe=0.0;
-		IDieselTraktorIterator iterator = traktoren.getDuengerstreuer().getDieselTraktoren().iterator();
-		while(iterator.hasNext())
-		{
-			DieselTraktor e = iterator.next();
-			summe+=e.getVerbrauch();
-		}
-		return summe/traktoren.getDuengerstreuer().getDieselTraktoren().size();
-	}
-	//returns the average of diesel consumption from all instances of DieselTraktor with IFunktion Duengestreuer
-	
-	@Guarantor(person="Goran Filcic")
-	public double getAverageGasVerbrauch(){
-		double summe=0.0;
-		IGasTraktorIterator iterator = traktoren.getGasTraktoren().iterator();
-		while(iterator.hasNext())
-		{
-			GasTraktor e = iterator.next();
-			summe+=e.getVerbrauch();
-		}
-		return summe/traktoren.getGasTraktoren().size();
-	}
-	//returns the average of gas consumption from all instances of GasTraktor
-	
-	@Guarantor(person="Goran Filcic")
-	public double getAverageGasVerbrauchDrillmaschine(){
-		double summe=0.0;
-		IGasTraktorIterator iterator = traktoren.getDrillmaschinen().getGasTraktoren().iterator();
-		while(iterator.hasNext())
-		{
-			GasTraktor e = iterator.next();
-			summe+=e.getVerbrauch();
-		}
-		return summe/traktoren.getDrillmaschinen().getGasTraktoren().size();
-	}
-	//returns the average of gas consumption from all instances of GasTraktor with IFunktion Drillmaschine
-	
-	@Guarantor(person="Goran Filcic")
-	public double getAverageGasVerbrauchDuengerstreuer(){
-		double summe=0.0;
-		IGasTraktorIterator iterator = traktoren.getDuengerstreuer().getGasTraktoren().iterator();
-		while(iterator.hasNext())
-		{
-			GasTraktor e = iterator.next();
-			summe+=e.getVerbrauch();
-		}
-		return summe/traktoren.getDuengerstreuer().getGasTraktoren().size();
-	}
-	//returns the average of gas consumption from all instances of GasTraktor with IFunktion Duengestreuer
-=======
->>>>>>> branch 'master' of https://github.com/Kasperdelasopa/TU_WS12_OOP.git
 	
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschare(){
-		ITraktorIterator iter=traktoren.getDrillmaschinen().iterator();
-		double min = 0.0;
-		while(iter.hasNext())
+		Iterator<Traktor> iter=traktoren.getDrillmaschinen().iterator();
+		double min=iter.next().getFunktion().getMengeSaeschare();
+		for(Traktor e: traktoren.getDrillmaschinen())
 		{
-			Traktor e = iter.next();
 			if(e.getFunktion().getMengeSaeschare()<min) min= e.getFunktion().getMengeSaeschare();
 		}
 		return min;
@@ -356,11 +235,9 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public double getMaxSaeschare(){
-		double max = 0.0;
-		ITraktorIterator iterator = traktoren.getDrillmaschinen().iterator();
-		while(iterator.hasNext())
+		double max=0.0;
+		for(Traktor e: traktoren.getDrillmaschinen())
 		{
-			Traktor e = iterator.next();
 			if(e.getFunktion().getMengeSaeschare()>max) max= e.getFunktion().getMengeSaeschare();
 		}
 		return max;
@@ -369,17 +246,10 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschareDieselTraktor(){
-<<<<<<< HEAD
-		ITraktorIterator iter=traktoren.getDrillmaschinen().iterator();
-		double min = 0.0;
-		while(iter.hasNext())
-=======
 		Iterator<DieselTraktor> iter=traktoren.getDrillmaschinen().getDieselTraktoren().iterator();
 		double min=iter.next().getFunktion().getMengeSaeschare();
 		for(Traktor e: traktoren.getDrillmaschinen().getDieselTraktoren())
->>>>>>> branch 'master' of https://github.com/Kasperdelasopa/TU_WS12_OOP.git
 		{
-			Traktor e = iter.next();
 			if(e.getFunktion().getMengeSaeschare()<min) min= e.getFunktion().getMengeSaeschare();
 		}
 		return min;
@@ -389,10 +259,8 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getMaxSaeschareDieselTraktor(){
 		double max=0.0;
-		IDieselTraktorIterator iterator = traktoren.getDrillmaschinen().getDieselTraktoren().iterator();
-		while(iterator.hasNext())
+		for(Traktor e: traktoren.getDrillmaschinen().getDieselTraktoren())
 		{
-			DieselTraktor e = iterator.next();
 			if(e.getFunktion().getMengeSaeschare()>max) max= e.getFunktion().getMengeSaeschare();
 		}
 		return max;
@@ -401,15 +269,10 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschareGasTraktor(){
-<<<<<<< HEAD
-		IGasTraktorIterator iter=traktoren.getDrillmaschinen().getGasTraktoren().iterator();
-=======
 		Iterator<GasTraktor> iter=traktoren.getDrillmaschinen().getGasTraktoren().iterator();
->>>>>>> branch 'master' of https://github.com/Kasperdelasopa/TU_WS12_OOP.git
 		double min=iter.next().getFunktion().getMengeSaeschare();
-		while(iter.hasNext())
+		for(Traktor e: traktoren.getDrillmaschinen().getGasTraktoren())
 		{
-			GasTraktor e = iter.next();
 			if(e.getFunktion().getMengeSaeschare()<min) min= e.getFunktion().getMengeSaeschare();
 		}
 		return min;
@@ -419,10 +282,8 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getMaxSaeschareGasTraktor(){
 		double max=0.0;
-		IGasTraktorIterator iterator =  traktoren.getDrillmaschinen().getGasTraktoren().iterator();
-		while(iterator.hasNext())
+		for(Traktor e: traktoren.getDrillmaschinen().getGasTraktoren())
 		{
-			GasTraktor e = iterator.next();
 			if(e.getFunktion().getMengeSaeschare()>max) max= e.getFunktion().getMengeSaeschare();
 		}
 		return max;
@@ -434,10 +295,8 @@ public class Bauernhof {
 	public double getAverageFassungskapazitaet(){
 		double summe =0.0;
 		
-		ITraktorIterator iterator = traktoren.iterator();
-		while(iterator.hasNext())
+		for(Traktor e: traktoren)
 		{
-			Traktor e = iterator.next();
 			summe+=e.getFunktion().getFassungskapazitaet();
 		}
 		
@@ -451,10 +310,8 @@ public class Bauernhof {
 	public double getAverageFassungskapazitaetDieselTraktor(){
 		double summe =0.0;
 		
-		IDieselTraktorIterator iterator = traktoren.getDieselTraktoren().iterator();
-		while(iterator.hasNext())
+		for(Traktor e: traktoren.getDieselTraktoren())
 		{
-			DieselTraktor e = iterator.next();
 			summe+=e.getFunktion().getFassungskapazitaet();
 		}
 		
@@ -469,10 +326,8 @@ public class Bauernhof {
 	public double getAverageFassungskapazitaetGasTraktor(){
 		double summe =0.0;
 		
-		IGasTraktorIterator iterator = traktoren.getGasTraktoren().iterator();
-		while(iterator.hasNext())
+		for(Traktor e: traktoren.getGasTraktoren())
 		{
-			GasTraktor e = iterator.next();
 			summe+=e.getFunktion().getFassungskapazitaet();
 		}
 		
