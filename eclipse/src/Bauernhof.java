@@ -246,7 +246,7 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschareDieselTraktor(){
-		Iterator<Traktor> iter=traktoren.getDrillmaschinen().iterator();
+		Iterator<DieselTraktor> iter=traktoren.getDrillmaschinen().getDieselTraktoren().iterator();
 		double min=iter.next().getFunktion().getMengeSaeschare();
 		for(Traktor e: traktoren.getDrillmaschinen().getDieselTraktoren())
 		{
@@ -269,7 +269,7 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschareGasTraktor(){
-		Iterator<Traktor> iter=traktoren.getDrillmaschinen().iterator();
+		Iterator<GasTraktor> iter=traktoren.getDrillmaschinen().getGasTraktoren().iterator();
 		double min=iter.next().getFunktion().getMengeSaeschare();
 		for(Traktor e: traktoren.getDrillmaschinen().getGasTraktoren())
 		{
