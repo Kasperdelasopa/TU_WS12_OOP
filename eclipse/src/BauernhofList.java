@@ -29,6 +29,21 @@ public class BauernhofList {
 	private int count = 0;
 	// count >= 0
 	
+	@Guarantor(person="Peter Nirschl")
+	public Bauernhof getBauernhofByName(String name) {
+		IBauernhofIterator iterator = this.iterator();
+		while(iterator.hasNext()) {
+			Bauernhof bauernhof = iterator.next();
+			if(bauernhof.getName().equals(name)) {
+				return bauernhof;
+			}
+		}
+		return null;
+	}
+	// returns an element identified by its name or null if the element is not contained within the list
+	// @param name != null and name != "" 
+	
+	@Guarantor(person="Peter Nirschl")
 	public int size() {
 		return count;
 	}

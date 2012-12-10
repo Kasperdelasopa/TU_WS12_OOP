@@ -1,6 +1,5 @@
 import static org.junit.Assert.*;
 
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import org.junit.Before;
@@ -35,7 +34,7 @@ public class TraktorListTest {
 		list.add(traktor2);
 		list.add(traktor3);
 		
-		Iterator<Traktor> iterator = list.iterator();
+		ITraktorIterator iterator = list.iterator();
 		
 		assertEquals(traktor1, iterator.next());
 		assertEquals(traktor2, iterator.next());
@@ -53,7 +52,7 @@ public class TraktorListTest {
 		list.add(traktor2);
 		list.add(traktor3);
 		
-		Iterator<Traktor> iterator = list.iterator();
+		ITraktorIterator iterator = list.iterator();
 		iterator.next();
 		iterator.remove();
 		
@@ -72,12 +71,12 @@ public class TraktorListTest {
 		list.add(traktor2);
 		list.add(traktor3);
 		
-		Iterator<Traktor> iterator1 = list.iterator();
+		ITraktorIterator iterator1 = list.iterator();
 		iterator1.next();
 		iterator1.next();
 		iterator1.remove();
 		
-		Iterator<Traktor> iterator2 = list.iterator();
+		ITraktorIterator iterator2 = list.iterator();
 		assertEquals(traktor1, iterator2.next());
 		assertEquals(traktor3, iterator2.next());
 		assertFalse(iterator2.hasNext());
@@ -93,13 +92,13 @@ public class TraktorListTest {
 		list.add(traktor2);
 		list.add(traktor3);
 		
-		Iterator<Traktor> iterator1 = list.iterator();
+		ITraktorIterator iterator1 = list.iterator();
 		iterator1.next();
 		iterator1.next();
 		iterator1.next();
 		iterator1.remove();
 		
-		Iterator<Traktor> iterator2 = list.iterator();
+		ITraktorIterator iterator2 = list.iterator();
 		assertEquals(traktor1, iterator2.next());
 		assertEquals(traktor2, iterator2.next());
 		assertFalse(iterator2.hasNext());
@@ -132,7 +131,7 @@ public class TraktorListTest {
 		list.add(traktor3);
 		
 		DieselTraktorList dieselList = list.getDieselTraktoren();
-		Iterator<DieselTraktor> iterator = dieselList.iterator();
+		IDieselTraktorIterator iterator = dieselList.iterator();
 		
 		assertEquals(traktor1, iterator.next());
 		assertEquals(traktor2, iterator.next());
@@ -150,7 +149,7 @@ public class TraktorListTest {
 		list.add(traktor3);
 		
 		GasTraktorList gasList = list.getGasTraktoren();
-		Iterator<GasTraktor> iterator = gasList.iterator();
+		IGasTraktorIterator iterator = gasList.iterator();
 		
 		assertEquals(traktor3, iterator.next());
 		assertFalse(iterator.hasNext());
@@ -173,7 +172,7 @@ public class TraktorListTest {
 		list.add(traktor3);
 		list.add(traktor4);
 		
-		Iterator<Traktor> iterator = list.getDrillmaschinen().iterator();
+		ITraktorIterator iterator = list.getDrillmaschinen().iterator();
 		assertEquals(traktor1, iterator.next());
 		assertEquals(traktor3, iterator.next());
 		assertFalse(iterator.hasNext());
@@ -196,7 +195,7 @@ public class TraktorListTest {
 		list.add(traktor3);
 		list.add(traktor4);
 		
-		Iterator<Traktor> iterator = list.getDuengerstreuer().iterator();
+		ITraktorIterator iterator = list.getDuengerstreuer().iterator();
 		assertEquals(traktor2, iterator.next());
 		assertEquals(traktor4, iterator.next());
 		assertFalse(iterator.hasNext());

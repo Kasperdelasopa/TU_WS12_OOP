@@ -351,4 +351,10 @@ public class Bauernhof {
 	}
 	//returns average of capacity(Fassungskapazitaet) from all instances of GasTraktor with IFunktion Duengestreuer
 
+	@Guarantor(person="Peter Nirschl")
+	public String getName() {
+		return name;
+	}
+	// returns  the name of the Bauernhof;
+	// return value != "" and return value != null
 }
