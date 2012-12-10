@@ -58,6 +58,7 @@ public class BauernhofList implements Iterable<Bauernhof> {
 		return new Iterator<Bauernhof> () {
 			
 			private ListElement current = start;
+			private ListElement previous = null;
 			
 			@Override
 			public boolean hasNext() {
@@ -69,6 +70,7 @@ public class BauernhofList implements Iterable<Bauernhof> {
 			public Bauernhof next() {
 				if(current != null) {
 					Bauernhof bauernhof = current.value;
+					previous = current;
 					current = current.next;
 					return bauernhof;
 				} else {
@@ -79,19 +81,17 @@ public class BauernhofList implements Iterable<Bauernhof> {
 
 			@Override
 			public void remove() {
-				if(current == null) {
+				if(previous == null) {
 					throw new NoSuchElementException();
 				}
 				
-				ListElement nextElement = current.next;
-				
-				if(current.prev != null) {
-					current.prev.next = current.next;
+				if(previous.prev != null) {
+					previous.prev.next = previous.next;
 				}
-				if(current.next != null) {
-					current.next.prev = current.prev;
+				if(previous.next != null) {
+					previous.next.prev = previous.prev;
 				}
-				current = nextElement;
+				previous = null;
 				BauernhofList.this.count--;
 			}
 			// removes the element from the list, that would be returned by calling next()

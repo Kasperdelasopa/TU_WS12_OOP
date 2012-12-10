@@ -58,6 +58,7 @@ public class DieselTraktorList implements Iterable<DieselTraktor>  {
 		return new Iterator<DieselTraktor>() {
 
 			private ListElement current = start;
+			private ListElement previous = null;
 
 			@Override
 			public boolean hasNext() {
@@ -69,6 +70,7 @@ public class DieselTraktorList implements Iterable<DieselTraktor>  {
 			public DieselTraktor next() {
 				if (current != null) {
 					DieselTraktor traktor = current.value;
+					previous = current;
 					current = current.next;
 					return traktor;
 				} else {
@@ -78,20 +80,19 @@ public class DieselTraktorList implements Iterable<DieselTraktor>  {
 			// returns the next element within the list or throws a NoSuchElementException if there is no such element
 
 			@Override
-			public void remove() {
-				if (current == null) {
+			public void remove() {	
+				if(previous == null) {
 					throw new NoSuchElementException();
 				}
 
-				ListElement nextElement = current.next;
-
-				if (current.prev != null) {
-					current.prev.next = current.next;
+				if (previous.prev != null) {
+					previous.prev.next = previous.next;
 				}
-				if (current.next != null) {
-					current.next.prev = current.prev;
+				if (previous.next != null) {
+					previous.next.prev = previous.prev;
 				}
-				current = nextElement;
+				
+				previous = null;
 				DieselTraktorList.this.count--;
 			}
 			// removes the element from the list, that would be returned by calling next()

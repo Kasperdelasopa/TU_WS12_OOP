@@ -54,11 +54,33 @@ public class TraktorListTest {
 		list.add(traktor3);
 		
 		Iterator<Traktor> iterator = list.iterator();
+		iterator.next();
 		iterator.remove();
 		
 		assertEquals(traktor2, iterator.next());
 		assertEquals(traktor3, iterator.next());
 		assertFalse(iterator.hasNext());
+	}
+	
+	@Test
+	public void addElementsAndRemoveMiddleElement() {
+		Traktor traktor1 = new DieselTraktor();
+		Traktor traktor2 = new DieselTraktor();
+		Traktor traktor3 = new GasTraktor();
+		
+		list.add(traktor1);
+		list.add(traktor2);
+		list.add(traktor3);
+		
+		Iterator<Traktor> iterator1 = list.iterator();
+		iterator1.next();
+		iterator1.next();
+		iterator1.remove();
+		
+		Iterator<Traktor> iterator2 = list.iterator();
+		assertEquals(traktor1, iterator2.next());
+		assertEquals(traktor3, iterator2.next());
+		assertFalse(iterator2.hasNext());
 	}
 	
 	@Test
@@ -74,6 +96,7 @@ public class TraktorListTest {
 		Iterator<Traktor> iterator1 = list.iterator();
 		iterator1.next();
 		iterator1.next();
+		iterator1.next();
 		iterator1.remove();
 		
 		Iterator<Traktor> iterator2 = list.iterator();
@@ -82,31 +105,22 @@ public class TraktorListTest {
 		assertFalse(iterator2.hasNext());
 	}
 	
-	@Test
-	public void addElementsAndRemoveMiddleElement() {
-		Traktor traktor1 = new DieselTraktor();
-		Traktor traktor2 = new DieselTraktor();
-		Traktor traktor3 = new GasTraktor();
-		
-		list.add(traktor1);
-		list.add(traktor2);
-		list.add(traktor3);
-		
-		Iterator<Traktor> iterator1 = list.iterator();
-		iterator1.next();
-		iterator1.remove();
-		
-		Iterator<Traktor> iterator2 = list.iterator();
-		assertEquals(traktor1, iterator2.next());
-		assertEquals(traktor3, iterator2.next());
-		assertFalse(iterator2.hasNext());
-	}
-	
 	@Test(expected=NoSuchElementException.class)
 	public void retrieveFromEmptyList() {
 		list.iterator().next();
 	}
 	
+	@Test(expected=NoSuchElementException.class)
+	public void deleteFromEmptyList() {
+		list.iterator().remove();
+	}
+	
+	@Test(expected=NoSuchElementException.class)
+	public void deleteFromListWithoutCallingNext() {
+		list.add(new DieselTraktor());
+		list.iterator().remove();
+	}
+		
 	@Test
 	public void addTraktorenAndGetDieselOnly() {
 		DieselTraktor traktor1 = new DieselTraktor();

@@ -1,7 +1,6 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-
 @Guarantor(person="Peter Nirschl")
 public class TraktorList implements Iterable<Traktor> {
 	// instances represent a double-linked list which holds elements of type
@@ -117,6 +116,7 @@ public class TraktorList implements Iterable<Traktor> {
 		return new Iterator<Traktor> () {
 			
 			private ListElement current = start;
+			private ListElement previous = null;
 			
 			@Override
 			public boolean hasNext() {
@@ -128,6 +128,7 @@ public class TraktorList implements Iterable<Traktor> {
 			public Traktor next() {
 				if(current != null) {
 					Traktor traktor = current.value;
+					previous = current;
 					current = current.next;
 					return traktor;
 				} else {
@@ -138,19 +139,17 @@ public class TraktorList implements Iterable<Traktor> {
 
 			@Override
 			public void remove() {
-				if(current == null) {
+				if(previous == null) {
 					throw new NoSuchElementException();
 				}
 				
-				ListElement nextElement = current.next;
-				
-				if(current.prev != null) {
-					current.prev.next = current.next;
+				if(previous.prev != null) {
+					previous.prev.next = previous.next;
 				}
-				if(current.next != null) {
-					current.next.prev = current.prev;
+				if(previous.next != null) {
+					previous.next.prev = previous.prev;
 				}
-				current = nextElement;
+				previous = null;
 				TraktorList.this.count--;
 			}
 			// removes the element from the list, that would be returned by calling next()
