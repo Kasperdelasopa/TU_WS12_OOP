@@ -1,6 +1,3 @@
-import java.util.Iterator;
-
-
 @Guarantor(person="Goran Filcic")
 public class Bauernhof {
 	// instances represent a farm with a collection of type Traktor
@@ -30,7 +27,7 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public void removeTraktor(int i){
-		Iterator<Traktor> it = traktoren.iterator();
+		ITraktorIterator it = traktoren.iterator();
 		while(it.hasNext()){
 			if(it.next().getID()==i){
 				it.remove();
@@ -43,22 +40,28 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public void erhoeheDieselVerbrauch(int i){
-		for(DieselTraktor e: traktoren.getDieselTraktoren()){
-			if(e.getID()==i){
-				e.incrementVerbrauch();
-				break;
+		IDieselTraktorIterator it = traktoren.getDieselTraktoren().iterator();
+		while(it.hasNext()){
+			DieselTraktor traktor = it.next();
+			if(traktor.getID()==i){
+				traktor.incrementVerbrauch();
+				break; 
 			}
 		}
 	}
+	
+	
 	//@param i>0
 	//searches a DieselTraktor by ID and increments Verbrauch(consumption)
 
 	@Guarantor(person="Goran Filcic")
 	public void erhoeheGasVerbrauch(int i){
-		for(GasTraktor e: traktoren.getGasTraktoren()){
-			if(e.getID()==i){
-				e.incrementVerbrauch();
-				break;
+		IGasTraktorIterator it = traktoren.getGasTraktoren().iterator();
+		while(it.hasNext()){
+			GasTraktor traktor = it.next();
+			if(traktor.getID()==i){
+				traktor.incrementVerbrauch();
+				break; 
 			}
 		}
 	}
@@ -67,10 +70,12 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public void aendereFunktion(int i, IFunktion funktion){
-		for(Traktor e: traktoren){
-			if(e.getID()==i){
-				e.setFunktion(funktion);
-				break;
+		ITraktorIterator it = traktoren.iterator();
+		while(it.hasNext()){
+			Traktor traktor = it.next();
+			if(traktor.getID()==i){
+				traktor.setFunktion(funktion);
+				break; 
 			}
 		}
 	}
@@ -104,9 +109,9 @@ public class Bauernhof {
 			default: list=traktoren; break;
 		}
 		
-		for(Traktor e: list)
-		{
-			summe+=e.getBetriebsstunden();
+		ITraktorIterator it = list.iterator();
+		while(it.hasNext()){
+			summe+=it.next().getBetriebsstunden();
 		}
 		
 		if(list.size()==0) return 0.0;
@@ -118,9 +123,10 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getAverageBetriebsstundenDieselTraktor(){
 		double summe=0.0;
-		for(Traktor e: traktoren.getDieselTraktoren())
-		{
-			summe+=e.getBetriebsstunden();
+		
+		IDieselTraktorIterator it = traktoren.getDieselTraktoren().iterator();
+		while(it.hasNext()){
+			summe+=it.next().getBetriebsstunden();
 		}
 		
 		if(traktoren.getDieselTraktoren().size()==0) return 0.0;
@@ -138,9 +144,9 @@ public class Bauernhof {
 			default: list= traktoren.getDieselTraktoren(); break;
 		}
 		
-		for(DieselTraktor e: list)
-		{
-			summe+=e.getVerbrauch();
+		IDieselTraktorIterator it = list.iterator();
+		while(it.hasNext()){
+			summe+=it.next().getVerbrauch();
 		}
 		
 		if(list.size()==0) return 0.0;
@@ -176,9 +182,9 @@ public class Bauernhof {
 			default: list= traktoren.getGasTraktoren(); break;
 		}
 		
-		for(GasTraktor e: list)
-		{
-			summe+=e.getVerbrauch();
+		IGasTraktorIterator it = list.iterator();
+		while(it.hasNext()){
+			summe+=it.next().getVerbrauch();
 		}
 		
 		if(list.size()==0) return 0.0;
@@ -210,11 +216,12 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getAverageBetriebsstundenGasTraktor(){
 		double summe=0.0;
-		for(Traktor e: traktoren.getGasTraktoren())
-		{
-			summe+=e.getBetriebsstunden();
+		
+		IGasTraktorIterator it = traktoren.getGasTraktoren().iterator();
+		while(it.hasNext()){
+			summe+=it.next().getBetriebsstunden();
 		}
-			
+		
 		if(traktoren.getGasTraktoren().size()==0) return 0.0;
 		return summe/traktoren.getGasTraktoren().size();
 	
@@ -223,12 +230,13 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschare(){
-		Iterator<Traktor> iter=traktoren.getDrillmaschinen().iterator();
-		double min=iter.next().getFunktion().getMengeSaeschare();
-		for(Traktor e: traktoren.getDrillmaschinen())
-		{
-			if(e.getFunktion().getMengeSaeschare()<min) min= e.getFunktion().getMengeSaeschare();
+		ITraktorIterator it=traktoren.getDrillmaschinen().iterator();
+		double min=it.next().getFunktion().getMengeSaeschare();
+		while(it.hasNext()){
+			Traktor traktor=it.next();
+			if(traktor.getFunktion().getMengeSaeschare()<min) min= traktor.getFunktion().getMengeSaeschare();
 		}
+		
 		return min;
 	}
 	//returns lowest value of Saeschare from all instances of Traktor with IFunktion Drillmaschine
@@ -236,9 +244,11 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getMaxSaeschare(){
 		double max=0.0;
-		for(Traktor e: traktoren.getDrillmaschinen())
-		{
-			if(e.getFunktion().getMengeSaeschare()>max) max= e.getFunktion().getMengeSaeschare();
+		
+		ITraktorIterator it=traktoren.getDrillmaschinen().iterator();
+		while(it.hasNext()){
+			Traktor traktor=it.next();
+			if(traktor.getFunktion().getMengeSaeschare()>max) max= traktor.getFunktion().getMengeSaeschare();
 		}
 		return max;
 	}
@@ -246,11 +256,11 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschareDieselTraktor(){
-		Iterator<DieselTraktor> iter=traktoren.getDrillmaschinen().getDieselTraktoren().iterator();
-		double min=iter.next().getFunktion().getMengeSaeschare();
-		for(Traktor e: traktoren.getDrillmaschinen().getDieselTraktoren())
-		{
-			if(e.getFunktion().getMengeSaeschare()<min) min= e.getFunktion().getMengeSaeschare();
+		IDieselTraktorIterator it=traktoren.getDrillmaschinen().getDieselTraktoren().iterator();
+		double min=it.next().getFunktion().getMengeSaeschare();
+		while(it.hasNext()){
+			Traktor traktor=it.next();
+			if(traktor.getFunktion().getMengeSaeschare()<min) min= traktor.getFunktion().getMengeSaeschare();
 		}
 		return min;
 	}
@@ -259,9 +269,10 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getMaxSaeschareDieselTraktor(){
 		double max=0.0;
-		for(Traktor e: traktoren.getDrillmaschinen().getDieselTraktoren())
-		{
-			if(e.getFunktion().getMengeSaeschare()>max) max= e.getFunktion().getMengeSaeschare();
+		IDieselTraktorIterator it=traktoren.getDrillmaschinen().getDieselTraktoren().iterator();
+		while(it.hasNext()){
+			Traktor traktor=it.next();
+			if(traktor.getFunktion().getMengeSaeschare()>max) max= traktor.getFunktion().getMengeSaeschare();
 		}
 		return max;
 	}
@@ -269,11 +280,11 @@ public class Bauernhof {
 	
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschareGasTraktor(){
-		Iterator<GasTraktor> iter=traktoren.getDrillmaschinen().getGasTraktoren().iterator();
-		double min=iter.next().getFunktion().getMengeSaeschare();
-		for(Traktor e: traktoren.getDrillmaschinen().getGasTraktoren())
-		{
-			if(e.getFunktion().getMengeSaeschare()<min) min= e.getFunktion().getMengeSaeschare();
+		IGasTraktorIterator it=traktoren.getDrillmaschinen().getGasTraktoren().iterator();
+		double min=it.next().getFunktion().getMengeSaeschare();
+		while(it.hasNext()){
+			Traktor traktor=it.next();
+			if(traktor.getFunktion().getMengeSaeschare()<min) min= traktor.getFunktion().getMengeSaeschare();
 		}
 		return min;
 	}
@@ -282,9 +293,10 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getMaxSaeschareGasTraktor(){
 		double max=0.0;
-		for(Traktor e: traktoren.getDrillmaschinen().getGasTraktoren())
-		{
-			if(e.getFunktion().getMengeSaeschare()>max) max= e.getFunktion().getMengeSaeschare();
+		IGasTraktorIterator it=traktoren.getDrillmaschinen().getGasTraktoren().iterator();
+		while(it.hasNext()){
+			Traktor traktor=it.next();
+			if(traktor.getFunktion().getMengeSaeschare()>max) max= traktor.getFunktion().getMengeSaeschare();
 		}
 		return max;
 	}
@@ -295,9 +307,10 @@ public class Bauernhof {
 	public double getAverageFassungskapazitaet(){
 		double summe =0.0;
 		
-		for(Traktor e: traktoren)
-		{
-			summe+=e.getFunktion().getFassungskapazitaet();
+		ITraktorIterator it=traktoren.iterator();
+		while(it.hasNext()){
+			
+			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
 		
 		if(traktoren.size()==0) return 0.0;
@@ -310,11 +323,11 @@ public class Bauernhof {
 	public double getAverageFassungskapazitaetDieselTraktor(){
 		double summe =0.0;
 		
-		for(Traktor e: traktoren.getDieselTraktoren())
-		{
-			summe+=e.getFunktion().getFassungskapazitaet();
+		IDieselTraktorIterator it=traktoren.getDieselTraktoren().iterator();
+		while(it.hasNext()){
+			
+			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
-		
 		
 		if(traktoren.getDieselTraktoren().size()==0) return 0.0;	
 		return summe/traktoren.getDieselTraktoren().size();
@@ -326,11 +339,11 @@ public class Bauernhof {
 	public double getAverageFassungskapazitaetGasTraktor(){
 		double summe =0.0;
 		
-		for(Traktor e: traktoren.getGasTraktoren())
-		{
-			summe+=e.getFunktion().getFassungskapazitaet();
+		IGasTraktorIterator it=traktoren.getGasTraktoren().iterator();
+		while(it.hasNext()){
+			
+			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
-		
 		
 		if(traktoren.getGasTraktoren().size()==0) return 0.0;
 		return summe/traktoren.getGasTraktoren().size();
