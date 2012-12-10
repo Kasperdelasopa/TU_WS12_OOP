@@ -5,7 +5,17 @@ import java.lang.reflect.Type;
 public class Test {
 
 	public static void main(String[] args) {
+		/**
+		 * Testfälle
+		 */
 		
+		Traktor t1 = new DieselTraktor();
+		t1.addBetriebsstunden(5);
+		Bauernhof bauernhof1 = new Bauernhof("Landgut - Bauernhof");
+		bauernhof1.addTraktor(t1);
+		
+		System.out.println("Durchschnitt Betriebsstunden: " + bauernhof1.getAverageBetriebsstunden());
+		System.out.println("################");
 		/**
 		 * Ausgabe der Anotations
 		 */

@@ -12,7 +12,7 @@ public class GasTraktor extends Traktor {
 	//returns a description
 
 	@Guarantor(person="Manuel Schmitt")
-	public double getVerbrauchteMenge() {
+	public double getVerbrauch() {
 		return verbrauchteMenge;
 	}
 	// returns the used gas

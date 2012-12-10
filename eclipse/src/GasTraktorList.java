@@ -2,7 +2,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 @Guarantor(person = "Peter Nirschl")
-public class GasTraktorList {
+public class GasTraktorList implements Iterable<GasTraktor>  {
 	// instances represent a double-linked list which holds elements of type
 	// Traktor. The list allows filtering for Traktor type and function type.
 

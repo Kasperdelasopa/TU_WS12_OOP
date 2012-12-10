@@ -2,7 +2,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 @Guarantor(person = "Peter Nirschl")
-public class DieselTraktorList {
+public class DieselTraktorList implements Iterable<DieselTraktor>  {
 	// instances represent a double-linked list which holds elements of type
 	// DieselTraktor.
 
