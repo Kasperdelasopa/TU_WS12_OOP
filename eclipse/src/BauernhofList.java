@@ -1,8 +1,7 @@
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 @Guarantor(person="Peter Nirschl")
-public class BauernhofList implements Iterable<Bauernhof> {
+public class BauernhofList {
 	// instances represent a double-linked list which holds elements of type
 	// Bauernhof.
 	
@@ -54,8 +53,8 @@ public class BauernhofList implements Iterable<Bauernhof> {
 	// @param bauernhof != null
 		
 	@Guarantor(person="Peter Nirschl")
-	public Iterator<Bauernhof> iterator() {
-		return new Iterator<Bauernhof> () {
+	public IBauernhofIterator iterator() {
+		return new IBauernhofIterator () {
 			
 			private ListElement current = start;
 			private ListElement previous = null;
@@ -64,7 +63,7 @@ public class BauernhofList implements Iterable<Bauernhof> {
 			public boolean hasNext() {
 				return (current != null);
 			}
-			// returns true if there is an element to return, otherwise false.
+			// Returns true if the iteration has more elements.
 
 			@Override
 			public Bauernhof next() {
@@ -77,7 +76,7 @@ public class BauernhofList implements Iterable<Bauernhof> {
 					throw new NoSuchElementException();
 				}
 			}
-			// returns the next element within the list or throws a NoSuchElementException if there is no such element
+			// Returns the next element in the iteration.
 
 			@Override
 			public void remove() {
@@ -94,7 +93,7 @@ public class BauernhofList implements Iterable<Bauernhof> {
 				previous = null;
 				BauernhofList.this.count--;
 			}
-			// removes the element from the list, that would be returned by calling next()
+			// Removes from the underlying collection the last element returned by the iterator
 			// if next() would not return an element a NoSuchElementException is thrown
 		};
 	}

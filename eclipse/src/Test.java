@@ -1,12 +1,11 @@
 import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 
 @Guarantor(person="Alle Gruppenmitglieder")
 public class Test {
 
 	public static void main(String[] args) {
 		/**
-		 * TestfŠlle
+		 * Testfï¿½lle
 		 */
 		
 		Traktor t1 = new DieselTraktor();
@@ -33,11 +32,17 @@ public class Test {
 		printInfoForClass(DieselTraktorList.class);
 		printInfoForClass(GasTraktorList.class);
 		printInfoForClass(BauernhofList.class);
+		printInfoForClass(IBaseIterator.class);
+		printInfoForClass(IBauernhofIterator.class);
+		printInfoForClass(ITraktorIterator.class);
+		printInfoForClass(IDieselTraktorIterator.class);
+		printInfoForClass(IGasTraktorIterator.class);
 	}
 	
 	@Guarantor(person="Alle Gruppenmitglieder")
-	public static void printInfoForClass(Class c){
+	public static void printInfoForClass(@SuppressWarnings("rawtypes") Class c){
 		
+		@SuppressWarnings("unchecked")
 		Guarantor g1 = ((Guarantor)c.getAnnotation(Guarantor.class));
 		if(g1 != null)
 			System.out.println("The Class <<"+c.getName()+">> was written by "+g1.person());
