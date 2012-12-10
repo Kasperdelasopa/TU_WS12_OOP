@@ -307,14 +307,14 @@ public class Bauernhof {
 	public double getAverageFassungskapazitaet(){
 		double summe =0.0;
 		
-		ITraktorIterator it=traktoren.iterator();
+		ITraktorIterator it=traktoren.getDuengerstreuer().iterator();
 		while(it.hasNext()){
 			
 			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
 		
-		if(traktoren.size()==0) return 0.0;
-		return summe/traktoren.size();
+		if(traktoren.getDuengerstreuer().size()==0) return 0.0;
+		return summe/traktoren.getDuengerstreuer().size();
 
 	}
 	//returns average of  from all instances of Traktor with IFunktion Duengestreuer
@@ -323,14 +323,14 @@ public class Bauernhof {
 	public double getAverageFassungskapazitaetDieselTraktor(){
 		double summe =0.0;
 		
-		IDieselTraktorIterator it=traktoren.getDieselTraktoren().iterator();
+		IDieselTraktorIterator it=traktoren.getDuengerstreuer().getDieselTraktoren().iterator();
 		while(it.hasNext()){
 			
 			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
 		
-		if(traktoren.getDieselTraktoren().size()==0) return 0.0;	
-		return summe/traktoren.getDieselTraktoren().size();
+		if(traktoren.getDuengerstreuer().getDieselTraktoren().size()==0) return 0.0;	
+		return summe/traktoren.getDuengerstreuer().getDieselTraktoren().size();
 		
 	}
 	//returns average of capacity(Fassungskapazitaet) from all instances of DieselTraktor with IFunktion Duengestreuer
@@ -339,14 +339,14 @@ public class Bauernhof {
 	public double getAverageFassungskapazitaetGasTraktor(){
 		double summe =0.0;
 		
-		IGasTraktorIterator it=traktoren.getGasTraktoren().iterator();
+		IGasTraktorIterator it=traktoren.getDuengerstreuer().getGasTraktoren().iterator();
 		while(it.hasNext()){
 			
 			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
 		
-		if(traktoren.getGasTraktoren().size()==0) return 0.0;
-		return summe/traktoren.getGasTraktoren().size();
+		if(traktoren.getDuengerstreuer().getGasTraktoren().size()==0) return 0.0;
+		return summe/traktoren.getDuengerstreuer().getGasTraktoren().size();
 		
 	}
 	//returns average of capacity(Fassungskapazitaet) from all instances of GasTraktor with IFunktion Duengestreuer
