@@ -33,9 +33,9 @@ public class TraktorListTest {
 		list.add(traktor1);
 		list.add(traktor2);
 		list.add(traktor3);
+		assertEquals(list.size(), 3);
 		
 		ITraktorIterator iterator = list.iterator();
-		
 		assertEquals(traktor1, iterator.next());
 		assertEquals(traktor2, iterator.next());
 		assertEquals(traktor3, iterator.next());
@@ -51,11 +51,13 @@ public class TraktorListTest {
 		list.add(traktor1);
 		list.add(traktor2);
 		list.add(traktor3);
+		assertEquals(list.size(), 3);
 		
 		ITraktorIterator iterator = list.iterator();
 		iterator.next();
 		iterator.remove();
 		
+		assertEquals(list.size(), 2);
 		assertEquals(traktor2, iterator.next());
 		assertEquals(traktor3, iterator.next());
 		assertFalse(iterator.hasNext());
@@ -70,11 +72,13 @@ public class TraktorListTest {
 		list.add(traktor1);
 		list.add(traktor2);
 		list.add(traktor3);
+		assertEquals(list.size(), 3);
 		
 		ITraktorIterator iterator1 = list.iterator();
 		iterator1.next();
 		iterator1.next();
 		iterator1.remove();
+		assertEquals(list.size(), 2);
 		
 		ITraktorIterator iterator2 = list.iterator();
 		assertEquals(traktor1, iterator2.next());
@@ -91,12 +95,14 @@ public class TraktorListTest {
 		list.add(traktor1);
 		list.add(traktor2);
 		list.add(traktor3);
+		assertEquals(list.size(), 3);
 		
 		ITraktorIterator iterator1 = list.iterator();
 		iterator1.next();
 		iterator1.next();
 		iterator1.next();
 		iterator1.remove();
+		assertEquals(list.size(), 2);
 		
 		ITraktorIterator iterator2 = list.iterator();
 		assertEquals(traktor1, iterator2.next());
@@ -129,10 +135,12 @@ public class TraktorListTest {
 		list.add(traktor1);
 		list.add(traktor2);
 		list.add(traktor3);
+		assertEquals(list.size(), 3);
 		
 		DieselTraktorList dieselList = list.getDieselTraktoren();
 		IDieselTraktorIterator iterator = dieselList.iterator();
 		
+		assertEquals(dieselList.size(), 2);
 		assertEquals(traktor1, iterator.next());
 		assertEquals(traktor2, iterator.next());
 		assertFalse(iterator.hasNext());
@@ -147,10 +155,12 @@ public class TraktorListTest {
 		list.add(traktor1);
 		list.add(traktor2);
 		list.add(traktor3);
+		assertEquals(list.size(), 3);
 		
 		GasTraktorList gasList = list.getGasTraktoren();
 		IGasTraktorIterator iterator = gasList.iterator();
 		
+		assertEquals(gasList.size(), 1);
 		assertEquals(traktor3, iterator.next());
 		assertFalse(iterator.hasNext());
 	}
@@ -171,8 +181,11 @@ public class TraktorListTest {
 		list.add(traktor2);
 		list.add(traktor3);
 		list.add(traktor4);
+		assertEquals(list.size(), 4);
 		
-		ITraktorIterator iterator = list.getDrillmaschinen().iterator();
+		TraktorList drillmaschinen = list.getDrillmaschinen();
+		ITraktorIterator iterator = drillmaschinen.iterator();
+		assertEquals(drillmaschinen.size(), 2);
 		assertEquals(traktor1, iterator.next());
 		assertEquals(traktor3, iterator.next());
 		assertFalse(iterator.hasNext());
@@ -194,8 +207,11 @@ public class TraktorListTest {
 		list.add(traktor2);
 		list.add(traktor3);
 		list.add(traktor4);
+		assertEquals(list.size(), 4);
 		
-		ITraktorIterator iterator = list.getDuengerstreuer().iterator();
+		TraktorList duengerstreuer = list.getDuengerstreuer();
+		ITraktorIterator iterator = duengerstreuer.iterator();
+		assertEquals(duengerstreuer.size(), 2);
 		assertEquals(traktor2, iterator.next());
 		assertEquals(traktor4, iterator.next());
 		assertFalse(iterator.hasNext());
