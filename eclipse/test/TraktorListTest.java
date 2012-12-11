@@ -216,4 +216,35 @@ public class TraktorListTest {
 		assertEquals(traktor4, iterator.next());
 		assertFalse(iterator.hasNext());
 	}
+	
+	@Test
+	public void addTraktorenAndRemoveAll() {
+		DieselTraktor traktor1 = new DieselTraktor();
+		DieselTraktor traktor2 = new DieselTraktor();
+		GasTraktor traktor3 = new GasTraktor();
+		
+		list.add(traktor1);
+		list.add(traktor2);
+		list.add(traktor3);
+		
+		ITraktorIterator iterator = list.iterator();
+		
+		assertEquals(traktor1, iterator.next());
+		iterator.remove();
+		assertTrue(list.size() == 2);
+		
+		assertEquals(traktor2, iterator.next());
+		iterator.remove();
+		assertTrue(list.size() == 1);
+		
+		assertEquals(traktor3, iterator.next());
+		iterator.remove();
+		assertTrue(list.size() == 0);
+		
+		assertFalse(iterator.hasNext());
+		
+		// request new iterator and test again
+		iterator = list.iterator();
+		assertFalse(iterator.hasNext());
+	}
 }

@@ -2,6 +2,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+//DIESE KLASS IST NICHT TEIL DER ABGABE!
+
 public class TraktorTest {
 
 	Traktor traktor;
