@@ -101,10 +101,16 @@ public class BauernhofList {
 				
 				if(previous.prev != null) {
 					previous.prev.next = previous.next;
+				} else {
+					BauernhofList.this.start = previous.next;
 				}
+				
 				if(previous.next != null) {
 					previous.next.prev = previous.prev;
+				} else {
+					BauernhofList.this.end = previous.prev;
 				}
+				
 				previous = null;
 				BauernhofList.this.count--;
 			}

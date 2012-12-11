@@ -82,13 +82,19 @@ public class GasTraktorList  {
 				if(previous == null) {
 					throw new NoSuchElementException();
 				}
-
-				if (previous.prev != null) {
+				
+				if(previous.prev != null) {
 					previous.prev.next = previous.next;
+				} else {
+					GasTraktorList.this.start = previous.next;
 				}
-				if (previous.next != null) {
+				
+				if(previous.next != null) {
 					previous.next.prev = previous.prev;
+				} else {
+					GasTraktorList.this.end = previous.prev;
 				}
+				
 				previous = null;
 				GasTraktorList.this.count--;
 			}

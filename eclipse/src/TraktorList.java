@@ -152,10 +152,16 @@ public class TraktorList {
 				
 				if(previous.prev != null) {
 					previous.prev.next = previous.next;
+				} else {
+					TraktorList.this.start = previous.next;
 				}
+				
 				if(previous.next != null) {
 					previous.next.prev = previous.prev;
+				} else {
+					TraktorList.this.end = previous.prev;
 				}
+				
 				previous = null;
 				TraktorList.this.count--;
 			}

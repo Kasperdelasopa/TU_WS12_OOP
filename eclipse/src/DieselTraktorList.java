@@ -83,12 +83,17 @@ public class DieselTraktorList {
 				if(previous == null) {
 					throw new NoSuchElementException();
 				}
-
-				if (previous.prev != null) {
+				
+				if(previous.prev != null) {
 					previous.prev.next = previous.next;
+				} else {
+					DieselTraktorList.this.start = previous.next;
 				}
-				if (previous.next != null) {
+				
+				if(previous.next != null) {
 					previous.next.prev = previous.prev;
+				} else {
+					DieselTraktorList.this.end = previous.prev;
 				}
 				
 				previous = null;
