@@ -1,10 +1,10 @@
 @Guarantor(person="Manuel Schmitt")
 public abstract class Traktor {
 
-	private static int id_counter = 0 ;
+	private static int id_counter = 1 ;
 	
 	protected final int id;
-	protected int betriebsstunden;
+	protected int betriebsstunden=0;
 	protected IFunktion funktion;
 	
 	public Traktor(){

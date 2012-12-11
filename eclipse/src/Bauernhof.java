@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 @Guarantor(person="Goran Filcic")
 public class Bauernhof {
 	// instances represent a farm with a collection of type Traktor
@@ -39,6 +41,21 @@ public class Bauernhof {
 	//searches a Traktor by ID and removes it
 	
 	@Guarantor(person="Goran Filcic")
+	public void addBetriebsstunden(int traktorID, int stunden){
+		ITraktorIterator it = traktoren.iterator();
+		while(it.hasNext()){
+			Traktor traktor= it.next();
+			if(traktor.getID()==traktorID){
+				traktor.addBetriebsstunden(stunden);
+				break;
+			}
+		}
+	}
+	//@param stunden>=0
+	//@param traktorID>0
+	//adds operating hours to the specified Traktor
+	
+	@Guarantor(person="Goran Filcic")
 	public void erhoeheDieselVerbrauch(int i){
 		IDieselTraktorIterator it = traktoren.getDieselTraktoren().iterator();
 		while(it.hasNext()){
@@ -49,8 +66,6 @@ public class Bauernhof {
 			}
 		}
 	}
-	
-	
 	//@param i>0
 	//searches a DieselTraktor by ID and increments Verbrauch(consumption)
 
@@ -100,13 +115,14 @@ public class Bauernhof {
 	}
 	//returns the average of operating hours from all instances of Traktor with IFunktion Duengestreuer
 	
+	@Guarantor(person="Goran Filcic")
 	private double averageBetrieb(int i){
 		double summe=0.0;
 		TraktorList list;
 		switch(i){
 			case 1: list= traktoren.getDrillmaschinen(); break;
 			case 2: list= traktoren.getDuengerstreuer(); break;
-			default: list=traktoren; break;
+			default: list=traktoren;break;
 		}
 		
 		ITraktorIterator it = list.iterator();
@@ -129,12 +145,28 @@ public class Bauernhof {
 			summe+=it.next().getBetriebsstunden();
 		}
 		
-		if(traktoren.getDieselTraktoren().size()==0) return 0.0;
+		if(traktoren.getDieselTraktoren().size()==0)  return 0.0;
 		return summe/traktoren.getDieselTraktoren().size();
 		
 	}
 	//returns the average of operating hours from all instances of DieselTraktor
 	
+	@Guarantor(person="Goran Filcic")
+	public double getAverageBetriebsstundenGasTraktor(){
+		double summe=0.0;
+		
+		IGasTraktorIterator it = traktoren.getGasTraktoren().iterator();
+		while(it.hasNext()){
+			summe+=it.next().getBetriebsstunden();
+		}
+		
+		if(traktoren.getGasTraktoren().size()==0) return 0.0;
+		return summe/traktoren.getGasTraktoren().size();
+	
+	}
+	//returns the average of operating hours from all instances of GasTraktor
+	
+	@Guarantor(person="Goran Filcic")
 	private double averageDiesel(int i){
 		double summe=0.0;
 		DieselTraktorList list;
@@ -173,6 +205,7 @@ public class Bauernhof {
 	}
 	//returns the average of diesel consumption from all instances of DieselTraktor with IFunktion Duengestreuer
 	
+	@Guarantor(person="Goran Filcic")
 	private double averageGas(int i){
 		double summe=0.0;
 		GasTraktorList list;
@@ -214,30 +247,21 @@ public class Bauernhof {
 	//returns the average of gas consumption from all instances of GasTraktor with IFunktion Duengestreuer
 	
 	@Guarantor(person="Goran Filcic")
-	public double getAverageBetriebsstundenGasTraktor(){
-		double summe=0.0;
-		
-		IGasTraktorIterator it = traktoren.getGasTraktoren().iterator();
-		while(it.hasNext()){
-			summe+=it.next().getBetriebsstunden();
-		}
-		
-		if(traktoren.getGasTraktoren().size()==0) return 0.0;
-		return summe/traktoren.getGasTraktoren().size();
-	
-	}
-	//returns the average of operating hours from all instances of GasTraktor
-	
-	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschare(){
 		ITraktorIterator it=traktoren.getDrillmaschinen().iterator();
-		double min=it.next().getFunktion().getMengeSaeschare();
-		while(it.hasNext()){
-			Traktor traktor=it.next();
-			if(traktor.getFunktion().getMengeSaeschare()<min) min= traktor.getFunktion().getMengeSaeschare();
-		}
+		try{	
+			double min=it.next().getFunktion().getMengeSaeschare();
 		
-		return min;
+			while(it.hasNext()){
+				Traktor traktor=it.next();
+				if(traktor.getFunktion().getMengeSaeschare()<min) min= traktor.getFunktion().getMengeSaeschare();
+			}
+			
+			return min;
+		}
+		catch(NoSuchElementException e) { 
+			return 0.0;
+		}
 	}
 	//returns lowest value of Saeschare from all instances of Traktor with IFunktion Drillmaschine
 	
@@ -257,12 +281,17 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschareDieselTraktor(){
 		IDieselTraktorIterator it=traktoren.getDrillmaschinen().getDieselTraktoren().iterator();
-		double min=it.next().getFunktion().getMengeSaeschare();
-		while(it.hasNext()){
-			Traktor traktor=it.next();
-			if(traktor.getFunktion().getMengeSaeschare()<min) min= traktor.getFunktion().getMengeSaeschare();
+		try{
+			double min=it.next().getFunktion().getMengeSaeschare();
+			while(it.hasNext()){
+				Traktor traktor=it.next();
+				if(traktor.getFunktion().getMengeSaeschare()<min) min= traktor.getFunktion().getMengeSaeschare();
+			}
+			return min;
 		}
-		return min;
+		catch(NoSuchElementException e){
+			return 0.0;
+		}
 	}
 	//returns lowest value of Saeschare from all instances of DieselTraktor with IFunktion Drillmaschine
 	
@@ -281,12 +310,18 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getMinSaeschareGasTraktor(){
 		IGasTraktorIterator it=traktoren.getDrillmaschinen().getGasTraktoren().iterator();
-		double min=it.next().getFunktion().getMengeSaeschare();
-		while(it.hasNext()){
-			Traktor traktor=it.next();
-			if(traktor.getFunktion().getMengeSaeschare()<min) min= traktor.getFunktion().getMengeSaeschare();
+		try{
+			double min=it.next().getFunktion().getMengeSaeschare();
+			
+			while(it.hasNext()){
+				Traktor traktor=it.next();
+				if(traktor.getFunktion().getMengeSaeschare()<min) min= traktor.getFunktion().getMengeSaeschare();
+			}
+			return min;
 		}
-		return min;
+		catch(NoSuchElementException e) { 
+			return 0.0;
+		}
 	}
 	//returns lowest value of Saeschare from all instances of GasTraktor with IFunktion Drillmaschine
 	
@@ -306,10 +341,8 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getAverageFassungskapazitaet(){
 		double summe =0.0;
-		
 		ITraktorIterator it=traktoren.getDuengerstreuer().iterator();
 		while(it.hasNext()){
-			
 			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
 		
@@ -322,10 +355,8 @@ public class Bauernhof {
 	@Guarantor(person="Goran Filcic")
 	public double getAverageFassungskapazitaetDieselTraktor(){
 		double summe =0.0;
-		
 		IDieselTraktorIterator it=traktoren.getDuengerstreuer().getDieselTraktoren().iterator();
 		while(it.hasNext()){
-			
 			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
 		
