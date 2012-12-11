@@ -1,12 +1,15 @@
 @Guarantor(person="Manuel Schmitt")
 public abstract class Traktor {
-
+	//This class is the super class for all other Traktoren
+	//it provides an unique id, a counter for Betriebstunden and contains the current Function (Drillmaschine, Duengestreuer)
+	
 	private static int id_counter = 1 ;
 	
 	protected final int id;
 	protected int betriebsstunden=0;
 	protected IFunktion funktion;
 	
+	@Guarantor(person="Manuel Schmitt")
 	public Traktor(){
 		this.id = getNextId();
 	}

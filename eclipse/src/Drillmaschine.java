@@ -1,8 +1,11 @@
 @Guarantor(person="Manuel Schmitt")
 public class Drillmaschine implements IFunktion {
-
+	//This class provides the Drill function to a Traktor
+	//it contains the amount of Saeschare
+	
 	private int mengeSaeschare;
 	
+	@Guarantor(person="Manuel Schmitt")
 	public Drillmaschine(int mengeSaeschare){
 		this.mengeSaeschare = mengeSaeschare;
 	}

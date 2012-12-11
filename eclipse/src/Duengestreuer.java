@@ -1,8 +1,11 @@
 @Guarantor(person="Manuel Schmitt")
 public class Duengestreuer implements IFunktion {
-
+	//This Class is for providing the Duengestreuer function to a Traktor
+	//it contains the capacity
+	
 	private double fassungskapazitaet;
 	
+	@Guarantor(person="Manuel Schmitt")
 	public Duengestreuer(double fassungskapazitaet){
 		this.fassungskapazitaet = fassungskapazitaet;
 	}

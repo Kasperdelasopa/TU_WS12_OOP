@@ -1,9 +1,12 @@
 
 @Guarantor(person="Manuel Schmitt")
 public class DieselTraktor extends Traktor {
-
+	//This class represents a Dieseltraktor
+	//it contains the amount of used fuel
+		
 	private int verbrauchteMenge = 0;
 	
+	@Guarantor(person="Manuel Schmitt")
 	public DieselTraktor(){}
 	
 	@Guarantor(person="Manuel Schmitt")
