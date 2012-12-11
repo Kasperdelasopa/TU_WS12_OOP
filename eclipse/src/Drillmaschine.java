@@ -6,7 +6,7 @@ public class Drillmaschine implements IFunktion {
 	public Drillmaschine(int mengeSaeschare){
 		this.mengeSaeschare = mengeSaeschare;
 	}
-	//@mengeSeschare must be > 0 and not null
+	//@param mengeSeschare > 0
 	
 	@Guarantor(person="Manuel Schmitt")
 	public String toString(){

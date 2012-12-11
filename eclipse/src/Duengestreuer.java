@@ -6,7 +6,7 @@ public class Duengestreuer implements IFunktion {
 	public Duengestreuer(double fassungskapazitaet){
 		this.fassungskapazitaet = fassungskapazitaet;
 	}
-	//@fassungskapazitaet must be > 0
+	//@param fassungskapazitaet  > 0.0
 		
 	@Guarantor(person="Manuel Schmitt")
 	public String toString(){
