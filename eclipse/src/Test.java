@@ -82,10 +82,10 @@ public class Test {
 		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(7,5); 
 		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(8,5); 
 		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(9,5); 
-		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(10,5);
-		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(11,5); 
-		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(12,5); 
-		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(13,5); 
+		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(10,15);
+		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(11,15); 
+		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(12,15); 
+		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").addBetriebsstunden(13,15); 
 		
 		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").addBetriebsstunden(14,1); 
 		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").addBetriebsstunden(15,43); 
@@ -147,8 +147,8 @@ public class Test {
 		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").aendereFunktion(12, new Duengestreuer(100.0));;
 		bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").aendereFunktion(13, new Duengestreuer(75.5));;
 
-		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").aendereFunktion(19, new Duengestreuer(50.0));;
-		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").aendereFunktion(20, new Duengestreuer(50.0));;
+		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").aendereFunktion(19, new Duengestreuer(1000.0));;
+		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").aendereFunktion(20, new Duengestreuer(2000.0));;
 		
 		/************************************************************************************************/
 		//Removing some Traktoren
@@ -158,8 +158,6 @@ public class Test {
 		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").removeTraktor(16);
 		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").removeTraktor(17);
 		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").removeTraktor(18);
-		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").removeTraktor(19);
-		bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").removeTraktor(20);
 		
 		/************************************************************************************************/
 		//Output: statistical values 
@@ -181,13 +179,13 @@ public class Test {
 		System.out.println("Durchschnittlicher Gasverbrauch - Drillmaschine: " + bauernhofliste.getBauernhofByName("Diesel-BH").getAverageGasVerbrauchDrillmaschine());
 		System.out.println("Durchschnittlicher Gasverbrauch - Duengerstreuer: " + bauernhofliste.getBauernhofByName("Diesel-BH").getAverageGasVerbrauchDuengerstreuer());
 		
-		System.out.println("Minimale Anzahl an S�scharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMinSaeschare());
-		System.out.println("Minimale Anzahl an S�scharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMinSaeschareDieselTraktor());
-		System.out.println("Minimale Anzahl an S�scharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMinSaeschareGasTraktor());
+		System.out.println("Minimale Anzahl an Saescharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMinSaeschare());
+		System.out.println("Minimale Anzahl an Saescharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMinSaeschareDieselTraktor());
+		System.out.println("Minimale Anzahl an Saescharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMinSaeschareGasTraktor());
 		
-		System.out.println("Maximale Anzahl an S�scharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMaxSaeschare());
-		System.out.println("Maximale Anzahl an S�scharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMaxSaeschareDieselTraktor());
-		System.out.println("Maximale Anzahl an S�scharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMaxSaeschareGasTraktor());
+		System.out.println("Maximale Anzahl an Saescharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMaxSaeschare());
+		System.out.println("Maximale Anzahl an Saescharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMaxSaeschareDieselTraktor());
+		System.out.println("Maximale Anzahl an Saescharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getMaxSaeschareGasTraktor());
 		
 		System.out.println("Durchschnittliche Fassungskapazitaet des Duengebehaelters: " + bauernhofliste.getBauernhofByName("Diesel-BH").getAverageFassungskapazitaet());
 		System.out.println("Durchschnittliche Fassungskapazitaet des Duengebehaelters - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Diesel-BH").getAverageFassungskapazitaetDieselTraktor());
@@ -214,13 +212,13 @@ public class Test {
 		System.out.println("Durchschnittlicher Gasverbrauch - Drillmaschine: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getAverageGasVerbrauchDrillmaschine());
 		System.out.println("Durchschnittlicher Gasverbrauch - Duengerstreuer: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getAverageGasVerbrauchDuengerstreuer());
 		
-		System.out.println("Minimale Anzahl an S�scharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMinSaeschare());
-		System.out.println("Minimale Anzahl an S�scharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMinSaeschareDieselTraktor());
-		System.out.println("Minimale Anzahl an S�scharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMinSaeschareGasTraktor());
+		System.out.println("Minimale Anzahl an Saescharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMinSaeschare());
+		System.out.println("Minimale Anzahl an Saescharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMinSaeschareDieselTraktor());
+		System.out.println("Minimale Anzahl an Saescharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMinSaeschareGasTraktor());
 		
-		System.out.println("Maximale Anzahl an S�scharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMaxSaeschare());
-		System.out.println("Maximale Anzahl an S�scharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMaxSaeschareDieselTraktor());
-		System.out.println("Maximale Anzahl an S�scharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMaxSaeschareGasTraktor());
+		System.out.println("Maximale Anzahl an Saescharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMaxSaeschare());
+		System.out.println("Maximale Anzahl an Saescharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMaxSaeschareDieselTraktor());
+		System.out.println("Maximale Anzahl an Saescharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getMaxSaeschareGasTraktor());
 		
 		System.out.println("Durchschnittliche Fassungskapazitaet des Duengebehaelters: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getAverageFassungskapazitaet());
 		System.out.println("Durchschnittliche Fassungskapazitaet des Duengebehaelters - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Bio-Bauernhof-Steiermark").getAverageFassungskapazitaetDieselTraktor());
@@ -247,13 +245,13 @@ public class Test {
 		System.out.println("Durchschnittlicher Gasverbrauch - Drillmaschine: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getAverageGasVerbrauchDrillmaschine());
 		System.out.println("Durchschnittlicher Gasverbrauch - Duengerstreuer: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getAverageGasVerbrauchDuengerstreuer());
 		
-		System.out.println("Minimale Anzahl an S�scharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMinSaeschare());
-		System.out.println("Minimale Anzahl an S�scharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMinSaeschareDieselTraktor());
-		System.out.println("Minimale Anzahl an S�scharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMinSaeschareGasTraktor());
+		System.out.println("Minimale Anzahl an Saescharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMinSaeschare());
+		System.out.println("Minimale Anzahl an Saescharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMinSaeschareDieselTraktor());
+		System.out.println("Minimale Anzahl an Saescharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMinSaeschareGasTraktor());
 		
-		System.out.println("Maximale Anzahl an S�scharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMaxSaeschare());
-		System.out.println("Maximale Anzahl an S�scharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMaxSaeschareDieselTraktor());
-		System.out.println("Maximale Anzahl an S�scharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMaxSaeschareGasTraktor());
+		System.out.println("Maximale Anzahl an Saescharen - aller Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMaxSaeschare());
+		System.out.println("Maximale Anzahl an Saescharen - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMaxSaeschareDieselTraktor());
+		System.out.println("Maximale Anzahl an Saescharen - Gas-Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getMaxSaeschareGasTraktor());
 		
 		System.out.println("Durchschnittliche Fassungskapazitaet des Duengebehaelters: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getAverageFassungskapazitaet());
 		System.out.println("Durchschnittliche Fassungskapazitaet des Duengebehaelters - Diesel-Traktoren: " + bauernhofliste.getBauernhofByName("Almdorf-Bauernhof").getAverageFassungskapazitaetDieselTraktor());

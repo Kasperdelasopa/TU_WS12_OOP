@@ -13,8 +13,9 @@ public class Bauernhof {
 	}
 	//@param name !=null && name != "" and must be unique
 	// creates and initializes Bauernhof
-	
+
 	@Override
+	@Guarantor(person="Goran Filcic")
 	public String toString(){
 		return name;
 	}
@@ -124,13 +125,12 @@ public class Bauernhof {
 			case 2: list= traktoren.getDuengerstreuer(); break;
 			default: list=traktoren;break;
 		}
-		
 		ITraktorIterator it = list.iterator();
 		while(it.hasNext()){
 			summe+=it.next().getBetriebsstunden();
 		}
 		
-		if(list.size()==0) return 0.0;
+		if(list.size()<1) return 0.0;
 		return summe/list.size();
 
 	}
@@ -145,7 +145,7 @@ public class Bauernhof {
 			summe+=it.next().getBetriebsstunden();
 		}
 		
-		if(traktoren.getDieselTraktoren().size()==0)  return 0.0;
+		if(traktoren.getDieselTraktoren().size()<1)  return 0.0;
 		return summe/traktoren.getDieselTraktoren().size();
 		
 	}
@@ -160,7 +160,7 @@ public class Bauernhof {
 			summe+=it.next().getBetriebsstunden();
 		}
 		
-		if(traktoren.getGasTraktoren().size()==0) return 0.0;
+		if(traktoren.getGasTraktoren().size()<1) return 0.0;
 		return summe/traktoren.getGasTraktoren().size();
 	
 	}
@@ -181,7 +181,7 @@ public class Bauernhof {
 			summe+=it.next().getVerbrauch();
 		}
 		
-		if(list.size()==0) return 0.0;
+		if(list.size()<1) return 0.0;
 		return summe/list.size();
 
 	}
@@ -220,7 +220,7 @@ public class Bauernhof {
 			summe+=it.next().getVerbrauch();
 		}
 		
-		if(list.size()==0) return 0.0;
+		if(list.size()<1) return 0.0;
 		return summe/list.size();
 
 	
@@ -346,7 +346,7 @@ public class Bauernhof {
 			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
 		
-		if(traktoren.getDuengerstreuer().size()==0) return 0.0;
+		if(traktoren.getDuengerstreuer().size()<1) return 0.0;
 		return summe/traktoren.getDuengerstreuer().size();
 
 	}
@@ -360,7 +360,7 @@ public class Bauernhof {
 			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
 		
-		if(traktoren.getDuengerstreuer().getDieselTraktoren().size()==0) return 0.0;	
+		if(traktoren.getDuengerstreuer().getDieselTraktoren().size()<1) return 0.0;	
 		return summe/traktoren.getDuengerstreuer().getDieselTraktoren().size();
 		
 	}
@@ -376,7 +376,7 @@ public class Bauernhof {
 			summe+=it.next().getFunktion().getFassungskapazitaet();
 		}
 		
-		if(traktoren.getDuengerstreuer().getGasTraktoren().size()==0) return 0.0;
+		if(traktoren.getDuengerstreuer().getGasTraktoren().size()<1) return 0.0;
 		return summe/traktoren.getDuengerstreuer().getGasTraktoren().size();
 		
 	}
