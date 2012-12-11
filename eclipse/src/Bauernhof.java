@@ -7,6 +7,7 @@ public class Bauernhof {
 	private final String name; // name!=null && name!="" and must be unique
 	private TraktorList traktoren;
 	
+	@Guarantor(person="Goran Filcic")
 	public Bauernhof(String name){
 		this.name=name;
 		traktoren = new TraktorList();
