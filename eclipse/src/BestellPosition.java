@@ -30,4 +30,26 @@ public class BestellPosition {
 	}
 	//This Method returns a String with the content of this
 	//order position
+
+	public int getAnzahl() {
+		return anzahl;
+	}
+	//returns the amount for this position
+
+	public Teigart getTeigart() {
+		return teigart;
+	}
+	//this Methods returns the Teigart for this position
+
+	public Form getForm() {
+		return form;
+	}
+	//This Methods returns the Form for this position
+
+	public Fuellung getFuellung() {
+		return fuellung;
+	}
+	//this Method returns the Fuellung for this position
+	//if it is a Doppelkeks 
+	//else null will be returned
 }
