@@ -13,23 +13,23 @@ public class KeksBackmaschine {
 	//@param form != null
 	// creates and initializes a new instance of KeksBackmaschine
 	
-	public List<Crunchable> createKekse(BestellPosition bestellung){
+	public List<Crunchable> createKekse(BestellPosition bestellPosition){
 		List<Crunchable> list = new ArrayList<Crunchable>(); 
 		
-		if(bestellung.getFuellung()==null){
-			for(int x=0; x<bestellung.getAnzahl(); x++){
-				list.add(new Keks(bestellung.getTeigart(), this.form));
+		if(bestellPosition.getFuellung()==null){
+			for(int x=0; x<bestellPosition.getAnzahl(); x++){
+				list.add(new Keks(bestellPosition.getTeigart(), this.form));
 			}
 		}
 		else{
-			Keks prototyp = new Keks(bestellung.getTeigart(), this.form);
-			for(int x=0; x<bestellung.getAnzahl(); x++){
-				list.add(DoppelkeksBackmaschine.getInstance().createDoppelkeks(prototyp, bestellung.getFuellung()));
+			Keks prototyp = new Keks(bestellPosition.getTeigart(), this.form);
+			for(int x=0; x<bestellPosition.getAnzahl(); x++){
+				list.add(DoppelkeksBackmaschine.getInstance().createDoppelkeks(prototyp, bestellPosition.getFuellung()));
 			}
 		} 
 		
 		return list;
 	}
-	// bestellung != null
+	// @param bestellPosition != null AND bestellPosition.getForm() == this.form
 	// returns a collection of cookies
 }
