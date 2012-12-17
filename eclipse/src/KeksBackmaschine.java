@@ -13,10 +13,10 @@ public class KeksBackmaschine {
 	//@param form != null
 	// creates and initializes a new instance of KeksBackmaschine
 	
-	public List<Crunchable> createKekse(Bestellung bestellung){
+	public List<Crunchable> createKekse(BestellPosition bestellung){
 		List<Crunchable> list = new ArrayList<Crunchable>(); 
 		
-		if(bestellung.getFuellung==null){
+		if(bestellung.getFuellung()==null){
 			for(int x=0; x<bestellung.getAnzahl(); x++){
 				list.add(new Keks(bestellung.getTeigart(), this.form));
 			}
@@ -24,7 +24,7 @@ public class KeksBackmaschine {
 		else{
 			Keks prototyp = new Keks(bestellung.getTeigart(), this.form);
 			for(int x=0; x<bestellung.getAnzahl(); x++){
-				list.add(DoppelkeksBackmaschine.getInstance().createKeks(prototyp, bestellung.getFuellung()));
+				list.add(DoppelkeksBackmaschine.getInstance().createDoppelkeks(prototyp, bestellung.getFuellung()));
 			}
 		} 
 		
