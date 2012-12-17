@@ -16,6 +16,10 @@ public class BestellPosition {
 		this.form = form;
 		this.fuellung = fuellung;
 	}
+	// initializes a new instance of BestellPosition
+	// @param anzahl > 0
+	// @param teigart != null
+	// @param form != null
 
 	public String toString(){
 		String tmp="";
