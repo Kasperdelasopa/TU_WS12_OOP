@@ -31,5 +31,6 @@ public class KeksBackmaschine {
 		return list;
 	}
 	// @param bestellPosition != null AND bestellPosition.getForm() == this.form
-	// returns a collection of cookies
+	// returns a collection of cookies. if bestellPosition.getFuellung() != null --> instances of Doppelkeks will be created, 
+	// instances of Keks will be created otherwise.
 }

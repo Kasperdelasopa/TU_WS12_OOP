@@ -8,6 +8,7 @@ public class Bestellung {
 	private List<BestellPosition> positions = new ArrayList<BestellPosition>();
 	
 	public Bestellung(){}
+	//creates an instance of Bestellung
 	
 	public void addPosition(BestellPosition position){
 		this.positions.add(position);
