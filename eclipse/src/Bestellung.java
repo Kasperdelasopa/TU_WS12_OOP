@@ -34,4 +34,9 @@ public class Bestellung {
 	}
 	//This Method creates and returns the information for all
 	//order positions
+
+	public List<BestellPosition> getPositions() {
+		return positions;
+	}
+	//returns the List of BestellPositionen
 }
